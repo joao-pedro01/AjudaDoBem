@@ -11,5 +11,7 @@
   <li><a href="https://github.com/joao-pedro01">João Pedro</a>
 
 <h5>Arquivos</h5>
-  <a href="https://github.com/joao-pedro01/TccTIPIN/blob/main/files/tcc.brM3">Diagrama Entidade Relacionamento(DER)</a>
+  <a href="https://github.com/joao-pedro01/AjudadoBem/blob/master/files/tcc.brM3">Diagrama Entidade Relacionamento(DER)</a>
   <p>Feito no Br3Modelo</p>
+  <a href="https://github.com/joao-pedro01/AjudadoBem/blob/master/files/ajuda_do_bem.sql">Banco de dados em MySql</a>
+  <p>Protótipo</p>
