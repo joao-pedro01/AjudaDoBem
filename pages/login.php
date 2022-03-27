@@ -10,7 +10,7 @@
 <body>
     <form action="../scripts/register.php" method="post">
         <div class="row">
-            <div class="col">
+            <div class="col-5">
                 <input type="email" class="form-control" placeholder="Email (Obrigatório)" name=email><br>
                 <input type="password" class="form-control" placeholder="Senha (Obrigatório)" name=senha><br>
                 <input type="text" class="form-control" placeholder="Nome (Obrigatório)" name=nome><br>
@@ -19,16 +19,9 @@
                 <input type="number" class="form-control" placeholder="Telefone (Opcional)" name=telefone><br>
                 <input type="number" class="form-control" placeholder="cpf (Obrigatório)" name=cpf><br>
                 <input type="number" class="form-control" placeholder="rg (Obrigatório)" name=rg><br>
-            </div>
-
-            <div class="col">
                 <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
             </div>
         </div>
     </form>
-    
-    <?php
-        require_once '../scripts/index.php'
-    ?>
 </body>
 </html>
