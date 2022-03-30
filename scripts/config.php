@@ -1,23 +1,19 @@
 <?php
-    define ('dsn', 'mysql:host=localhost;dbname=ajuda_do_bem');
-    define ('user','root');
-    define ('password', '');
+    $dsn = 'mysql:host=localhost;dbname=ajuda_do_bem';
+    $user = 'root';
+    $password = '';
+    $query;
 
-    /* Tentativa de conexão com o banco de dados MySQL */
     try {
-        $query;
-        $conexao = new PDO(dsn, user, password);
+        $conexao = new PDO($dsn, $user, $password);
+
+        $query = register();
+        echo $query;
+        // 0 == true 1 == false
         $Retorno = $conexao->exec($query);
-        //0 == false 1 == true
-        //echo $Retorno;
-    } catch(PDOException $e) {
-        die($e->getcode()." - ERROR: Não foi possível conectar.".$e->getMessage());
-    
+
+    } catch(PDOException $Error) {
+        echo 'Erro'.$Error->getcode().' Mensagem '.$Error->getMessage();
         // Registrar erro via json e redirecionar
-	    //$Error = file_get_contents('..files/error.json');
     }
-    //$Error = 'Erro'.$e->getcode().' Mensagem '.$e->getMessage();
-    //$Error = "Test";
-    // Registrar erro via json e redirecionar
-    //$Error = file_get_contents('..files/error.json');
-?>
+?> 
