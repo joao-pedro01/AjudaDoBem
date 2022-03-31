@@ -1,5 +1,6 @@
 <?php
     include '../scripts/config.php';
+    include '../scripts/index.php';
 
     function register(){
         $Name = $_POST["nome"];
@@ -25,12 +26,17 @@
     
         // Processando dados do formulário quando o formulário é enviado
         if($_SERVER["REQUEST_METHOD"] == "POST"){
+            //Erro caso 
             if(empty(trim($UserName))){
-                $usernameError = "Por favor coloque um nome de usuário.";
+                echo '<body onload="window.history.back();">'; //Volta para pagina anterior
             }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($UserName))){
-                $usernameError = "O nome de usuário pode conter apenas letras, números e _.";
+                echo '<body onload="window.history.back();">';
+                echo '<script>';
+                echo 'alert("O nome de usuário pode conter apenas letras, números e _.")';
+                echo '</script>';
+                $Error = "O nome de usuário pode conter apenas letras, números e _.";
             }else {
-                $query = "SELECT id FROM users WHERE username = : '$UserName'";
+                
             }
             
             if(empty(trim($UserName))){

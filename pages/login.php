@@ -20,6 +20,9 @@
                 <input type="number" class="form-control" placeholder="cpf (Obrigatório)" name=cpf><br>
                 <input type="number" class="form-control" placeholder="rg (Obrigatório)" name=rg><br>
                 <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
+                <div id="div">
+                    <?php echo $Error = ""; ?>
+                </div>
             </div>
         </div>
     </form>

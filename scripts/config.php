@@ -16,4 +16,4 @@
         echo 'Erro'.$Error->getcode().' Mensagem '.$Error->getMessage();
         // Registrar erro via json e redirecionar
     }
-?> 
+?>
