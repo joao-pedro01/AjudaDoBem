@@ -1,4 +1,5 @@
 /node_modules
 /files/AjudaDoBem.docx
-/scripts/index.php
-/scripts/usuario.php
+/script/register.yml
+/db/simpletest/*
+/.env

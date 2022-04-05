@@ -1,4 +1,18 @@
 <?php
+
+    /*
+        dd( String ) : Null 
+        Dump and Die
+        Mostra a variavel e finaliza o programa
+    */
+    function dd($string){
+        print_r($string);
+        exit;
+    }
+
+    /*
+        validaCPF( String ) : Boolean 
+    */
     function validaCPF($Cpf) {
  
         // Extrai somente os números
@@ -25,5 +39,4 @@
             }
         }
         return true;
-    
     }
