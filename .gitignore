@@ -3,3 +3,4 @@
 /script/register.yml
 /db/simpletest/*
 /.env
+/.tmp.driveupload

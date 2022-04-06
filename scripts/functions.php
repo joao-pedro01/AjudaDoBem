@@ -11,9 +11,21 @@
     }
 
     /*
+        function Erro caso seá inválido
+    */
+    function Invalid($Error){
+        echo '<body onload="window.history.back();">';
+        echo '<script>';
+        echo "alert('{$Error}')";
+        echo '</script>';
+
+        exit();
+    }
+
+    /*
         validaCPF( String ) : Boolean 
     */
-    function validaCPF($Cpf) {
+    function validaCPF($Cpf){
  
         // Extrai somente os números
         $Cpf = preg_replace( '/[^0-9]/is', '', $Cpf );
