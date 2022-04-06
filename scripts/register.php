@@ -5,10 +5,10 @@
     //$conexao = new PDO(DB::$dbName, DB::$host, DB::$user, DB::$password);
     $Error = "";
 
-    $Name = $_POST["nome"];
-    $UserName = $_POST["usuario"];
+    $Name = $_POST["name"];
+    $UserName = $_POST["username"];
     $Email = $_POST["email"];
-    $Password = $_POST["senha"];
+    $Password = $_POST["password"];
     $Phone = $_POST["celular"];
     //$Telephone = $_POST["telefone"];
     $Cpf = $_POST["cpf"];
