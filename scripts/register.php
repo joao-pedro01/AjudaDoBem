@@ -2,7 +2,7 @@
     include_once 'config.php';
     include_once 'functions.php';
 
-    $conexao = new PDO(dsn, user, password);
+    //$conexao = new PDO(DB::$dbName, DB::$host, DB::$user, DB::$password);
 
     $Name = $_POST["nome"];
     $UserName = $_POST["usuario"];
@@ -25,9 +25,12 @@
             Erro caso input vazio
         */
         if(empty(trim($Name))){
-            //echo '<body onload="window.history.back();">'; //Volta para pagina anterior
+            echo '<body onload="window.history.back();">'; //Volta para pagina anterior
+            echo '<script>';
+            echo 'alert("O campo Nome não pode estar vazio!!!")';
+            echo '</script>';
         }else {
-            /* Código sql */
+            return false;
         }
 
         /*
@@ -37,9 +40,8 @@
         if(empty(trim($UserName))){
             echo '<body onload="window.history.back();">'; //Volta para pagina anterior
 
-        /*
-            Validação de erro caso algum caractere invalido seja inputado no $UserName
-        */
+        
+        // Validação de erro caso algum caractere invalido seja inputado no $UserName
         }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($UserName))){
             echo '<body onload="window.history.back();">';
             echo '<script>';
@@ -52,13 +54,11 @@
             Procura por $usuario no DB
         */   
         }else {
-            $sql = "SELECT COUNT(*) FROM users WHERE username = '{$UserName}'";
-            $statement = $conexao->query($sql);
-            $result = $statement->fetch();
-            
-            if($result[0]){
+            //$sql = DB::query("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
+            $sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
+            //dd($sql);
+            if($sql[0]){
                 echo "Usuario ja existe";
-                
             }else{
                 echo "Usuario nao existe";
                 //continua o codigo
@@ -66,9 +66,20 @@
         }
 
         if(empty(trim($Cpf))){
-            validaCPF($Cpf);
-            dd(validaCPF($Cpf));
+            //validaCPF($Cpf);
+            //dd($Cpf);
         }
+
+        DB::insert('users', [
+        'nome' => $Name,
+        'username' => $UserName,
+        'email' => $Email,
+        'senha' => $Password,
+        'celular' => $Phone,
+        'cpf' => $Cpf,
+        'data' => $Date,
+        'hora' => $Hour
+        ]);
 
     }
 
