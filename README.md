@@ -10,7 +10,15 @@
   <li>Isabelle Marquês Fragoso de Souza
   <li><a href="https://github.com/joao-pedro01">João Pedro</a>
 
-<h4>Arquivos</h4>
+##
+    
+<h4>Páginas</h4><br>
+  <a href="https://github.com/joao-pedro01/AjudaDoBem/blob/master/index.html">Página inicial (index.html)</a><br><br>
+  <a href="https://github.com/joao-pedro01/AjudaDoBem/blob/master/pages/login.php">Registro de usuário</a><br><br>
+
+##
+    
+<h4>Arquivos</h4><br>
   <a href="https://github.com/joao-pedro01/AjudadoBem/blob/master/files/AjudaDoBem.pdf">Documentação</a><br><br>
   <a href="https://github.com/joao-pedro01/AjudadoBem/blob/master/files/tcc.brM3">Diagrama Entidade Relacionamento(DER)</a>
   <p>Feito no Br3Modelo</p>
