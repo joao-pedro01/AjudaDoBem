@@ -1,0 +1,99 @@
+body{
+  background-color: #e0bca27e;
+}
+
+.wrapper{
+    width: 360px;
+    padding: 20px 500px 50px 500px;
+    align-self: center;
+    background-color: #ffff;
+    border-radius: 4%;
+    box-shadow: 300px rgba(0, 0, 0, 0.123);
+    position: absolute;
+    top: 17%;
+    left: 10%;
+}
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #ffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+}
+.logo {
+    height: 60px;
+    width: 100px;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active{
+    color: #71906e;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #71906e;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+
+    
+#mobile{
+    display: none;
+    align-items: center;
+}
+
+.botao_registo input{
+    background-color: transparent;
+    color: #71906e;
+    border-color: #1a1a1a80;
+    border-radius: 10%;
+    padding: 7px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.botao_registo input:hover{
+    transition: 0.4s;
+    color: rgb(245, 245, 220);
+    background-color: #71906e;
+}
+
+.botao_registo span input:hover {
+    color: #ffffff;
+    background-color: #bd3d3d;
+}
+
