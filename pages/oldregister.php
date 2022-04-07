@@ -11,13 +11,13 @@
     <form action="../scripts/register.php" method="post">
         <div class="row">
             <div class="col-5">
-                <input type="email" class="form-control" placeholder="Email (Obrigatório)" name=email><br>
-                <input type="password" class="form-control" placeholder="Senha (Obrigatório)" name=senha><br>
-                <input type="text" class="form-control" placeholder="Nome (Obrigatório)" name=nome><br>
-                <input type="text" class="form-control" placeholder="Nome de usuario (Obrigatório)" name=usuario><br>
-                <input type="text" class="form-control" placeholder="Celular (Obrigatório)" name=celular><br>
+                <input type="email" class="form-control" placeholder="Email (Obrigatório)" name="email"><br>
+                <input type="password" class="form-control" placeholder="Senha (Obrigatório)" name="password"><br>
+                <input type="text" class="form-control" placeholder="Nome (Obrigatório)" name="name"><br>
+                <input type="text" class="form-control" placeholder="Nome de usuario (Obrigatório)" name="username"><br>
+                <input type="text" class="form-control" placeholder="Celular (Obrigatório)" name="phone"><br>
                 <input type="number" class="form-control" placeholder="Telefone (Opcional)" name=telefone><br>
-                <input type="number" class="form-control" placeholder="cpf (Obrigatório)" name=cpf><br>
+                <input type="number" class="form-control" placeholder="cpf (Obrigatório)" name="cpf"><br>
                 <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
                 <div id="div">
                     <?php echo $Error = ""; ?>

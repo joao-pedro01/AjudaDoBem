@@ -4,6 +4,7 @@
 
     //$conexao = new PDO(DB::$dbName, DB::$host, DB::$user, DB::$password);
     $Error = "";
+    $Sucess = "";
 
     $Name = $_POST["name"];
     $UserName = $_POST["username"];
@@ -45,24 +46,13 @@
             Procura por $usuario no DB
         */   
         }else {
-            //$sql = DB::query("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
-            $sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
-            
+            $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
+            //$sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
+            //dd($sql);
             if($sql[0]){
                 $Error = "Usuário já exite";
                 Invalid($Error);
             }
-        }     
-        /*
-            input password
-        */
-        if(empty(trim($Password))){
-            $Error = "Senha é obrigatório e não pode estar vazio!!!";
-            Invalid($Error);
-        // Validação de erro caso algum caractere invalido seja inputado no $UserName
-        }else {
-            // criptografia da senha
-            $Password = md5($Password);    
         }
         /*
             input CPF
@@ -81,13 +71,25 @@
                 $Error = 'CPF informado é inválido';
                 Invalid($Error);
             }else {
-                $sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
-            
+                $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE cpf = '{$Cpf}'");
+                //$sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
+                //dd($sql);
                 if($sql[0]){
-                    $Error = "Usuário já exite";
+                    $Error = "CPF já cadastrado no banco de dados.";
                     Invalid($Error);
                 }
             }
+        }
+        /*
+            input password
+        */
+        if(empty(trim($Password))){
+            $Error = "Senha é obrigatório e não pode estar vazio!!!";
+            Invalid($Error);
+        // Validação de erro caso algum caractere invalido seja inputado no $UserName
+        }else {
+            // criptografia da senha
+            $Password = md5($Password);    
         }
         /*
             INSERT TABLE USERS
@@ -104,8 +106,14 @@
                 'celular' => $Phone,
                 'cpf' => $Cpf,
                 'data' => $Date,
-                'hora' => $Hour
+                'hora' => $Hour,
                 ]);
+            $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
+
+            if($sql[0]){
+                echo ('Usuário cadastrado com sucesso!!!.');
+                //Invalid($Error);
+            }
         }
     }
 ?>
