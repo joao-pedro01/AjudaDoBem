@@ -9,9 +9,8 @@
         print_r($string);
         exit;
     }
-
     /*
-        function Erro caso seá inválido
+        function Erro caso seja inválido
     */
     function Invalid($Error){
         echo '<body onload="window.history.back();">';
@@ -21,7 +20,17 @@
 
         exit();
     }
+    /*
+        function Sucess caso operação sejá bem sucedida
+    */
+    function Sucess($Error){
+        echo '<body onload="window.history.back();">';
+        echo '<script>';
+        echo "alert('{$Error}')";
+        echo '</script>';
 
+        exit();
+    }
     /*
         validaCPF( String ) : Boolean 
     */
