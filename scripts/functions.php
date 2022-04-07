@@ -9,7 +9,6 @@
         print_r($string);
         exit;
     }
-
     /*
         function Erro caso seá inválido
     */
@@ -21,7 +20,6 @@
 
         exit();
     }
-
     /*
         validaCPF( String ) : Boolean 
     */

@@ -1,5 +1,5 @@
 <?php
-    require_once 'config.php';
+    include_once 'config.php';
     include_once 'functions.php';
 
     //$conexao = new PDO(DB::$dbName, DB::$host, DB::$user, DB::$password);
