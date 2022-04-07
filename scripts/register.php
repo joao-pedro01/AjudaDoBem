@@ -1,5 +1,5 @@
 <?php
-    include_once 'config.php';
+    require_once 'config.php';
     include_once 'functions.php';
 
     //$conexao = new PDO(DB::$dbName, DB::$host, DB::$user, DB::$password);
@@ -9,17 +9,16 @@
     $UserName = $_POST["username"];
     $Email = $_POST["email"];
     $Password = $_POST["password"];
-    $Phone = $_POST["celular"];
+    $Phone = $_POST["phone"];
     //$Telephone = $_POST["telefone"];
     $Cpf = $_POST["cpf"];
-    $Rg = $_POST["rg"];
+    //$Rg = $_POST["rg"];
       
     $Date = date('Y-m-d');
     $Hour = date('h:i:s');
 
     // Processando dados do formulário quando o formulário é enviado
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-
         /* 
             input Name
             Erro caso input vazio
@@ -27,10 +26,7 @@
         if(empty(trim($Name))){
             $Error = 'O campo Nome não pode estar vazio!!!';
             Invalid($Error);
-        }else {
-            
         }
-
         /*
             input UserName
             Erro caso input vazio
@@ -44,7 +40,6 @@
         }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($UserName))){
             $Error = "O nome de usuário pode conter apenas letras, números e _.";
             Invalid($Error);
-
         /*
             Caso não encontre erro.
             Procura por $usuario no DB
@@ -57,8 +52,18 @@
                 $Error = "Usuário já exite";
                 Invalid($Error);
             }
+        }     
+        /*
+            input password
+        */
+        if(empty(trim($Password))){
+            $Error = "Senha é obrigatório e não pode estar vazio!!!";
+            Invalid($Error);
+        // Validação de erro caso algum caractere invalido seja inputado no $UserName
+        }else {
+            // criptografia da senha
+            $Password = md5($Password);    
         }
-
         /*
             input CPF
             Erro caso input vazio
@@ -75,11 +80,17 @@
             {
                 $Error = 'CPF informado é inválido';
                 Invalid($Error);
+            }else {
+                $sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
+            
+                if($sql[0]){
+                    $Error = "Usuário já exite";
+                    Invalid($Error);
+                }
             }
         }
-
         /*
-            INSERT
+            INSERT TABLE USERS
         */
         if (false){
             $Error = "Algo deu errado";
@@ -96,7 +107,5 @@
                 'hora' => $Hour
                 ]);
         }
-
     }
-
 ?>

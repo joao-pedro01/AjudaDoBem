@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="../styles/login.css">
-
 </head>
 <body>
     <section id="header">
@@ -61,7 +60,7 @@
             </div>
             <div class="form-group">
                 <label>Confirme a senha</label>
-                <input type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control">>
+                <input type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
