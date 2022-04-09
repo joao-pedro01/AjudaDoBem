@@ -3,15 +3,16 @@ body{
 }
 
 .wrapper{
-    width: 360px;
-    padding: 20px 500px 50px 500px;
+    width: auto;
+    padding: 20px 50px 50px 50px;
     align-self: center;
     background-color: #ffff;
-    border-radius: 4%;
+    border-radius: 4rem;
     box-shadow: 300px rgba(0, 0, 0, 0.123);
     position: absolute;
     top: 17%;
-    left: 10%;
+    margin-left:40%;
+    margin-right: 40%;
 }
 #header{
     display: flex;

@@ -23,9 +23,9 @@
         <p>Por favor, preencha os campos para fazer o login.</p>
 
         <?php 
-        if(!empty($login_err)){
+        /*if(!empty($login_err)){
             echo '<div class="alert alert-danger">' . $login_err . '</div>';
-        }        
+        }*/       
         ?>
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
