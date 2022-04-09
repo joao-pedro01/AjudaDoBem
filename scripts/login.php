@@ -7,7 +7,6 @@
     $Error = "";
 
     $UserName = $_POST["username"];
-    $Email = $_POST["email"];
     $Password = $_POST["password"];
     //$ConfirmPassword = $_POST["confirmpassword"];
 
@@ -15,7 +14,7 @@
         //Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
         //("SELECT * FROM users WHERE name=%s LIMIT 1", 'Joe');
         $Password = md5($Password);
-        $row = DB::queryFirstRow("SELECT * FROM users WHERE email = '$Email' && senha = '$Password' LIMIT 1");
+        $row = DB::queryFirstRow("SELECT * FROM users WHERE username = '$UserName' && senha = '$Password' LIMIT 1");
         
         //dd($row);
         

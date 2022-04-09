@@ -23,10 +23,10 @@
     /*
         function Sucess caso operação sejá bem sucedida
     */
-    function Sucess($Error){
+    function Sucess($Sucess){
         echo '<body onload="window.history.back();">';
         echo '<script>';
-        echo "alert('{$Error}')";
+        echo "alert('{$Sucess}')";
         echo '</script>';
 
         exit();

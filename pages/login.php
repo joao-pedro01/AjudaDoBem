@@ -22,22 +22,14 @@
         <h2>Login</h2>
         <p>Por favor, preencha os campos para fazer o login.</p>
 
-        <?php 
-        /*if(!empty($login_err)){
-            echo '<div class="alert alert-danger">' . $login_err . '</div>';
-        }*/       
-        ?>
-
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="../scripts/login.php" method="post">
             <div class="form-group">
                 <label>Nome do usuário</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                <input type="text" name="username" class="form-control">
             </div>
             <div class="form-group">
                 <label>Senha</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                <input type="password" name="password" class="form-control">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Entrar">

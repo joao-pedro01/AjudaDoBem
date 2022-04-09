@@ -111,7 +111,9 @@
             $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
 
             if($sql[0]){
-                echo ('Usuário cadastrado com sucesso!!!.');
+                header("location: ../pages/login.php");
+                $Sucess =  'Usuário cadastrado com sucesso!!!.';
+                Sucess($Sucess);
                 //Invalid($Error);
             }
         }
