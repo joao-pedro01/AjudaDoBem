@@ -3,17 +3,23 @@ body{
 }
 
 .wrapper{
-    width: auto;
-    padding: 20px 50px 50px 50px;
+    width: fit-content;
+    padding: 15px 30px 30px 35px;
     align-self: center;
     background-color: #ffff;
-    border-radius: 4rem;
-    box-shadow: 300px rgba(0, 0, 0, 0.123);
+    border-radius: 1rem;
     position: absolute;
     top: 17%;
-    margin-left:40%;
-    margin-right: 40%;
+    margin-left: 35%;
+    margin-right: 35%;
 }
+.wrapper span{
+    margin-right: -25px;
+}
+.wrapper a{
+    color: none;
+}
+
 #header{
     display: flex;
     align-items: center;
@@ -29,7 +35,7 @@ body{
 }
 .logo {
     height: 60px;
-    width: 100px;
+    width: 10px;
 }
 
 #navbar{
@@ -75,25 +81,3 @@ body{
     align-items: center;
 }
 
-.botao_registo input{
-    background-color: transparent;
-    color: #71906e;
-    border-color: #1a1a1a80;
-    border-radius: 10%;
-    padding: 7px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 15px;
-}
-
-.botao_registo input:hover{
-    transition: 0.4s;
-    color: rgb(245, 245, 220);
-    background-color: #71906e;
-}
-
-.botao_registo span input:hover {
-    color: #ffffff;
-    background-color: #bd3d3d;
-}

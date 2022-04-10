@@ -46,10 +46,10 @@
                 <input type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control">
             </div>
             <div class="form-group">
-                <div class="botao_registo">
-                    <input type="submit" value="Criar Conta">
-                    <span><input type="reset" value="Apagar Dados"></span>
-                </div>
+                
+                    <input type="submit" value="Criar Conta" type="button" class="btn btn-success">
+                    <input type="reset" value="Apagar Dados" type="button" class="btn btn-danger">
+                
             </div>
             <p>Já tem uma conta? <a href="login.php">Entre aqui</a>.</p>
         </form>

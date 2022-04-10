@@ -69,6 +69,7 @@ button.white {
 
 body{
     width: 100%;
+    background-color: #e0bca27e;
 }
 
 /* COMEÇO DO CABEÇALHO */
@@ -77,13 +78,17 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 20px 80px;
-    background: #E3E6F3;
+    background: #ffff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
     position: sticky;
     top: 0;
     left: 0;
 
+}
+.logo {
+    height: 30px;
+    width: 30px;
 }
 
 #navbar{
@@ -108,7 +113,7 @@ body{
 
 #navbar li a:hover,
 #navbar li a.active{
-    color: #088178;
+    color: #638560;
 }
 
 #navbar li a.active::after,
@@ -116,7 +121,7 @@ body{
     content: "";
     width: 30%;
     height: 2px;
-    background: #088178;
+    background: #638560;
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -133,7 +138,7 @@ body{
 
 /* COMEÇO DO HOME */
 #modelo {
-    background-image: url("img/hero6.png");
+    background-image: url("../images/image-not-found.png");
     height: 90vh;
     width: 100%;
     background-size: cover;
@@ -150,13 +155,13 @@ body{
 }
 
 #modelo h1{
-    color: #088178;
+    color: #638560;
 }
 
 #modelo button{
-    background-image: url("img/button.png");
+    background-image: url("../images/button.png");
     background-color: transparent;
-    color: #088178;
+    color: #638560;
     border: 0;
     padding: 14px  80px 14px 65px;
     background-repeat: no-repeat;
@@ -180,6 +185,7 @@ body{
     border: 1px solid #cce7d0;
     border-radius: 4px;
     margin: 15px 0;
+    background-color: #ffff;
 }
 
 #caracteristicas .fe-box:hover{
@@ -195,7 +201,7 @@ body{
     padding: 9px 8px 6px 8px;
     line-height: 1;
     border-radius: 4px;
-    color: #088178;
+    color: #638560;
     background-color: #fddde4;
 }
 
@@ -239,6 +245,7 @@ body{
     margin: 15px 0;
     transition: 0.2s ease;
     position: relative;
+    background-color: #ffff;
 }
 
 #doação1 .pro:hover{
@@ -275,7 +282,7 @@ body{
     padding-top: 7px;
     font-size: 15px;
     font-weight: 700;
-    color: #088178;
+    color: #638560;
 }
 
 #doação1 .pro .heart{
@@ -285,7 +292,7 @@ body{
     border-radius: 50px;
     background-color: #e8f6ea;
     font-weight: 500;
-    color: #088178;
+    color: #638560;
     border: 1px solid #cce7d0;
     position: absolute;
     bottom: 20px;
@@ -299,7 +306,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url(img/banner/b2.jpg);
+    background-image: url("../images/image-not-found.png");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -323,7 +330,7 @@ body{
 }
 
 #banner button:hover{
-background-color: #088178;
+background-color: #638560;
 color: #fff;
 }
 
@@ -339,7 +346,7 @@ color: #fff;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    background-image: url(img/banner/b17.jpg);
+    background-image: url("../images/image-not-found.png");
     min-width: 565px;
     height: 50vh;
     background-size: cover;
@@ -348,7 +355,7 @@ color: #fff;
 }
 
 #sm-banner .banner-box2 {
-    background-image: url(img/banner/b10.jpg);;
+    background-image: url("../images/image-not-found.png");
 }
 
 #sm-banner h4{
@@ -371,8 +378,8 @@ color: #fff;
 }
 
 #sm-banner .banner-box:hover button{
-    background: #088178;
-    border: 1px solid #088178;
+    background: #638560;
+    border: 1px solid #638560;
 }
 #banner3{
     display: flex;
@@ -387,7 +394,7 @@ color: #fff;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    background-image: url(img/banner/b7.jpg);
+    background-image: url("../images/image-not-found.png");
     min-width: 30%;
     height: 30vh;
     background-size: cover;
@@ -397,11 +404,11 @@ color: #fff;
 }
 
 #banner3 .banner-box2{
-    background-image: url(img/banner/b4.jpg);
+    background-image: url("../images/image-not-found.png");
 }
 
 #banner3 .banner-box3{
-    background-image: url(img/banner/b18.jpg);
+    background-image: url("../images/image-not-found.png");
 }
 
 #banner3 h2{
@@ -421,7 +428,7 @@ color: #fff;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-image: url(img/banner/b14.png);
+    background-image: url("../images/image-not-found.png");
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
@@ -461,7 +468,7 @@ color: #fff;
 }
 
 #newsletter button{
-    background-color: #088178;
+    background-color: #638560;
     color: #fff;
     white-space: nowrap;
     border-top-left-radius: 0;
@@ -513,7 +520,7 @@ footer .seguir i{
 }
 
 footer .install .row img{
-    border: 1px solid #088178;
+    border: 1px solid #638560;
     border-radius: 6px;
 }
 
@@ -523,7 +530,8 @@ footer .install img{
 
 footer .seguir i:hover,
 footer a:hover{
-    color: #088178;
+    color: #638560;
+    
 }
 
 footer .copyright{
@@ -533,53 +541,11 @@ footer .copyright{
 
 /* COMEÇO DAS DOAÇÕES */
 
-/* COMEÇO MEDIA QUERY */
-
-@media (max-width:799px) {
-    #navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 0;
-        right: -300px;
-        height: 100vh;
-        width: 300px;
-        background-color: #E3E6F3;
-        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-        padding: 80px 0 0 10px;
-        transition: 0.03s;
-    }
-
-    #navbar.active{
-        right: 0px;
-    }
-
-    #navbar li{
-        margin-bottom: 25px;
-
-    }
-
-    #mobile{
-        display: flex;
-        align-items: center;
-        
-    }
-    
-    #mobile i{
-        color: #1a1a1a;
-        font-size: 24px;
-        padding-left: 20px;
-    }
-}
-
-
 /* PÁGINA DAS DOAÇÕES */
  
     /* header */
     #page-header{
-    background-image: url("img/banner/b6.png");
+    background-image: url("../images/image-not-found.png");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -603,7 +569,7 @@ footer .copyright{
 
 #paginacao a{
     text-decoration: none;
-    background-color: #088178;
+    background-color: #638560;
     padding: 15px 20px;
     border-radius: 4px;
     color: #fff;
