@@ -13,11 +13,7 @@
     <title>Login | Ajuda Do Bem</title>
 </head>
 <body>
-    
-</body>
-</html>
-<body>
-<?php include_once "../templates/navbar.html";?>
+<?php include_once "../templates/navbar.php";?>
     <div class="wrapper">
         <h2>Login</h2>
         <p>Por favor, preencha os campos para fazer o login.</p>
