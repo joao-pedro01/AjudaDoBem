@@ -2,7 +2,6 @@
     include_once 'config.php';
     include_once 'functions.php';
 
-    //$conexao = new PDO(DB::$dbName, DB::$host, DB::$user, DB::$password);
     $Error = "";
     $Sucess = "";
 
@@ -16,7 +15,7 @@
     //$Rg = $_POST["rg"];
       
     $Date = date('Y-m-d');
-    $Hour = date('h:i:s');
+    $Hour = date('H:i:s');
 
     // Processando dados do formulário quando o formulário é enviado
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -47,8 +46,7 @@
         */   
         }else {
             $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
-            //$sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
-            //dd($sql);
+
             if($sql[0]){
                 $Error = "Usuário já exite";
                 Invalid($Error);
@@ -66,14 +64,12 @@
             $cpf = validaCPF($Cpf);
 
             // Erro se o CPF for inválido
-            if($cpf != true)
-            {
+            if($cpf != true){
                 $Error = 'CPF informado é inválido';
                 Invalid($Error);
             }else {
                 $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE cpf = '{$Cpf}'");
-                //$sql = DB::query(" SELECT * FROM users where username = '{$UserName}' ");
-                //dd($sql);
+
                 if($sql[0]){
                     $Error = "CPF já cadastrado no banco de dados.";
                     Invalid($Error);
@@ -106,7 +102,7 @@
                 'celular' => $Phone,
                 'cpf' => $Cpf,
                 'data' => $Date,
-                'hora' => $Hour,
+                'hora' => $Hour
                 ]);
             $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
 

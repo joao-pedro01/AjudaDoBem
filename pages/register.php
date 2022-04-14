@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/login.css">
 </head>
 <body>
-    <?php include_once "../templates/navbar.html";?>
+    <?php include_once "../templates/navbar.php";?>
     <div class="wrapper">
         <h2>Cadastro</h2>
         <p>Por favor, preencha este formulário para criar uma conta.</p>
