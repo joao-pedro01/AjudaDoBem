@@ -15,9 +15,7 @@
         //("SELECT * FROM users WHERE name=%s LIMIT 1", 'Joe');
         $Password = md5($Password);
         $row = DB::queryFirstRow("SELECT * FROM users WHERE username = '$UserName' && senha = '$Password' LIMIT 1");
-        
-        //dd($row);
-        
+
         if($row == null){
             echo 'logue por favor!!!';
         }else {
@@ -30,7 +28,7 @@
                 $_SESSION['UserEmail'] = $row['email'];
                 $_SESSION['UserDate'] = $row['data'];
                 $_SESSION['UserHour'] = $row['hora'];
-                header("Location: ../pages/Logged.php");
+                header("Location: ../pages/logged.php");
             }
         }
     }

@@ -13,29 +13,27 @@
     <title>Login | Ajuda Do Bem</title>
 </head>
 <body>
-<?php include_once "../templates/navbar.php";?>
+<?php include_once "../templates/navbar.php"; ?>
     <div class="wrapper">
-        <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12"  align="center">
-            <span>
-                <h2>Login</h2>
-                <p>Por favor, preencha os campos para fazer o login.</p>
+        <span>
+            <h2>Login</h2>
+            <p>Por favor, preencha os campos para fazer o login.</p>
 
-                <form action="../scripts/login.php" method="post">
-                    <div class="form-group">
-                        <label>Nome do usuário</label>
-                        <input type="text" name="username" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Senha</label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Entrar">
-                    </div>
-                    <p>Não tem uma conta? <a href="register.php">Inscreva-se agora</a>.</p>
-                </form>
-            </span>
-        </div>
+            <form action="../scripts/login.php" method="post">
+                <div class="form-group">
+                    <label>Nome do usuário</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Entrar">
+                </div>
+                <p>Não tem uma conta? <a href="register.php">Inscreva-se agora</a>.</p>
+            </form>
+        </span>
     </div>
 </body>
 </html>

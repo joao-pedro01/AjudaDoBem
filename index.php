@@ -9,27 +9,9 @@
     <title>Ajuda do Bem</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
-
 <body>
     
-    <section id="header">
-        <a href="#"><img src="images/logo2.png" class="logo" alt="logo"></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="Doações.html">Doações</a></li>
-                <li><a href="Blog.html">Blog</a></li>
-                <li><a href="Sobre_nos.html">Sobre nós</a></li>
-                <li><a href="Contato.html">Contato</a></li>
-                <li><a href="Sacola.html"><i class="fal fa-shopping-bag"></i></a></li>
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href="sacola.html"><i class="far fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+    <?php include_once 'templates/navbar.php' ?>
 
     <section id="modelo">
         <h4> Ajudando sempre o possivel</h4>

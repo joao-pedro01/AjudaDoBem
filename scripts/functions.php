@@ -1,5 +1,4 @@
 <?php
-
     /*
         dd( String ) : Null 
         Dump and Die
@@ -38,6 +37,17 @@
                     Invalid($Error);
                 }
                 break;
+        }
+    }
+    /*
+        Logged ( String ) : Boolean 
+        Retona true caso usuario estiver logado
+    */
+    function Logged($logged){
+        if($logged['UserName'] == null){
+            return true;
+        }else {
+            return false;
         }
     }
     /*
