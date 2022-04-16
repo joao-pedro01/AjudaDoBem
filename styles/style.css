@@ -69,19 +69,18 @@ button.white {
 
 body{
     width: 100%;
-    background-color: #e0bca27e;
 }
 
 /* COMEÇO DO CABEÇALHO */
 #header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between ;
     padding: 20px 80px;
-    background: #ffff;
+    background: #E3E6F3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
-    position: sticky;
+    position: sticky ;
     top: 0;
     left: 0;
 
@@ -93,13 +92,14 @@ body{
 
 #navbar{
     display: flex;
-    align-items: center;
+    align-items: center ;
     justify-content: center;
+   
 }
 
 #navbar li{
     list-style: none;
-    padding: 0 20px;
+    padding: 0 20px 0 0;
     position: relative;
 }
 
@@ -128,17 +128,27 @@ body{
 }
 
 
-
-#mobile{
-    display: none;
-    align-items: center;
+.imageUser img {
+    cursor: pointer;
+    width: 10%;
+    padding-left: 0%;
+    float: right ;
+    border-radius: 50%;
+  }
+  /*
+.dropdown:hover{
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
 }
-
-
-
+*/
 /* COMEÇO DO HOME */
 #modelo {
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/hero6.png");
     height: 90vh;
     width: 100%;
     background-size: cover;
@@ -159,7 +169,7 @@ body{
 }
 
 #modelo button{
-    background-image: url("../images/button.png");
+    background-image: url("../images/button2.png");
     background-color: transparent;
     color: #638560;
     border: 0;
@@ -185,7 +195,7 @@ body{
     border: 1px solid #cce7d0;
     border-radius: 4px;
     margin: 15px 0;
-    background-color: #ffff;
+    background-color: rgba(228, 228, 228, 0.37);
 }
 
 #caracteristicas .fe-box:hover{
@@ -245,7 +255,7 @@ body{
     margin: 15px 0;
     transition: 0.2s ease;
     position: relative;
-    background-color: #ffff;
+    background-color: rgba(228, 228, 228, 0.37);
 }
 
 #doação1 .pro:hover{
