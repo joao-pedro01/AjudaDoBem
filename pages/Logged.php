@@ -1,9 +1,9 @@
 <?php
     include '../templates/navbar.php';
-/*     if (Logged($_SESSION) == false){
+    if (Logged($_SESSION) == false){
         $Error = 'Acesso negado!!!';
         Invalid($Error);
-    } */
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <title>Seja bem-vindo <?php echo $_SESSION['UserNome']; ?></title>
 </head>

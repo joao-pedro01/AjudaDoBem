@@ -9,7 +9,7 @@
             <li><a href="Sobre_nos.html">Sobre nós</a></li>
             <li><a class="active" href="Contato.html">Contato</a></li>
             <li>
-            <li><a href="logged.php">hello <?php echo $_SESSION['UserNome']; ?></a></li>
+            <li><a href="logged.php"><?php echo $_SESSION['UserNome']; ?></a></li>
                 <!-- <a href="Sacola.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>

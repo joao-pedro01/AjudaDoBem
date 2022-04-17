@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    <?php include_once 'templates/navbar.php' ?>
+    <?php include_once 'templates/navbar.php'; ?>
 
     <section id="modelo">
         <h4> Ajudando sempre o possivel</h4>
