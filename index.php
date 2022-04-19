@@ -10,15 +10,15 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    
-    <?php include_once 'templates/navbar.php'; ?>
 
+    <?php include_once 'templates/navbar.php'; ?>
+    
     <section id="modelo">
-        <h4> Ajudando sempre o possivel</h4>
-        <h2>comunidade únida</h2>
-        <h1>sempre dando uma mão amiga</h1>
-        <p> Trazendo uma vizinhança mais sustentavél</p>
-        <button> Doe Agora</button>
+        <h4>Ajuda para todos</h4>
+        <h2>Uma comunidade únida</h2>
+        <h1>Ajudando os vizinhos </h1>
+        <p>Incentivando o Bem</p>
+        <button>Doe Agora</button>
     </section>
     
     <section id="caracteristicas" class="selection-p1">
@@ -427,5 +427,4 @@
 
     <script scr="Script.js"></script>
 </body>
-
 </html>

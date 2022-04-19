@@ -1,5 +1,5 @@
 <section id="header">
-    <a href="#"><img src="logo3.png" class="logo" alt="logo"></a>
+    <a href="#"><img src="images/logo2.png" class="logo" alt="logo"></a>
 
     <div>
         <ul id="navbar">
@@ -9,9 +9,9 @@
             <li><a href="Sobre_nos.html">Sobre nós</a></li>
             <li><a class="active" href="Contato.html">Contato</a></li>
             <li>
-                    <div class="imageUser">
-                        <img src="../images/user_unknown.png" alt="" ></a>
-                    </div>
+                <div class="imageUser">
+                    <img src="../images/user_unknown.png" alt="" ></a>
+                </div>
             </li>
         </ul>
     </div>

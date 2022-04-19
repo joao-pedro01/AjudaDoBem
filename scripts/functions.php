@@ -1,5 +1,4 @@
 <?php
-
     /*
         dd( String ) : Null 
         Dump and Die
@@ -39,6 +38,32 @@
                 }
                 break;
         }
+    }
+    /*
+        Logged ( String ) : Boolean 
+        Retona true caso usuario estiver logado
+    */
+    function Logged($logged){
+        // Correção para não exibir o warning de vetor vazio
+        // O que os olhos não vêem, o coração não sente
+        error_reporting(0);
+        if($logged['UserName'] == null){
+            return false;
+        }else {
+            return true;
+        }
+    }
+    /* 
+        Directory ( String ) : $Directory
+        Retorna o diretório de pastas
+    */
+    function Directory(){
+        if(trim($_SERVER["REQUEST_URI"], '/') == "AjudaDoBem"){
+            $Directory = ''; 
+        }else {
+            $Directory = '../';
+        }
+        return $Directory;
     }
     /*
         function Erro caso seja inválido
