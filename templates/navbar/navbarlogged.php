@@ -8,7 +8,7 @@
                 <li><a href="Blog.html">Blog</a></li>
                 <li><a href="Sobre_nos.html">Sobre nós</a></li>
                 <li><a href="Contato.html">Contato</a></li>
-               <li> <a href="#">
+                <li><a href="pages/logged.php">
                     <div class="imageUser">
                             <img src="images/user_unknown.png" alt="" ></a>
                           <!--  
@@ -19,4 +19,4 @@
                 </li>
             </ul>
         </div>
-    </section>
+</section>
