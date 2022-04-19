@@ -1,9 +1,0 @@
-register
-    - pegar as var post
-    - tratar var post
-        - se OK: 
-            verifica se ja existe username
-                se SIM:
-                    - retorna ja existe
-                se NÃO
-                    - salva o novo usuario
