@@ -1,18 +1,13 @@
 <section id="header">
-    <a href="#"><img src="images/logo2.png" class="logo" alt="logo"></a>
+    <a href="#"><img src="/AjudaDoBem/src/views/images/logo2.png" class="logo" alt="logo"></a>
 
     <div>
         <ul id="navbar">
-            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="index.html">Home</a></li>
             <li><a href="Doações.html">Doações</a></li>
             <li><a href="Blog.html">Blog</a></li>
             <li><a href="Sobre_nos.html">Sobre nós</a></li>
-            <li><a class="active" href="Contato.html">Contato</a></li>
-            <li>
-                <div class="imageUser">
-                    <img src="../images/user_unknown.png" alt="" ></a>
-                </div>
-            </li>
+            <li><a href="Contato.html">Contato</a></li>
         </ul>
     </div>
     <div id="mobile">

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="views/styles/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <title>Ajuda do Bem</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/AjudaDoBem/src/views/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
         <h2>Uma comunidade únida</h2>
         <h1>Ajudando os vizinhos </h1>
         <p>Incentivando o Bem</p>
-        <a href="views/pages/login.php"><button>Doe Agora</button></a>
+        <a href="<?php echo $Directory?>"><button>Doe Agora</button></a>
     </section>
     
     <section id="caracteristicas" class="selection-p1">

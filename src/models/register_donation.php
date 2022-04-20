@@ -1,42 +1,63 @@
-<?php 
-
-include_once 'functions.php';
+<?php
+include_once dirname(__FILE__,3).'/config/config.php';
+include_once '../controllers/functions.php';
 session_start();
-/*  
-*$dir é o caminho da pasta onde você deseja que os arquivos sejam salvos. 
-*Neste exemplo, supondo que esta pagina esteja em public_html/upload/ 
-*os arquivos serão salvos em public_html/upload/imagens/ 
-*Obs.: Esta pasta de destino dos arquivos deve estar com as permissões de escrita habilitadas. 
-*/ 
 
-$file = $_FILES["arquivo"];
+/* Recebe os inputs */
+$Title = $_POST["title"];
+$Category = $_POST["category"];
+$Description = $_POST["description"];
+
+/* Altera nome do arquivo */
+$file = $_FILES["image"];
 $ext = strrchr($file["name"], '.');
 $image = "image".$ext;
-//dd($image);
-$name = md5($_SESSION['UserName']);
-echo $name;
-$dir = "{$name}/images/";
-$path = "path/";
 
-if (!file_exists($path)){
-    mkdir($path, 0777, true);
-}else if((file_exists($path))){
-    mkdir($path.$dir, 0777, true);
-    // Move o arquivo da pasta temporaria de upload para a pasta de destino 
-    if (move_uploaded_file($file["tmp_name"], "$path/$dir".$file["name"])) { 
-        echo "Arquivo enviado com sucesso!";
+/* variaveis que cria nome dos diretorios */
+//$name = md5("joao_pedro01");
+$path = "../views/path";
+$dir_user = "{$_SESSION["UserName"]}";
+$dir_user = md5($dir_user);
+$dir_publi = md5($id);
+
+// Processando dados do formulário quando o formulário é enviado
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    /* Verifica se o campo title está vazio */
+    if(empty(trim($Title))){
+        $Error = "O campo titulo precisa estar preenchido!!!";
+        Invalid($Error);
+    }else if(empty(trim($Description))){
+        $Error = "O campo descrição precisa estar preenchido!!!";
+        Invalid($Error);
+    }else {
+        DB::insert('donation', [
+            'title' => $Title,
+            'description' => $Description,
+            'category' => $Category
+        ]);
+        $id = DB::insertId();
+        DB::disconnect();
     }
-    else { 
-        echo "Erro, o arquivo n&atilde;o pode ser enviado."; 
+
+    if(!file_exists("$path/$dir_user/$dir_publi/")){
+        mkdir("$path/$dir_user/$dir_publi", 0777, true);
+        
+        // Move o arquivo da pasta temporaria de upload para a pasta de destino 
+        if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
+            echo "Arquivo enviado com sucesso!";
+            $path = "$path/$dir_user/$dir_publi/".$image;
+            $DateTime = DateTime();
+            DB::insert('images', [
+                'path' => $path,
+                'date' => $DateTime["date"],
+                'hour' => $DateTime["time"]
+            ]);
+            DB::disconnect();
+            
+        }else {
+            echo "Erro, o arquivo não pode ser enviado.";
+        }
     }
-
-
-
-
-    /* $Error = "Não foi possivel criar o diretório";
-    Invalid($Error); */
-} else {
-    echo 'test';
 }
 
 ?>
