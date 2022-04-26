@@ -1,3 +1,4 @@
+<?php include_once '../src/controllers/button.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

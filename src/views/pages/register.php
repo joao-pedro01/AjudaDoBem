@@ -53,6 +53,7 @@
                     <input type="reset" value="Apagar Dados" type="button" class="btn btn-danger">
                 
             </div>
+            <div class='alert alert-warning'><?php echo $_SERVER['error'];?></div>
             <p>Já tem uma conta? <a href="login.php">Entre aqui</a>.</p>
         </form>
     </div>    

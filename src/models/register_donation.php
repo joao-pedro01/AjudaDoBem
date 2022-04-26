@@ -13,13 +13,6 @@ $file = $_FILES["image"];
 $ext = strrchr($file["name"], '.');
 $image = "image".$ext;
 
-/* variaveis que cria nome dos diretorios */
-//$name = md5("joao_pedro01");
-$path = "../views/path";
-$dir_user = "{$_SESSION["UserName"]}";
-$dir_user = md5($dir_user);
-$dir_publi = md5($id);
-
 // Processando dados do formulário quando o formulário é enviado
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     /* Verifica se o campo title está vazio */
@@ -39,13 +32,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         DB::disconnect();
     }
 
+    /* variaveis que cria nome dos diretorios */
+    $path = "../views/path";
+    $dir_user = "{$_SESSION["UserName"]}";
+    $dir_user = md5($dir_user);
+    $dir_publi = md5($id);
+
     if(!file_exists("$path/$dir_user/$dir_publi/")){
         mkdir("$path/$dir_user/$dir_publi", 0777, true);
         
         // Move o arquivo da pasta temporaria de upload para a pasta de destino 
         if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
             echo "Arquivo enviado com sucesso!";
-            $path = "$path/$dir_user/$dir_publi/".$image;
+            $path = "AjudaDobem/src/views/path";
+            $path = "$path/$dir_user/$dir_publi/$image";
             $DateTime = DateTime();
             DB::insert('images', [
                 'path' => $path,
@@ -53,11 +53,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 'hour' => $DateTime["time"]
             ]);
             DB::disconnect();
-            
+            header("location:/AjudaDobem/src/index.php");
         }else {
             echo "Erro, o arquivo não pode ser enviado.";
         }
     }
 }
-
 ?>

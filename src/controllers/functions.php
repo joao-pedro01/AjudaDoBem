@@ -77,11 +77,12 @@ function Directory(){
     function Erro caso seja inválido
 */
 function Invalid($string){
+    $_SERVER['error'] = $string;
     echo '<body onload="window.history.back();">';
-    echo '<script>';
-    echo "alert('{$string}')";
-    echo '</script>';
-
+        // echo '<script>';
+    // echo "alert('{$string}')";
+    // echo '</script>';
+    return $_SERVER['error'];;
     exit();
 }
 /*
@@ -96,7 +97,7 @@ function Sucess($string){
     exit();
 }
 /*
-    validaCPF( String ) : Boolean 
+    validaCPF( String ) : Boolean
 */
 function validaCPF($Cpf){
 

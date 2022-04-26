@@ -8,7 +8,6 @@ $Error = "";
 
 $UserName = $_POST["username"];
 $Password = $_POST["password"];
-//$ConfirmPassword = $_POST["confirmpassword"];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
@@ -27,7 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['UserEmail'] = $row['email'];
             $_SESSION['UserDate'] = $row['data'];
             $_SESSION['UserHour'] = $row['hora'];
-            header("Location: ../views/pages/logged.php");
+            header("Location: {$_SESSION['logged']}");
+            unset($_SESSION['logged']);
         }
     }
 }
