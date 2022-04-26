@@ -12,15 +12,6 @@
 
 ##
     
-<h4>Páginas</h4><br>
-  <a href="https://github.com/joao-pedro01/AjudaDoBem/blob/master/index.html">Página inicial (index.html)</a><br><br>
-  <a href="https://github.com/joao-pedro01/AjudaDoBem/blob/master/pages/login.php">Registro de usuário</a><br><br>
-
-##
-    
-<h4>Arquivos</h4><br>
-  <a href="https://github.com/joao-pedro01/AjudadoBem/blob/master/files/AjudaDoBem.pdf">Documentação</a><br><br>
-  <a href="https://github.com/joao-pedro01/AjudadoBem/blob/master/files/tcc.brM3">Diagrama Entidade Relacionamento(DER)</a>
-  <p>Feito no Br3Modelo</p>
-  <a href="https://github.com/joao-pedro01/AjudadoBem/blob/master/files/ajuda_do_bem.sql">Banco de dados em MySql</a>
-  <p>Protótipo</p>
+  <h1>Sobre</h1>
+    <p>A empresa se chama Ajuda Do Bem, a ideia é ser uma ONG (Organização não governamental) e sem lucros, é ajudar a sociedade, no site costumo dizer que é um "clone" do OLX, pois você pode postar compra e venda, na Ajuda Do Bem será possivel postar Doção (está doando algo) ou recpção (está necessitando de algo).
+    </p>
