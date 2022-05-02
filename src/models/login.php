@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 include_once dirname(__FILE__,3).'/config/config.php';
@@ -6,16 +7,21 @@ include_once dirname(__FILE__,3).'/src/controllers/functions.php';
 
 $Error = "";
 
-$UserName = $_POST["username"];
-$Password = $_POST["password"];
+$username = $_POST["username"];
+$password = $_POST["password"];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(Logged($_SESSION) == true){
+        //session_destroy();
+    }
+
     //Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
-    $Password = md5($Password);
-    $row = DB::queryFirstRow("SELECT * FROM users WHERE username = '$UserName' && senha = '$Password' LIMIT 1");
+    $password = md5($password);
+    $row = DB::queryFirstRow("SELECT * FROM users WHERE username = '$username' && senha = '$password' LIMIT 1");
 
     if($row == null){
-        echo 'logue por favor!!!';
+        $error = 'logue por favor!!!';
+        Invalid($error);
     }else {
         //Encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
         if(isset($row)){
@@ -26,8 +32,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['UserEmail'] = $row['email'];
             $_SESSION['UserDate'] = $row['data'];
             $_SESSION['UserHour'] = $row['hora'];
-            header("Location: {$_SESSION['logged']}");
-            unset($_SESSION['logged']);
+            header("Location: {$_SESSION['HTTP_REFERER']}");
+            unset($_SESSION['HTTP_REFERER']);
         }
     }
 }

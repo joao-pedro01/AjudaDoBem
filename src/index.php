@@ -19,7 +19,7 @@
         <h2>Uma comunidade únida</h2>
         <h1>Ajudando os vizinhos </h1>
         <p>Incentivando o Bem</p>
-        <a href="<?php echo $Directory?>"><button>Doe Agora</button></a>
+        <a href="<?php echo $directory?>"><button>Doe Agora</button></a>
     </section>
     
     <section id="caracteristicas" class="selection-p1">

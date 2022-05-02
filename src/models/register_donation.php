@@ -4,9 +4,9 @@ include_once '../controllers/functions.php';
 session_start();
 
 /* Recebe os inputs */
-$Title = $_POST["title"];
-$Category = $_POST["category"];
-$Description = $_POST["description"];
+$title = $_POST["title"];
+$category = $_POST["category"];
+$description = $_POST["description"];
 
 /* Altera nome do arquivo */
 $file = $_FILES["image"];
@@ -16,17 +16,17 @@ $image = "image".$ext;
 // Processando dados do formulário quando o formulário é enviado
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     /* Verifica se o campo title está vazio */
-    if(empty(trim($Title))){
-        $Error = "O campo titulo precisa estar preenchido!!!";
-        Invalid($Error);
-    }else if(empty(trim($Description))){
-        $Error = "O campo descrição precisa estar preenchido!!!";
+    if(empty(trim($title))){
+        $error = "O campo titulo precisa estar preenchido!!!";
+        Invalid($error);
+    }else if(empty(trim($description))){
+        $error = "O campo descrição precisa estar preenchido!!!";
         Invalid($Error);
     }else {
         DB::insert('donation', [
-            'title' => $Title,
-            'description' => $Description,
-            'category' => $Category
+            'title' => $title,
+            'description' => $description,
+            'category' => $category
         ]);
         $id = DB::insertId();
         DB::disconnect();
@@ -46,11 +46,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "Arquivo enviado com sucesso!";
             $path = "AjudaDobem/src/views/path";
             $path = "$path/$dir_user/$dir_publi/$image";
-            $DateTime = DateTime();
+            $date_time = DateTime();
             DB::insert('images', [
                 'path' => $path,
-                'date' => $DateTime["date"],
-                'hour' => $DateTime["time"]
+                'date' => $date_time["date"],
+                'hour' => $date_time["time"]
             ]);
             DB::disconnect();
             header("location:/AjudaDobem/src/index.php");

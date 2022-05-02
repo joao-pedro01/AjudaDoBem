@@ -3,8 +3,9 @@ include_once 'functions.php';
 session_start();
 
 if(logged($_SESSION) == true){
-    $Directory = '/AjudaDoBem/src/views/pages/test/doacao.php';
+    $directory = '/AjudaDoBem/src/views/pages/test/doacao.php';
+    $_SESSION['HTTP_REFERER'] = $directory;
 }else {
-    $Directory = '/AjudaDoBem/src/views/pages/login.php';
-    $_SESSION['logged'] = '/AjudaDoBem/src/views/pages/test/doacao.php';
+    $directory = '/AjudaDoBem/src/views/pages/login.php';
+    $_SESSION['HTTP_REFERER'] = '/AjudaDoBem/src/views/pages/test/doacao.php';
 }

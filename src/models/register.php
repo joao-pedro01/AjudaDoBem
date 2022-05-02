@@ -1,17 +1,16 @@
 <?php
+
 include_once dirname(__FILE__,3).'/config/config.php';
 include_once '../controllers/functions.php';
 
-$Error = "";
-$Sucess = "";
 
-$Name = $_POST["name"];
-$UserName = $_POST["username"];
-$Email = $_POST["email"];
-$Password = $_POST["password"];
-$Phone = $_POST["phone"];
+$name = $_POST["name"];
+$username = $_POST["username"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$phone = $_POST["phone"];
 //$Telephone = $_POST["telefone"];
-$Cpf = $_POST["cpf"];
+$cpf = $_POST["cpf"];
 
 // Processando dados do formulário quando o formulário é enviado
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -19,97 +18,97 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         input Name
         Erro caso input vazio
     */
-    if(empty(trim($Name))){
-        $Error = 'O campo Nome não pode estar vazio!!!';
-        Invalid($Error);
+    if(empty(trim($name))){
+        $error = 'O campo Nome não pode estar vazio!!!';
+        Invalid($error);
     }
     /*
         input UserName
         Erro caso input vazio
     */
-    if(empty(trim($UserName))){
-        $Error = "O nome de usuário não pode estar vazio!!!";
-        Invalid($Error);
+    if(empty(trim($username))){
+        $error = "O nome de usuário não pode estar vazio!!!";
+        Invalid($error);
 
     
     // Validação de erro caso algum caractere invalido seja inputado no $UserName
-    }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($UserName))){
-        $Error = "O nome de usuário pode conter apenas letras, números e _.";
-        Invalid($Error);
+    }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($username))){
+        $error = "O nome de usuário pode conter apenas letras, números e _.";
+        Invalid($error);
     /*
         Caso não encontre erro.
         Procura por $usuario no DB
     */   
     }else {
-        $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
+        $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
         DB::disconnect();
 
         if($sql[0]){
-            $Error = "Usuário já exite";
-            Invalid($Error);
+            $error = "Usuário já exite";
+            Invalid($error);
         }
     }
     /*
         input CPF
         Erro caso input vazio
     */
-    if(empty(trim($Cpf))){
-        $Error = "O campo CPF não pode estar vazio!!!";
-        Invalid($Error);
+    if(empty(trim($cpf))){
+        $error = "O campo CPF não pode estar vazio!!!";
+        Invalid($error);
     }else {
         // function que valida o CPF
-        $cpf = validaCPF($Cpf);
+        $cpf = validaCPF($cpf);
 
         // Erro se o CPF for inválido
         if($cpf != true){
-            $Error = 'CPF informado é inválido';
-            Invalid($Error);
+            $error = 'CPF informado é inválido';
+            Invalid($error);
         }else {
-            $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE cpf = '{$Cpf}'");
+            $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE cpf = '{$cpf}'");
             DB::disconnect();
 
             if($sql[0]){
-                $Error = "CPF já cadastrado no banco de dados.";
-                Invalid($Error);
+                $error = "CPF já cadastrado no banco de dados.";
+                Invalid($error);
             }
         }
     }
     /*
         input password
     */
-    if(empty(trim($Password))){
-        $Error = "Senha é obrigatório e não pode estar vazio!!!";
-        Invalid($Error);
+    if(empty(trim($password))){
+        $error = "Senha é obrigatório e não pode estar vazio!!!";
+        Invalid($error);
     // Validação de erro caso algum caractere invalido seja inputado no $UserName
     }else {
         // criptografia da senha
-        $Password = md5($Password);    
+        $password = md5($password);    
     }
     /*
         INSERT TABLE USERS
     */
     if (false){
-        $Error = "Algo deu errado";
-        Invalid($Error);
+        $error = "Algo deu errado";
+        Invalid($error);
     }else {
-        $DateTime = DateTime();
+        $date_time = DateTime();
         DB::insert('users', [
-            'nome' => $Name,
-            'username' => $UserName,
-            'email' => $Email,
-            'senha' => $Password,
-            'celular' => $Phone,
-            'cpf' => $Cpf,
-            'data' => $DateTime["date"],
-            'hora' => $DateTime["time"]
+            'nome' => $name,
+            'username' => $username,
+            'email' => $email,
+            'senha' => $password,
+            'celular' => $phone,
+            'cpf' => $cpf,
+            'data' => $date_time["date"],
+            'hora' => $date_time["time"]
             ]);
-        $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$UserName}'");
+        $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
         DB::disconnect();
 
         if($sql[0]){
             header("location: ../pages/login.php");
-            $Sucess =  'Usuário cadastrado com sucesso!!!.';
-            Sucess($Sucess);
+            $sucess =  'Usuário cadastrado com sucesso!!!.';
+            Sucess($sucess);
             //Invalid($Error);
         }
     }
