@@ -1,9 +1,8 @@
 <?php
     include dirname(__FILE__,4).'/src/controllers/functions.php';
-    session_start();
-    if (Logged($_SESSION) == false){
-        $Error = 'Acesso negado!!!';
-        Invalid($Error);
+    /* Verificar se a sessão não já está aberta. */
+    if(!session_status() == PHP_SESSION_ACTIVE) {
+        header("location: login.php");
     }else {
         include dirname(__FILE__,4).'/src/controllers/navbar.php';
     }
@@ -31,10 +30,9 @@
                 <li>Nome de usuário: <?php echo $_SESSION['UserName']; ?></li>
                 <li>Celular: <?php echo $_SESSION['UserCelular']; ?></li>
                 <li>Email: <?php echo $_SESSION['UserEmail']; ?></li>
-                <li>Data de cadastro: <?php echo $_SESSION['UserDate']; ?></li>
-                <li>Hora de cadastro: <?php echo $_SESSION['UserHour']; ?></li>
+                <li>Foto: <?php echo $_SESSION['UserPicture']; ?></li>
             </ul>
-            
+
             <a href="/AjudaDoBem/src/models/logout.php">Sair</a>
         </span>
 </body>

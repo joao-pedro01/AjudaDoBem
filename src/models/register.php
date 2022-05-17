@@ -5,11 +5,11 @@ include_once '../controllers/functions.php';
 
 
 $name = $_POST["name"];
+$birthDate = $_POST["datenasc"];
 $username = $_POST["username"];
 $email = $_POST["email"];
 $password = $_POST["password"];
-$phone = $_POST["phone"];
-//$Telephone = $_POST["telefone"];
+$cell = $_POST["phone"];
 $cpf = $_POST["cpf"];
 
 // Processando dados do formulário quando o formulário é enviado
@@ -41,9 +41,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     */   
     }else {
         $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
-        DB::disconnect();
-
         if($sql[0]){
+            DB::disconnect();
+
             $error = "Usuário já exite";
             Invalid($error);
         }
@@ -93,24 +93,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }else {
         $date_time = DateTime();
         DB::insert('users', [
-            'nome' => $name,
+            'id_type' => 1,
+            'id_image' => 1,
+            'name' => $name,
+            'birth_date' => $birthDate,
             'username' => $username,
-            'email' => $email,
-            'senha' => $password,
-            'celular' => $phone,
+            //'mail' => $email,
+            'password' => $password,
+            'cell' => $cell,
             'cpf' => $cpf,
-            'data' => $date_time["date"],
-            'hora' => $date_time["time"]
             ]);
         $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
         DB::disconnect();
 
         if($sql[0]){
-            header("location: ../pages/login.php");
+            header("location: ../views/pages/login.php");
             $sucess =  'Usuário cadastrado com sucesso!!!.';
             Sucess($sucess);
             //Invalid($Error);
         }
     }
 }
+
 ?>

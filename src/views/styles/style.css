@@ -88,11 +88,12 @@ body{
 .logo {
     height: 30px;
     width: 30px;
+    padding-right: 100px;
 }
 
 #navbar{
     display: flex;
-    align-items: center ;
+    align-items: center;
     justify-content: center;
    
 }

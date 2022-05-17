@@ -11,13 +11,14 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(Logged($_SESSION) == true){
-        //session_destroy();
-    }
-
     //Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
     $password = md5($password);
-    $row = DB::queryFirstRow("SELECT * FROM users WHERE username = '$username' && senha = '$password' LIMIT 1");
+    $row = DB::queryFirstRow("
+        SELECT * FROM users
+        INNER JOIN images
+        ON users.id_image = images.id
+        WHERE username LIKE '%$username%' && password = '$password' LIMIT 1;
+    ");
 
     if($row == null){
         $error = 'logue por favor!!!';
@@ -26,14 +27,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //Encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
         if(isset($row)){
             $_SESSION['UserId'] = $row['id'];
-            $_SESSION['UserNome'] = $row['nome'];
+            $_SESSION['UserNome'] = $row['name'];
             $_SESSION['UserName'] = $row['username'];
-            $_SESSION['UserCelular'] = $row['celular'];
+            $_SESSION['UserCelular'] = $row['cell'];
             $_SESSION['UserEmail'] = $row['email'];
-            $_SESSION['UserDate'] = $row['data'];
-            $_SESSION['UserHour'] = $row['hora'];
-            header("Location: {$_SESSION['HTTP_REFERER']}");
-            unset($_SESSION['HTTP_REFERER']);
+            $_SESSION['UserPicture'] = $row['path'];
+            if($_SESSION['HTTP_REFERER'] == null){
+                header("Location: ../views/pages/logged.php");
+            }else {
+                header("Location: {$_SESSION['HTTP_REFERER']}");
+                unset($_SESSION['HTTP_REFERER']);
+            }
         }
     }
 }

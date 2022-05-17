@@ -77,13 +77,13 @@ function Directory(){
     function Erro caso seja inválido
 */
 function Invalid($string){
-    $_SERVER['error'] = $string;
+    //$_SERVER['error'] = $string;
     echo '<body onload="window.history.back();">';
-        // echo '<script>';
-    // echo "alert('{$string}')";
-    // echo '</script>';
-    return $_SERVER['error'];;
-    exit();
+    echo '<script>';
+    echo "alert('{$string}')";
+    echo '</script>';
+    exit;
+    //return $_SERVER['error'];
 }
 /*
     function Sucess caso operação sejá bem sucedida

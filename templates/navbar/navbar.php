@@ -1,5 +1,5 @@
 <section id="header">
-    <a href="#"><img src="/AjudaDoBem/src/views/images/logo2.png" class="logo" alt="logo"></a>
+    <a href="#"><img src="/AjudaDoBem/src/views/images/logo.png" class="logo" alt="logo"></a>
 
     <div>
         <ul id="navbar">
@@ -11,7 +11,7 @@
         </ul>
     </div>
     <div id="mobile">
-        <a href="Sacola.html"><i class="far fa-shopping-bag"></i></a>
+        <a href="/AjudaDoBem/src/views/pages/login.php"><i class="far fa-shopping-bag"></i></a>
         <i id="bar" class="fas fa-outdent"></i>
     </div>
 </section>

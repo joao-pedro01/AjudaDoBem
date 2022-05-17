@@ -1,12 +1,10 @@
-body{
-    background-color: #e0bca27e;
-}
+
 
 .wrapper{
     width: fit-content;
     padding: 15px 30px 30px 35px;
     align-self: center;
-    background-color: #ffff;
+    background-color: #E3E6F3;
     border-radius: 1rem;
     position: absolute;
     top: 17%;
