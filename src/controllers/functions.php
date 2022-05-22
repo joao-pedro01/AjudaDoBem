@@ -5,7 +5,9 @@
     Mostra a variavel e finaliza o programa
 */
 function dd($string){
+    echo '<pre>';
     print_r($string);
+    echo '</pre>';
     exit;
 }
 /* 
@@ -48,6 +50,63 @@ function validate($field, $type){
                 Invalid($Error);
             }
             break;
+    }
+}
+/* 
+    Category ( string ) : int
+    Return id category
+*/
+function CategoryProduct($string){
+    $id = 0;
+
+    switch ($string) {
+        case 'alimentos':
+            $id = 3;
+            break;
+            
+        case 'higiene':
+            $id = 2;
+            break;
+
+        case 'moveis':
+            $id = 4;
+            break;
+
+        case 'roupas':
+            $id = 5;
+            break;
+
+        case 'lazer':
+            $id = 1;
+            break;
+        
+        case 'eletronicos':
+            $id = 6;
+            break;
+
+        default:
+            echo 'Digite uma opção!!!';
+            break;
+    }
+
+    return $id;
+}
+function CreateImage($user, $id_product, $file){
+    /* variaveis que cria nome dos diretorios */
+    $path = "../views/path";
+    $dir_user = "{$user["UserName"]}";
+    $dir_user = base64_encode($dir_user);
+    $dir_publi = base64_encode($id_product);
+
+    if(!file_exists("$path/$dir_user/$dir_publi/")){
+        mkdir("$path/$dir_user/$dir_publi", 0777, true);
+        
+        // Move o arquivo da pasta temporaria de upload para a pasta de destino 
+        if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
+            echo "Arquivo enviado com sucesso!";
+            $path = "AjudaDobem/src/views/path";
+            $path = "$path/$dir_user/$dir_publi/$image";
+        }
     }
 }
 /*

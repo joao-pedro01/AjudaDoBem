@@ -22,7 +22,7 @@
             <h2>Login</h2>
             <p>Por favor, preencha os campos para fazer o login.</p>
 
-            <form action="/AjudaDoBem/src/models/login.php" method="post">
+            <form action="/AjudaDoBem/src/models/<?php isset($_GET["url"]) == "doacao" ? print_r("login.php?url=doacao") : print_r("login.php") ?>" method="post">
                 <div class="form-group">
                     <label>Nome do usuário</label>
                     <input type="text" name="username" class="form-control">

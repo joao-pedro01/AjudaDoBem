@@ -6,22 +6,27 @@ CREATE TABLE type_users(
     type varchar(25)
 );
 
+INSERT INTO type_users(type) VALUE ('Usuário');
+INSERT INTO type_users(type) VALUE ('Colaborador');
+INSERT INTO type_users(type) VALUE ('Admin');
+
 CREATE TABLE types(
 	id int AUTO_INCREMENT PRIMARY KEY,
 	type varchar(10)
 );
 
+INSERT INTO types(type) VALUE ('image/jpg');
+
 CREATE TABLE images(
 	id int AUTO_INCREMENT PRIMARY KEY,
     id_type int NOT NULL,
-    path varchar(60) NOT NULL,
+    path varchar(255) NOT NULL,
     
     FOREIGN KEY (id_type) REFERENCES types (id)
 );
 
-INSERT INTO type_users(type) VALUE ('Usuário');
-INSERT INTO type_users(type) VALUE ('Colaborador');
-INSERT INTO type_users(type) VALUE ('Admin');
+INSERT INTO images(id_type, path) VALUES (1, '/AjudaDoBem/src/views/images/default/user_unknown.png');
+INSERT INTO images(id_type, path) VALUES (1, '/AjudaDoBem/src/views/images/default/image-not-found.png');
 
 CREATE TABLE users(
 	id int AUTO_INCREMENT PRIMARY KEY,
@@ -43,8 +48,16 @@ CREATE TABLE users(
 
 
 CREATE TABLE categorys(
-	id int AUTO_INCREMENT PRIMARY KEY
+	id int AUTO_INCREMENT PRIMARY KEY,
+    category varchar(55) NOT NULL
 );
+
+INSERT INTO categorys(category) VALUE('lazer');
+INSERT INTO categorys(category) VALUE('higiene');
+INSERT INTO categorys(category) VALUE('alimentos');
+INSERT INTO categorys(category) VALUE('móveis');
+INSERT INTO categorys(category) VALUE('roupas');
+INSERT INTO categorys(category) VALUE('eletrônicos');
 
 CREATE TABLE necessitys(
     id int AUTO_INCREMENT PRIMARY KEY,
@@ -69,6 +82,7 @@ CREATE TABLE products(
 );
 
 CREATE TABLE products_images(
+    id int AUTO_INCREMENT PRIMARY KEY,
     id_product int NOT NULL,
     id_image int NOT NULL,
     

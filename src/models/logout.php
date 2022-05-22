@@ -3,6 +3,7 @@
     log out
 */
 
+session_start();
 session_destroy();
 
 $_SESSION['logindeslogado'] = "Deslogado com sucesso";

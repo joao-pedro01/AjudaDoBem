@@ -14,7 +14,7 @@
     <div class="wrapper">
         <h2>Cadastro</h2>
         <p>Por favor, preencha este formulário para criar uma conta.</p>
-        <form action="/AjudaDoBem/src/models/register.php" method="post">
+        <form action="/AjudaDoBem/src/models/register.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Nome completo</label>
                 <input type="text" name="name" placeholder="Ex: Gustavo Pereira Marques" class="form-control">
@@ -44,6 +44,10 @@
                 <input type="password" name="password" placeholder="Use uma senha segura" class="form-control">
             </div>
             <div class="form-group">
+                <label>Foto de perfil</label>
+                <input type="file" name="image" class="form-control">
+            </div>
+            <div class="form-group">
                 <label>Confirme a senha</label>
                 <input type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control">
             </div>
@@ -53,6 +57,8 @@
                     <input type="reset" value="Apagar Dados" type="button" class="btn btn-danger">
                 
             </div>
+
+            
             <div class='alert alert-warning'><?php echo $_SERVER['error'];?></div>
             <p>Já tem uma conta? <a href="login.php">Entre aqui</a>.</p>
         </form>

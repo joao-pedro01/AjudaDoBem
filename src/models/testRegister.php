@@ -3,18 +3,17 @@
 include_once dirname(__FILE__,3).'/config/config.php';
 include_once '../controllers/functions.php';
 
+$name = $_POST["name"];
+$birthDate = $_POST["datenasc"];
+$username = $_POST["username"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$cell = $_POST["phone"];
+$cpf = $_POST["cpf"];
+$file = $_FILES["image"];
+
 // Processando dados do formulário quando o formulário é enviado
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $name = $_POST["name"];
-    $birthDate = $_POST["datenasc"];
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $cell = $_POST["phone"];
-    $cpf = $_POST["cpf"];
-    $file = $_FILES["image"];
-    //dd($file);
-
     /* 
         input Name
         Erro caso input vazio
@@ -56,12 +55,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $error = "O campo CPF não pode estar vazio!!!";
         Invalid($error);
     }else {
+        // function que valida o CPF
+        $cpf = validaCPF($cpf);
+
         // Erro se o CPF for inválido
         if($cpf == false){
             $error = 'CPF informado é inválido';
             Invalid($error);
         }else {
             $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE cpf = '{$cpf}'");
+                   //SELECT COUNT(*) FROM users WHERE username = '{$username}'"
+            dd($sql);
             DB::disconnect();
 
             if($sql[0]){
@@ -76,57 +80,53 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($password))){
         $error = "Senha é obrigatório e não pode estar vazio!!!";
         Invalid($error);
-
     // Validação de erro caso algum caractere invalido seja inputado no $UserName
     }else {
         // criptografia da senha
         $password = md5($password);    
     }
 
-    
-    try{
-        // consulta db para ver se o type da imagem já esta cadastrada
-        $sql = DB::queryFirstField("SELECT COUNT(*) FROM types WHERE type = '{$file["type"]}'");
 
-        /* 
-            image
-            define type image
-        */
+
+    /* 
+        image
+        define type image
+    */
+    try{
+        $sql = DB::queryFirstField("SELECT COUNT(*) FROM types WHERE type = '{$file["type"]}'");
         if(!$sql[0]){
             DB::insert('types', [
                 'type' => $file["type"]
             ]);
             $id_type = DB::insertId();
+            DB::disconnect();
         }else {
+            //SELECT `id`, `type` FROM `types` WHERE 1
             $row = DB::queryFirstRow("SELECT * FROM types
             WHERE type ='{$file['type']}'");
+            DB::disconnect();
             $id_type = $row["id"];
         }
     }catch(Exception $e){
 
     }
-
-    // caso user não inserir nenhuma foto, coloca foto default
-    if($file["error"] == 4){
+    
+    if($type[0] != "image"){
+        $error = "Só pode ser enviado imagem!!!";
+        Invalid($error);
+    }else if($file["error"] == 4){
+        // image default if não for enviado nada
         $id_image = 1;
     }else {
-        $ext = strrchr($file["name"], '.');
-        $image = $username.$ext;
-        dd($image);
         $type = explode("/", $file['type']);
-        
-        // se o arquivo não for imagem
-        if($type[0] != "image"){
-            $error = "Só pode ser enviado imagem!!!";
-            Invalid($error);
-        }
+        $ext = strrchr($file["name"], '.');
+        $image = $UserName.$ext;
 
-        // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
         try{
             /* variaveis que cria nome dos diretorios */
-            $path = "/AjudaDobem/src/views/path";
-            $dir_user = md5($username);
-            $dir_publi = "profile";
+            $path = "../views/path";
+            $dir_user = md5($UserName);
+            $dir_publi = md5("profile");
         
             if(!file_exists("$path/$dir_user/$dir_publi/")){
                 mkdir("$path/$dir_user/$dir_publi", 0777, true);
@@ -134,6 +134,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Move o arquivo da pasta temporaria de upload para a pasta de destino 
                 if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
                     echo "Arquivo enviado com sucesso!";
+                    $path = "/AjudaDobem/src/views/path";
                     $path = "$path/$dir_user/$dir_publi/$image";
 
                     $date_time = DateTime();
@@ -144,6 +145,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         'hour' => $date_time["time"] */
                     ]);
                     $id_image = DB::insertId();
+                    DB::disconnect();
                 }else {
                     echo "Erro, o arquivo não pode ser enviado.";
                 }
@@ -156,12 +158,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     /*
-        INSERT USER IN TABLE USERS
+        INSERT TABLE USERS
     */
     try{
         $date_time = DateTime();
         DB::insert('users', [
-            'id_type' => 1,
+            'id_type' => $id_type,
             'id_image' => $id_image,
             'name' => $name,
             'birth_date' => $birthDate,
@@ -170,7 +172,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             'password' => $password,
             'cell' => $cell,
             'cpf' => $cpf
-        ]);
+            ]);
         $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
         DB::disconnect();
 
@@ -184,6 +186,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         Invalid($error);
     }
 }else {
-    header("location: ../index.php");
+    // error 404 pagina não existe
 }
 ?>
