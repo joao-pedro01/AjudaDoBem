@@ -14,8 +14,8 @@
 .wrapper span{
     margin-right: -25px;
 }
-.wrapper a{
-    color: none;
+.wrapper span  a{
+    color: #007bff !important;
 }
 
 #header{

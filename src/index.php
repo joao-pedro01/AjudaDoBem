@@ -27,27 +27,27 @@
     
     <section id="caracteristicas" class="selection-p1">
         <div class="fe-box">
-            <img src="images/features/f1.png" alt="">
+            <img src="views\images\features\f1.png" alt="">
             <h6> conta grátis </h6>
         </div>
         <div class="fe-box">
-            <img src="images/features/f2.png" alt="">
+            <img src="views\images\features\f2.png" alt="">
             <h6> Fácil entrega </h6>
         </div>
         <div class="fe-box">
-            <img src="images/features/f3.png" alt="">
+            <img src="views\images\features\f3.png" alt="">
             <h6> valores váriados </h6>
         </div>
         <div class="fe-box">
-            <img src="images/features/f4.png" alt="">
+            <img src="views\images\features\f4.png" alt="">
             <h6> Ajudas úteis </h6>
         </div>
         <div class="fe-box">
-            <img src="images/features/f5.png" alt="">
+            <img src="views\images\features\f5.png" alt="">
             <h6> Doações do bairro </h6>
         </div>
         <div class="fe-box">
-            <img src="images/features/f6.png" alt="">
+            <img src="views\images\features\f6.png" alt="">
             <h6> suporte online </h6>
         </div>
     </section>
@@ -88,7 +88,7 @@
         <p>Pare de sofrer essa necessidade, e vanha receber ajuda</p>
         <div class="pro-container">
             <div class="pro">
-                <img src="images/products/n1.jpg" alt="">
+                <img src="views\images\products\f1.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -104,7 +104,7 @@
                 <a href="#"><i class="fal fa-box-heart heart"></i></a>
             </div>
             <div class="pro">
-                <img src="images/products/n2.jpg" alt="">
+                <img src="views\images\products\n2.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -120,7 +120,7 @@
                 <a href="#"><i class="fal fa-box-heart heart"></i></a>
             </div>
             <div class="pro">
-                <img src="images/products/n3.jpg" alt="">
+                <img src="views\images\products\n3.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -136,7 +136,7 @@
                 <a href="#"><i class="fal fa-box-heart heart"></i></a>
             </div>
             <div class="pro">
-                <img src="images/products/n4.jpg" alt="">
+                <img src="views\images\products\n4.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -152,7 +152,7 @@
                 <a href="#"><i class="fal fa-box-heart heart"></i></a>
             </div>
             <div class="pro">
-                <img src="images/products/n5.jpg" alt="">
+                <img src="views\images\products\n5.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -168,7 +168,7 @@
                 <a href="#"><i class="fal fa-box-heart heart"></i></a>
             </div>
             <div class="pro">
-                <img src="images/products/n6.jpg" alt="">
+                <img src="views\images\products\n6.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -184,7 +184,7 @@
                 <a href="#"><i class="fal fa-box-heart heart"></i></a>
             </div>
             <div class="pro">
-                <img src="images/products/n7.jpg" alt="">
+                <img src="views\images\products\n7.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -200,7 +200,7 @@
                 <a href="#"><i class="fal fa-box-heart heart"></i></a>
             </div>
             <div class="pro">
-                <img src="images/products/n8.jpg" alt="">
+                <img src="views\images\products\n8.jpg" alt="">
                 <div class="des">
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
@@ -268,7 +268,7 @@
 
     <footer class="selection-p1">
         <div class="col">
-            <img class="logo" src="images/logo.png" alt="logo">
+            <img class="logo" src="view/images/logo_oficial.png" alt="logo">
             <h4>Contato</h4>
             <p><strong>Endereço: </strong> Rua Brigadeiro Tobias, 182, centro, Sorocaba-sp</p>
             <p><strong>Telefone: </strong> (15) 1111-1111</p>
@@ -318,7 +318,21 @@
             ©Todos os direitos reservados aos alunos da Etec Fernando Prestes
         </div>
     </footer>
+    <script>
+  var MainImg=document.getElementById("MainImg");
+  var smallimg=document.getElementsByClassName("small-img");
+  smallimg[0].onclick=function(){
+    MainImg.src=smallimg[0].src;
+  }
+  smallimg[1].onclick=function(){
+    MainImg.src=smallimg[1].src;
+  }
+  smallimg[2].onclick=function(){
+    Main Img.src=smallimg[2].src;
+  }
 
-    <script scr="Script.js"></script>
+</script>
+
+    <script scr="js/script.js"></script>
 </body>
 </html>

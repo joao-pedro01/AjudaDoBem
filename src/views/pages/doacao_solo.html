@@ -38,9 +38,7 @@
             <div class="small-img-col">
                 <img src="../images/products/f1.jpg" width="100%" class="small-img" alt="">
             </div>
-            <div class="small-img-col">
-                <img src="../images/products/f2.jpg" width="100%" class="small-img" alt="">
-            </div>
+
             <div class="small-img-col">
                 <img src="../images/products/f3.jpg" width="100%" class="small-img" alt="">
             </div>
@@ -53,15 +51,15 @@
         <div class="single-pro-details">
             <h6>Home / Roupas</h6>
             <h4>Camisa Fashion T shirt</h4>
-            <h2>Entre no chat</h2>
-            <select>
+            <h2>Entre em contato com o doador</h2>
+   <!--      <select>
                 <option>sua necessidade</option>
                 <option>pequena</option>
                 <option>média</option>
                 <option>grande</option>
                 <option>urgente</option>
-            </select>
-            <button>Entre em contato</button>
+            </select>  -->   
+            <button class="normal">Entre em contato</button>
             <h4>Detalhes da doação</h4>
             <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum nemo eum deserunt natus nulla culpa placeat, accusantium quam repellat praesentium molestiae consectetur molestias excepturi. Quis reprehenderit dignissimos rerum est pariatur?</span>
         </div>
@@ -132,7 +130,21 @@
         </div>
     </footer>
 
-    <script scr="Script.js"></script>
+    <script>
+        var MainImg=document.getElementById("MainImg");
+        var smallimg=document.getElementsByClassName("small-img");
+        smallimg[0].onclick=function(){
+          MainImg.src=smallimg[0].src;
+        }
+        smallimg[1].onclick=function(){
+          MainImg.src=smallimg[1].src;
+        }
+        smallimg[2].onclick=function(){
+          MainImg.src=smallimg[2].src;
+        }
+
+      </script>
+        <script scr="script.js"></script>
 </body>
 
 </html>
