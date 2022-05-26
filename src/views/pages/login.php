@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- import botstrap -->
+    <link rel="stylesheet" href="../../../bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- import locaweb -->
     <link href="http://assets.locaweb.com.br/locastyle/3.10.1/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
@@ -15,7 +16,7 @@
     <link rel="shortcut icon" href="/AjudaDoBem/src/views/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <?php include_once dirname(__FILE__,4).'/src/controllers/navbar.php'; ?>
+    <?php include_once __DIR__.'/../../controllers/navbar.php'; ?>
 
     <div class="wrapper">
         <span>

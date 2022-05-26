@@ -89,7 +89,7 @@
 				aria-expanded="false"
 				>
 					<img
-						src="<?php echo $_SESSION['UserPicture']; ?>"
+						src="<?= $_SESSION['UserPicture']; ?>"
 						class="rounded-circle"
 						height="25"
 						alt="Black and White Portrait of a Man"

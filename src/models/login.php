@@ -3,7 +3,7 @@
 session_start();
 
 require_once __DIR__.'/../../config/config.php';
-require_once __DIR__.'/../../src/controllers/functions.php';
+require_once __DIR__.'/../controllers/functions.php';
 
 $Error = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -33,11 +33,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['UserPicture'] = $row['path'];
         }
         
-        if($url = $_GET['url'] == NULL){
-            header("location: ../views/pages/logged.php");
-        }else if($url == "doacao") {
+        if($url = $_GET['url'] == "doacao"){
             header("location: ../views/pages/test/doacao.php");
-        
+        }else {
+            header("location: ../views/pages/logged.php");
         }
-    }    
+    }
 }
