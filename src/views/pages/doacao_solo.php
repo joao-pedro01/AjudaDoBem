@@ -32,11 +32,11 @@
 
 <section id="prodetails" class="selection-p1">
     <div class="single-pro-image">
-        <img src="../images/products/f1.jpg" width="100%" id="MainImg" alt="imagem camisa">
+        <img src="<?= $_GET["image"] ?>" width="100%" id="MainImg" alt="imagem camisa">
 
         <div class="small-img-group">
             <div class="small-img-col">
-                <img src="../images/products/f1.jpg" width="100%" class="small-img" alt="">
+                <img src="<?= $_GET["image"] ?>" width="100%" class="small-img" alt="">
             </div>
 
             <div class="small-img-col">
@@ -49,8 +49,8 @@
   
         </div>
         <div class="single-pro-details">
-            <h6>Home / Roupas</h6>
-            <h4>Camisa Fashion T shirt</h4>
+            <h6>Home / <?= $_GET["category"]?></h6>
+            <h4><?= $_GET["title"] ?></h4>
             <h2>Entre em contato com o doador</h2>
    <!--      <select>
                 <option>sua necessidade</option>
@@ -61,7 +61,7 @@
             </select>  -->   
             <button class="normal">Entre em contato</button>
             <h4>Detalhes da doação</h4>
-            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum nemo eum deserunt natus nulla culpa placeat, accusantium quam repellat praesentium molestiae consectetur molestias excepturi. Quis reprehenderit dignissimos rerum est pariatur?</span>
+            <span><?= $_GET["description"] ?></span>
         </div>
 </section>
 

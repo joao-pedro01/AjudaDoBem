@@ -52,12 +52,12 @@ CREATE TABLE categorys(
     category varchar(55) NOT NULL
 );
 
-INSERT INTO categorys(category) VALUE('lazer');
-INSERT INTO categorys(category) VALUE('higiene');
-INSERT INTO categorys(category) VALUE('alimentos');
-INSERT INTO categorys(category) VALUE('móveis');
-INSERT INTO categorys(category) VALUE('roupas');
-INSERT INTO categorys(category) VALUE('eletrônicos');
+INSERT INTO categorys(category) VALUE('Lazer');
+INSERT INTO categorys(category) VALUE('Higiene');
+INSERT INTO categorys(category) VALUE('Alimentos');
+INSERT INTO categorys(category) VALUE('Móveis');
+INSERT INTO categorys(category) VALUE('Roupas');
+INSERT INTO categorys(category) VALUE('Eletrônicos');
 
 CREATE TABLE necessitys(
     id int AUTO_INCREMENT PRIMARY KEY,

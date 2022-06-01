@@ -71,7 +71,7 @@
                         </div>
                         <h4>Receba agora</h4>
                     </div>
-                    <a href="#"><i class="fal fa-box-heart heart"></i></a>
+                    <a href="views/pages/doacao_solo.php?<?= "image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -328,7 +328,7 @@
     MainImg.src=smallimg[1].src;
   }
   smallimg[2].onclick=function(){
-    Main Img.src=smallimg[2].src;
+    //Main Img.src=smallimg[2].src;
   }
 
 </script>
