@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once __DIR__.'/../../config/config.php';
 require_once __DIR__.'/../controllers/functions.php';
 
@@ -12,10 +12,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $password = md5($password);
     try{
         $row = DB::queryFirstRow("
-            SELECT i.path, u.* FROM users u
+            SELECT i.path as profile_path, u.id, u.name, u.birth_date, u.cpf, u.cell, u.cep, u.username, u. email
+            FROM users u
             INNER JOIN images i
             ON u.id_image = i.id
-            WHERE username LIKE '%$username%' || cpf = '$username' && password = '$password' && is_active = true LIMIT 1;
+            WHERE (username LIKE '%$username%' || cpf = '$username') && password = '$password' && is_active=1 LIMIT 1;
         ");
     }catch(Exception $e){
         dd($e);
@@ -34,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['UserCelular'] = $row['cell'];
             $_SESSION['UserEmail'] = $row['email'];
             $_SESSION['BirthDate'] = $row['birth_date'];
-            $_SESSION['UserPicture'] = $row['path'];
+            $_SESSION['UserPicture'] = $row['profile_path'];
         }
         
         if($url = $_GET['url'] == "doacao"){

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once __DIR__."/../../config/config.php";
+require_once __DIR__."/../../config/config.php";
 include_once __DIR__."/../../src/controllers/functions.php";
 
 if(Logged($_SESSION) == true){

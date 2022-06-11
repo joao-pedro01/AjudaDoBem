@@ -1,5 +1,7 @@
+/.tmp.driveupload/
+/.tmp.drivedownload/
 /bootstrap/
-/node_modules
+/node_modules/
 /script/register.yml
 /src/views/pages/test/
 /src/views/upload/*

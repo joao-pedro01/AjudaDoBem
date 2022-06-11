@@ -1,5 +1,5 @@
 <section id="header">
-    <a href="#"><img src="views/images/logo_oficial.png" class="logo" alt="logo"></a>
+    <a href="#"><img src="/AjudaDoBem/src/views/images/logo_oficial.png" class="logo" alt="logo"></a>
     <div>
         <ul id="navbar">
             <li><a class="active" href="index.html">Home</a></li>
