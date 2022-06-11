@@ -1,5 +1,5 @@
-<?php require_once '../src/models/exibirProduct.php'; ?>
-<?php include_once '../src/controllers/button.php'; ?>
+<?php require_once 'models/exibirProduct.php'; ?>
+<?php include_once 'controllers/button.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,11 +10,8 @@
     <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
     <script src="../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <title>Ajuda do Bem</title>
     <link rel="shortcut icon" href="/AjudaDoBem/src/views/images/favicon.ico" type="image/x-icon">
 </head>
-<body>
-
     <?php include_once 'controllers/navbar.php'; ?>
 
     <section id="modelo">
@@ -22,7 +19,7 @@
         <h2>Uma comunidade únida</h2>
         <h1>Ajudando os vizinhos </h1>
         <p>Incentivando o Bem</p>
-        <a href="views/pages/login.php?url=doacao"><button>Doe Agora</button></a>
+        <a href=<?= Logged($_SESSION) == false ? "views/pages/login.php?url=doacao" : "views/pages/doacao.php"; ?>><button>Doe Agora</button></a>
     </section>
     
     <section id="caracteristicas" class="selection-p1">

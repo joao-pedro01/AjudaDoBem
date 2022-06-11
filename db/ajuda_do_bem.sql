@@ -37,10 +37,12 @@ CREATE TABLE users(
     cpf bigint(11) NOT NULL,
     cell int(9),
     email varchar(55) NOT NULL,
+    cep int(8) NOT NULL,
     username varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
-    created date,
-    modified date,
+    is_active boolean,
+    created datetime,
+    modified datetime,
 
     FOREIGN KEY (id_type) REFERENCES type_users (id),
     FOREIGN KEY (id_image) REFERENCES images (id)
@@ -75,6 +77,9 @@ CREATE TABLE products(
     id_category int NOT NULL,
     title varchar(25) NOT NULL,
     description varchar(255),
+    is_active boolean,
+    created datetime,
+    modified datetime,
     
 	FOREIGN KEY (id_user) REFERENCES users (id),
     FOREIGN KEY (id_necessity) REFERENCES necessitys (id),

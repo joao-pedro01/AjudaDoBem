@@ -1,6 +1,6 @@
 <?php
 
-include_once dirname(__FILE__,3).'/config/config.php';
+include_once __DIR__.'/../../config/config.php';
 include_once '../controllers/functions.php';
 
 $name = $_POST["name"];

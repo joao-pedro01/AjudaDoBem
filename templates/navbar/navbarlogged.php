@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<!-- Container wrapper -->
@@ -101,7 +100,7 @@
 						<a class="dropdown-item" href="/AjudaDoBem/src/views/pages/logged.php">Meu perfil</a>
 					</li>
 					<li>
-						<a class="dropdown-item" href="#">Configurações</a>
+						<a class="dropdown-item" href="/AjudaDoBem/src/views/pages/test/update_register.php">Configurações</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="/AjudaDoBem/src/models/logout.php">Sair</a>

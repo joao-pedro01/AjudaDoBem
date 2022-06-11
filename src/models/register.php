@@ -1,6 +1,6 @@
 <?php
 
-include_once dirname(__FILE__,3).'/config/config.php';
+include_once __DIR__.'/../../config/config.php';
 include_once '../controllers/functions.php';
 
 // Processando dados do formulário quando o formulário é enviado
@@ -9,11 +9,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $birthDate = $_POST["datenasc"];
     $username = $_POST["username"];
     $email = $_POST["email"];
+    $cep = $_POST["cep"];
     $password = $_POST["password"];
     $cell = $_POST["phone"];
     $cpf = $_POST["cpf"];
     $file = $_FILES["image"];
-    //dd($file);
 
     /* 
         input Name
@@ -112,7 +112,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }else {
         $ext = strrchr($file["name"], '.');
         $image = $username.$ext;
-        dd($image);
         $type = explode("/", $file['type']);
         
         // se o arquivo não for imagem
@@ -123,31 +122,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
         try{
-            /* variaveis que cria nome dos diretorios */
-            $path = "/AjudaDobem/src/views/path";
-            $dir_user = md5($username);
             $dir_publi = "profile";
-        
-            if(!file_exists("$path/$dir_user/$dir_publi/")){
-                mkdir("$path/$dir_user/$dir_publi", 0777, true);
-                
-                // Move o arquivo da pasta temporaria de upload para a pasta de destino 
-                if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
-                    echo "Arquivo enviado com sucesso!";
-                    $path = "$path/$dir_user/$dir_publi/$image";
-
-                    $date_time = DateTime();
-                    DB::insert('images', [
-                        'id_type' => $id_type,
-                        'path' => $path
-                        /* 'date' => $date_time["date"],
-                        'hour' => $date_time["time"] */
-                    ]);
-                    $id_image = DB::insertId();
-                }else {
-                    echo "Erro, o arquivo não pode ser enviado.";
-                }
-            }
+            CreateImage($_SESSION, $dir_publi, $file, $image);
         }catch(Exception $e) {
             dd($e);
         }
@@ -169,16 +145,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             'email' => $email,
             'password' => $password,
             'cell' => $cell,
-            'cpf' => $cpf
+            'cpf' => $cpf,
+            'cep' => $cep,
+            'is_active' => true,
+            'created' => date('Y-m-d H:i:s'),
+            'modified' => date('Y-m-d H:i:s')
         ]);
-        $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
         DB::disconnect();
-
-        if($sql[0]){
-            header("location: ../views/pages/login.php");
-            $sucess =  'Usuário cadastrado com sucesso!!!.';
-            Sucess($sucess);
-        }
+        header("location: ../views/pages/login.php");
+        $sucess =  'Usuário cadastrado com sucesso!!!.';
+        Sucess($sucess);
     }catch(Exception $e) {
         $error = "Algo deu errado";
         Invalid($error);
@@ -186,4 +162,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }else {
     header("location: ../index.php");
 }
-?>
