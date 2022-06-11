@@ -27,11 +27,11 @@
             </div>
             <div class="form-group">
                 <label>CPF</label>
-                <input type="text" name="cpf" placeholder="Digite o seu cpf sem -." class="form-control">
+                <input type="text" name="cpf" placeholder="Digite o seu cpf sem -." class="ls-mask-cpf form-control">
             </div>
             <div class="form-group">
                 <label>Cep:
-                    <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" class="form-control">
+                    <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" class="ls-mask-cep form-control">
                 </label>
                 <label>Rua:
                     <input name="rua" type="text" id="rua" size="60" class="form-control" readonly>
@@ -46,37 +46,13 @@
                     <input name="uf" type="text" id="uf" size="2" class="form-control"  readonly>
                 </label>
             </div>
-           <!--  <div class="form-group">
-                <label>CEP</label>
-                <input type="text" name="cep" id="cep" value="" size="10" maxlength="8" placeholder="Digite o seu cep sem -."  onblur="pesquisacep(this.value);">
-            </div>
-            <div class="form-group">
-                <label>Rua</label>
-                <input type="text" id="rua" size="60" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Bairro</label>
-                <input type="text" id="bairro" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Cidade</label>
-                <input type="text" id="cidade" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Estadp</label>
-                <input type="text" id="uf" size="2" class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Bairro</label>
-                <input type="text" id="bairro" class="form-control">
-            </div> -->
             <div class="form-group">
                 <label>Nome do usuário</label>
                 <input type="text" name="username" placeholder="Ex: gustavo-pereira13" class="form-control">
             </div>
             <div class="form-group">
                 <label>Celular</label>
-                <input type="text" name="phone" placeholder="Digite o seu celular" class="form-control">
+                <input type="text" name="phone" placeholder="Digite o seu celular" class="ls-mask-phone9_with_ddd	 form-control">
             </div>
             <div class="form-group">
                 <label>Email</label>
@@ -104,6 +80,26 @@
             </div>
             <p>Já tem uma conta? <a href="login.php">Entre aqui</a>.</p>
         </form>
+        <form action="" class="ls-form ls-form-horizontal" data-ls-module="form">
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">Telefone</b>
+    <input type="text" name="cel2" class="ls-mask-phone8_with_ddd" placeholder="(99) 9999-9999" >
+  </label>
+
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">CNPJ</b>
+    <input type="text" name="cnpj" class="ls-mask-cnpj" placeholder="00.000.000/0000-00" >
+  </label>
+
+  <label class="ls-label col-md-3">
+    <b class="ls-label-text">CPF</b>
+    <input type="text" name="cpf" class="ls-mask-cpf" placeholder="000.000.000-00" >
+  </label>
+  <label class="ls-label col-md-2">
+    <b class="ls-label-text">CEP</b>
+    <input type="text" name="cep" class="ls-mask-cep" placeholder="00000-000" >
+  </label>
+</form>
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js" type="text/javascript"></script>

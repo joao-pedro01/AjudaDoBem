@@ -9,6 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST["username"];
     $email = $_POST["email"];
     $cep = $_POST["cep"];
+    $cep = str_replace(array("-", " "), '', $cell);
     $cell = $_POST["phone"];
     $cell = str_replace(array("(", "-", ")", " "), '', $cell);
 

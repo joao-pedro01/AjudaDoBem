@@ -10,8 +10,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST["username"];
     $email = $_POST["email"];
     $cep = $_POST["cep"];
+    $cep = str_replace(array("-", " "), '', $cell);
     $password = $_POST["password"];
     $cell = $_POST["phone"];
+    $cell = str_replace(array("(", "-", ")", " "), '', $cell);
     $cpf = $_POST["cpf"];
     $file = $_FILES["image"];
 

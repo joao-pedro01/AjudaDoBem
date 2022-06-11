@@ -4,4 +4,4 @@ if (bar){
    bar.addEventListener('click',() => {
     nav.classList.add('active');
    })
-}
+}''
