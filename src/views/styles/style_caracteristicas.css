@@ -1,0 +1,53 @@
+#caracteristicas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#caracteristicas .fe-box{
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    border: 1px solid #cce7d0;
+    border-radius: 4px;
+    margin: 15px 0;
+    background-color: rgba(228, 228, 228, 0.37);
+}
+
+#caracteristicas .fe-box:hover{
+    box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
+}
+#caracteristicas .fe-box img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#caracteristicas .fe-box h6{
+    display: inline-block;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #638560;
+    background-color: #fddde4;
+}
+
+#caracteristicas .fe-box:nth-child(1) h6{
+    background-color: #482edb48;
+}
+#caracteristicas .fe-box:nth-child(2) h6{
+    background-color: #ee6ae74f;
+}
+#caracteristicas .fe-box:nth-child(3) h6{
+    background-color: #cdebbc;
+}
+#caracteristicas .fe-box:nth-child(4) h6{
+    background-color: #49bed375;
+}
+#caracteristicas .fe-box:nth-child(5) h6{
+    background-color: #ad51d16c;
+}
+#caracteristicas .fe-box:nth-child(6) h6{
+    background-color: #e9c83554;
+}

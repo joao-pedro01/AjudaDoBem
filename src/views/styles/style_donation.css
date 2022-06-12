@@ -1,0 +1,51 @@
+#prodetails{
+
+    justify-content: center;
+       
+   }
+
+   #input-doacao{
+       
+       border:none ;
+   }
+
+   .input_upload{
+   font-family: sans-serif;
+   box-sizing:border-box;
+   border:none ;
+
+ }
+ 
+ .form-upload{
+   display: block;
+   
+   padding: 10px;
+   text-align: center;
+   width: 350px;
+   border-radius: 4px;
+ }
+ 
+ .input-personalizado{
+   cursor: pointer;
+   
+ }
+ 
+ .imagem{
+   max-width: 100%;
+ }
+ 
+ .input-file{
+   display:none;
+ }
+   input.bnt_enviar{
+
+   background-color: #465b52 !important;
+   font-size: 14px;
+   font-weight: 600;
+   padding: 15px 30px;
+   color: #000;
+   border-radius: 4px;
+   cursor: pointer;
+   border: none;
+   outline: none;
+ }

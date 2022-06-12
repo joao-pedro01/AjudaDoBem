@@ -1,5 +1,23 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../src/views/styles/style_header.css">
+</head>
+	<style>
+		.dropdown-toggle::after{
+			border: none;
+			
+		}
+
+	</style>
+<body>
+<section id="header">
+
+<nav class="navbar navbar-expand-lg navbar-light ">
 	<!-- Container wrapper -->
 	<div class="container-fluid">
 		<!-- Toggle button -->
@@ -29,13 +47,13 @@
 			<!-- Left links -->
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-				<a class="nav-link" href="#">Dashboard</a>
+				<a class="nav-link" href="#">Inicio</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="#">Team</a>
+				<a class="nav-link" href="#">doações</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="#">Projects</a>
+				<a class="nav-link" href="#">Sobre nós</a>
 				</li>
 			</ul>
 		<!-- Left links -->
@@ -44,10 +62,6 @@
 
 		<!-- Right elements -->
 		<div class="d-flex align-items-center">
-			<!-- Icon -->
-			<a class="text-reset me-3" href="#">
-				<i class="fas fa-shopping-cart"></i>
-			</a>
 
 			<!-- Notifications -->
 			<div class="dropdown">
@@ -113,3 +127,6 @@
 <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
+</section>
+</body>
+</html>

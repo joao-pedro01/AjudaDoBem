@@ -1,0 +1,32 @@
+#modelo {
+    background-image: url("../images/hero6.png");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#modelo h4{
+    padding-bottom: 15pxx;
+}
+
+#modelo h1{
+    color: #638560;
+}
+
+#modelo button{
+    background-image: url("../images/button2.png");
+    background-color: transparent;
+    color: #638560;
+    border: 0;
+    padding: 14px  80px 14px 65px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+}

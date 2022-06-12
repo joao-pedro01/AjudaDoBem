@@ -18,7 +18,7 @@
         if(is_file($file)){
             include $file;
         }else{
-            echo '404.php';
+            echo '404.php aa';
         }
     ?>
 </body>
