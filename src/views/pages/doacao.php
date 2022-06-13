@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="../styles/style_donation.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css">
-    
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link href="http://assets.locaweb.com.br/locastyle/3.10.1/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
     <title>Document</title>
 </head>
 <body>
@@ -18,20 +18,21 @@
 <section id="prodetails" class="selection-p1">
     <div class="single-pro-image">
         <div class="input_upload">
-    <form class="form-upload">
-  <label class="input-personalizado">
-    <span class="botao-selecionar">Selecione uma imagem</span>
-    <img class="imagem" />
-  
-    <input type="file" name=image id="MainImg" class="input-file" accept="image/*">
-  </label>
-</form></div>
-    </div>    
+            <div class="form-upload">
+                <label class="input-personalizado">
+                    <span class="botao-selecionar">Selecione uma imagem</span>
+                    <img class="imagem" />
+        
+                    <input onclick="exibirFoto()" type="file" name=image id="MainImg" class="input-file" accept="image/*">
+                </label>
+            </div>
+        </div>
+    </div>
     <form action="/AjudaDoBem/src/models/register_donation.php" method="post" enctype="multipart/form-data">
         <input type="text" name=title placeholder="Titulo" id="input-doacao"><br><br>
      <div class="single-pro-details">
-        <select class="form-select" name=category aria-label="Default select example"><br>
-            <option selected>Selecione a categoria</option>\
+        <select class="form-select" name=category aria-label="Default select example" required><br>
+            <option disabled selected>Selecione a categoria</option>\
             <option value="alimentos">Alimentos</option>
             <option value="eletronicos">Eletronicos</option>
             <option value="higiene">Higiene pessoal</option>
@@ -39,18 +40,28 @@
             <option value="roupas">Roupas</option>
             <option value="lazer">Lazer</option>
         </select><br><br>
-        <select>
-                <option>sua necessidade</option>
-                <option>pequena</option>
-                <option>média</option>
-                <option>grande</option>
-                <option>urgente</option>
-            </select> <br><br>
-     </div>
-        <textarea name="description" cols="30" rows="10" placeholder="Descrição" id="input-doacao"></textarea><br><br>
-        
-        <input type="submit" value="Enviar" class="bnt_enviar">
-    </form>
+    </div>
+    <textarea name="description" id="" cols="30" rows="10" data-ls-module="charCounter" maxlength="255" placeholder="Descrição"></textarea><br><br>
+    <label class="ls-label-text">
+        <input type="radio" name="FlgPontua" value="necessidade" checked>Necessidade<br>
+    </label>
+    <label class="ls-label-text">
+        <input type="radio" name="FlgPontua" value="doacao">
+        Doação
+      </label>
+    
+    <div class="camposExtras">
+        <select name="priority" required>
+            <option disabled selected>Prioridade da necessidade</option>
+            <option value="1">Baixa</option>
+            <option value="2">Média</option>
+            <option value="3">Alta</option>
+        </select>
+    </div>
+    <br><br>
+    <input type="file" name="image" id=""><br>
+    <input type="submit" value="Enviar" class="bnt_enviar">
+</form>
 </section>
 <section id="newsletter" class="selection-p1 selection-m1">
         <div class="newsletter">
@@ -63,18 +74,30 @@
             <button>Entre aqui</button>
         </div>
     </section>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js" type="text/javascript"></script>
 <script>
-    	const $ = document.querySelector.bind(document);
+$('input[name="FlgPontua"]').change(function () {
+    if ($('input[name="FlgPontua"]:checked').val() === "necessidade") {
+        $('.camposExtras').show();
+    } else {
+        $('.camposExtras').hide();
+    }
+});
+function exibirFoto() {
+    const $ = document.querySelector.bind(document);
 
-const previewImg = $('.imagem');
-const fileChooser = $('.input-file');
+    const previewImg = $('.imagem');
+    const fileChooser = $('.input-file');
 
-fileChooser.onchange = e => {
-  const fileToUpload = e.target.files.item(0);
-  const reader = new FileReader();
-  reader.onload = e => previewImg.src = e.target.result;
-  reader.readAsDataURL(fileToUpload);
-};
+    fileChooser.onchange = e => {
+        const fileToUpload = e.target.files.item(0);
+        const reader = new FileReader();
+        reader.onload = e => previewImg.src = e.target.result;
+        reader.readAsDataURL(fileToUpload);
+    };
+}        
 </script>
+</body>
 </html>

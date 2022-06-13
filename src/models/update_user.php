@@ -9,10 +9,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST["username"];
     $email = $_POST["email"];
     $cep = $_POST["cep"];
-    $cep = str_replace(array("-", " "), '', $cell);
+    $cep = str_replace(array("-", " "), '', $cep);
     $cell = $_POST["phone"];
     $cell = str_replace(array("(", "-", ")", " "), '', $cell);
-
     /* 
     input Name
     Erro caso input vazio

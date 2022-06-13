@@ -4,11 +4,12 @@ include_once '../controllers/functions.php';
 
 /* Recebe os inputs */
 $title = $_POST["title"];
-$category = $_POST["category"];$id_category = CategoryProduct($category);
+$type = $_POST["FlgPontua"];
+$category = $_POST["category"];
+$id_category = CategoryProduct($category);
 $description = $_POST["description"];
 /* Altera nome do arquivo */
 $file = $_FILES["image"];
-
 // Processando dados do formulário quando o formulário é enviado
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     /* Verifica se o campo title está vazio */
@@ -20,10 +21,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         Invalid($error);
     }
 
+    if($type == "doacao"){
+        $id_necessity = null;
+    }
+
     try{
         DB::insert('products', [
             'id_user' => $_SESSION['UserId'],
-            'id_necessity' => 1/* $id_necessity */,
+            'id_necessity' => $id_necessity,
             'id_category' => $id_category,
             'title' => $title,
             'description' => $description,
@@ -38,26 +43,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo $e;
     }
     
-    try{
-        $sql = DB::queryFirstField("SELECT COUNT(*) FROM types WHERE type = '{$file["type"]}'");
-        if(!$sql[0]){
-            DB::insert('types', [
-                'type' => $file["type"]
-            ]);
-            $id_type = DB::insertId();
-        }else {
-            //SELECT `id`, `type` FROM `types` WHERE 1
-            $row = DB::queryFirstRow("SELECT * FROM types
-            WHERE type ='{$file['type']}'");
-            $id_type = $row["id"];
-        }
-    }catch(Exception $e){
-
-    }
     if($file["error"] == 4){
         // image default if não for enviado nada
         $id_image = 2;
     }else {
+        try{
+            $sql = DB::queryFirstField("SELECT COUNT(*) FROM types WHERE type = '{$file["type"]}'");
+            if(!$sql[0]){
+                DB::insert('types', [
+                    'type' => $file["type"]
+                ]);
+                $id_type = DB::insertId();
+            }else {
+                //SELECT `id`, `type` FROM `types` WHERE 1
+                $row = DB::queryFirstRow("SELECT * FROM types
+                WHERE type ='{$file['type']}'");
+                $id_type = $row["id"];
+            }
+        }catch(Exception $e){
+    
+        }
         $type = explode("/", $file['type']);
         $ext = strrchr($file["name"], '.');
         $image = "image".$ext;
@@ -68,20 +73,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         try{
             $path = CreateImage($_SESSION, $id_product, $file, $image);
-            // /* variaveis que cria nome dos diretorios */
-            // $path = "../views/images/upload";
-            // $dir_user = "{$_SESSION["UserName"]}";
-            // $dir_user = md5($dir_user);
-            // $dir_publi = md5($id_product);
-        
-            // if(!file_exists("$path/$dir_user/$dir_publi/")){
-            //     mkdir("$path/$dir_user/$dir_publi", 0777, true);
-                
-            //     // Move o arquivo da pasta temporaria de upload para a pasta de destino 
-            //     if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
-            //         echo "Arquivo enviado com sucesso!";
-            //         $path = "/AjudaDobem/src/views/path";
-            //         $path = "$path/$dir_user/$dir_publi/$image";
             try {
                 $date_time = DateTime();
                 DB::insert('images', [

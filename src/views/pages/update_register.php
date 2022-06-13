@@ -85,6 +85,7 @@
                     </div>
                     <div class="mt-5 text-center">
                         <button type="submit" value="Criar Conta" type="button" class="btn btn-primary profile-button" type="button">Save Profile</button>
+                        <a href="../../models/delete_user.php"><button type="" value="Criar Conta" type="button" class="btn btn-danger profile-button" type="button">Desativar conta</button></a>
                     </div>
                 </div>
             </form>
