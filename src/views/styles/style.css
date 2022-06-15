@@ -72,6 +72,8 @@ body{
 }
 
 /* COMEÇO DO CABEÇALHO */
+
+
 #header{
 
     align-items: center;
@@ -86,9 +88,10 @@ body{
 
 }
 .logo {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    text-align: center;
     padding-right: 100px;
+    margin-top: 10px;
 }
 
 #navbar{
@@ -286,7 +289,7 @@ body{
 
 #doação1 .pro .des i{
     font-size: 12px;
-    color: rgb(243, 181, 25);
+    color: rgb(255, 0, 0);
 }
 
 #doação1 .pro .des h4{
@@ -317,7 +320,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/banner/b23.png");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -357,7 +360,7 @@ color: #fff;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/banner/propaganda.png");
     min-width: 565px;
     height: 50vh;
     background-size: cover;
@@ -366,7 +369,7 @@ color: #fff;
 }
 
 #sm-banner .banner-box2 {
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/banner/propaganda.png");
 }
 
 #sm-banner h4{
@@ -405,7 +408,7 @@ color: #fff;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/banner/propaganda.png");
     min-width: 30%;
     height: 30vh;
     background-size: cover;
@@ -415,11 +418,11 @@ color: #fff;
 }
 
 #banner3 .banner-box2{
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/banner/propaganda.png");
 }
 
 #banner3 .banner-box3{
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/banner/propaganda.png");
 }
 
 #banner3 h2{
@@ -439,7 +442,7 @@ color: #fff;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-image: url("../images/image-not-found.png");
+    background-image: url("../images/banner/b21.png");
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
@@ -556,7 +559,7 @@ footer .copyright{
  
     /* header */
     #page-header{
-    background-image: url("view/images/image-not-found.png");
+    background-image: url("../images/banner/propaganda.png");
     width: 100%;
     height: 40vh;
     background-size: cover;
