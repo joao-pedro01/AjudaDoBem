@@ -79,12 +79,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         try{
             $path = CreateImage($_SESSION, $id_product, $file, $image);
             try {
-                $date_time = DateTime();
                 DB::insert('images', [
                     'id_type' => $id_type,
                     'path' => $path
-                    /* 'date' => $date_time["date"],
-                    'hour' => $date_time["time"] */
                 ]);
             } catch (\Throwable $th) {
                 throw $th;

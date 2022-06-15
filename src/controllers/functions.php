@@ -11,48 +11,6 @@ function dd($string){
     exit;
 }
 /* 
-    datetime( date/time )
-*/
-function DateTime(){
-    $DateTime = array(
-        'date' => date('Y-m-d'),
-        'time' => date('H:i:s')
-    );
-
-    return $DateTime;
-}
-/* 
-    function para tratamento de erros
-*/
-function validate($field, $type){
-    $cpf = false;
-
-    switch($type){
-        case 'empty':
-            if(empty(trim($field))){
-                $Error = 'O campo Nome não pode estar vazio!!!';
-                Invalid($Error);
-            }
-            break;
-
-        // Validação de erro caso algum caractere invalido seja inputado no $field
-        case 'InvalidChar':
-            if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($field))){
-                $Error = "O nome de usuário pode conter apenas letras, números e _.";
-                Invalid($Error);
-            }
-            break;
-            
-        case 'Cpf':
-            $cpf = validaCPF($field);
-            if($cpf == false){
-                $Error = 'CPF informado é inválido';
-                Invalid($Error);
-            }
-            break;
-    }
-}
-/* 
     Category ( string ) : int
     Return id category
 */

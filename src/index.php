@@ -173,14 +173,14 @@
             <a href="#">Nós contate</a>
         </div>
 
-        <div class="col">
+        <!-- <div class="col">
             <h4>Minha conta</h4>
             <a href="#"></a>
             <a href="#">Entrar na minha conta</a>
             <a href="#">Ver doações</a>
             <a href="#">Minhas doações</a>
             <a href="#">Ajuda</a>
-        </div>
+        </div> -->
 <!-- 
         <div class="col install">
             <h4>Instale App</h4>
@@ -194,7 +194,7 @@
         </div>
  -->
         <div class="copyright">
-            ©Todos os direitos reservados aos alunos da Etec Fernando Prestes
+            ©Todos os direitos reservados a Ajuda Do Bem
         </div>
     </footer>
     <script>

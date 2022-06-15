@@ -20,12 +20,12 @@
                 <img src="<?= $_GET["image"] ?>" width="100%" class="small-img" alt="">
             </div>
 
-            <div class="small-img-col">
+            <!-- <div class="small-img-col">
                 <img src="../images/products/f3.jpg" width="100%" class="small-img" alt="">
             </div>
             <div class="small-img-col">
                 <img src="../images/products/f4.jpg" width="100%" class="small-img" alt="">
-            </div>
+            </div> -->
          </div>
   
         </div>

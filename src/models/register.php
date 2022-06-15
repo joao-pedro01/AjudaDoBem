@@ -145,7 +145,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             INSERT USER IN TABLE USERS
         */
         try{
-            $date_time = DateTime();
             DB::insert('users', [
                 'id_type' => 1,
                 'id_image' => $id_image,
@@ -208,7 +207,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     INSERT USER IN TABLE USERS
                 */
                 try{
-                    $date_time = DateTime();
                     DB::update('users', [
                         'name' => $name,
                         'birth_date' => $birthDate,

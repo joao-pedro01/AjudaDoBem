@@ -46,9 +46,9 @@
 				<li class="nav-item">
 				<a class="nav-link" href="/AjudaDoBem/src/views/pages/doacao.php">Fazer postagem</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 				<a class="nav-link" href="#">Sobre nós</a>
-				</li>
+				</li> -->
 			</ul>
 		<!-- Left links -->
 		</div>

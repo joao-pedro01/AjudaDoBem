@@ -15,7 +15,8 @@
 		<ul id="navbar">
 			<li><a class="active" href="/AjudaDoBem/src/index.php">Home</a></li>
 			<li><a href="/AjudaDoBem/src/views/pages/doacao.html">Doações</a></li>
-			<li><a href=" /AjudaDoBem/src/views/pages/login.php">Entre na sua conta</a></li>
+			<li><a href=" /AjudaDoBem/src/views/pages/register.php">Cadastre-se</a></li>
+			<li><a href=" /AjudaDoBem/src/views/pages/login.php">Entre</a></li>
 
 
 		</ul>
