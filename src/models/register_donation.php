@@ -7,6 +7,7 @@ $title = $_POST["title"];
 $type = $_POST["FlgPontua"];
 $category = $_POST["category"];
 $id_category = CategoryProduct($category);
+$id_necessity = $_POST["priority"];
 $description = $_POST["description"];
 /* Altera nome do arquivo */
 $file = $_FILES["image"];
@@ -22,7 +23,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     if($type == "doacao"){
+        $id_type = 1;
         $id_necessity = null;
+    }else {
+        $id_type = 2;
     }
 
     try{
@@ -30,6 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             'id_user' => $_SESSION['UserId'],
             'id_necessity' => $id_necessity,
             'id_category' => $id_category,
+            'type' => $id_type,
             'title' => $title,
             'description' => $description,
             'is_active' => true,

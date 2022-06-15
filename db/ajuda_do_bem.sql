@@ -75,6 +75,7 @@ CREATE TABLE products(
 	id_user int NOT NULL,
     id_necessity int NOT NULL,
     id_category int NOT NULL,
+    type int NOT NULL,
     title varchar(25) NOT NULL,
     description varchar(255),
     is_active boolean,

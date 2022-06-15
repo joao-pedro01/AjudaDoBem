@@ -6,30 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="/AjudaDoBem/bootstrap/dist/css/bootstrap.min.css">
     <title>Ajuda do Bem</title>
 </head>
-
 <body>
-    
-    <section id="header">
-        <a href="#"><img src="../images/logo.png" class="logo" alt="logo"></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="Doações.html">Doações</a></li>
-                <li><a href="Blog.html">Blog</a></li>
-                <li><a href="Sobre_nos.html">Sobre nós</a></li>
-                <li><a href="Contato.html">Contato</a></li>
-                <li><a href="Sacola.html"><i class="fal fa-shopping-bag"></i></a></li>
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href="Sacola.html"><i class="far fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
-
+<?php include_once '../../controllers/navbar.php'; ?>
 <section id="prodetails" class="selection-p1">
     <div class="single-pro-image">
         <img src="<?= $_GET["image"] ?>" width="100%" id="MainImg" alt="imagem camisa">

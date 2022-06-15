@@ -30,6 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['UserId'] = $row['id'];
             $_SESSION['UserNome'] = $row['name'];
             $_SESSION['UserCpf'] = $row['cpf'];
+            $_SESSION['UserCep'] = $row['cep'];
             $_SESSION['UserName'] = $row['username'];
             $_SESSION['UserCelular'] = $row['cell'];
             $_SESSION['UserEmail'] = $row['email'];

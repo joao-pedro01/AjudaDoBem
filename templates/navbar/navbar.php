@@ -47,14 +47,20 @@
 			<!-- Left links -->
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-				<a class="nav-link" href="#">Inicio</a>
+				<a class="nav-link" href="/AjudaDoBem/src/index.php">Inicio</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="#">doações</a>
+				<a class="nav-link" href="/AjudaDoBem/src/views/pages/doacao_solo.php">doações</a>
 				</li>
 				<li class="nav-item">
+				<a class="nav-link" href="/AjudaDoBem/src/views/pages/register.php">Cadastrar</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/AjudaDoBem/src/views/pages/login.php">Entrar</a>
+				</li>
+				<!-- <li class="nav-item">
 				<a class="nav-link" href="#">Sobre nós</a>
-				</li>
+				</li> -->
 			</ul>
 		<!-- Left links -->
 		</div>
@@ -65,7 +71,7 @@
 
 
 			<!-- Notifications -->
-			<div class="dropdown">
+			<!-- <div class="dropdown">
 				<a
 				class="text-reset me-3 dropdown-toggle hidden-arrow"
 				href="#"
@@ -78,7 +84,7 @@
 					<span class="badge rounded-pill badge-notification bg-danger">1</span>
 				</a>
 
-			</div>
+			</div> -->
 			<!-- Avatar -->
 		</div>
 		<!-- Right elements -->

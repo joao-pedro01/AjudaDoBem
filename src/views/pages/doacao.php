@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style_donation.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/AjudaDoBem/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link href="http://assets.locaweb.com.br/locastyle/3.10.1/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
@@ -59,7 +59,7 @@
         </select>
     </div>
     <br><br>
-    <input type="file" name="image" id=""><br>
+    <input type="file" name="image" accept="image/*"><br>
     <input type="submit" value="Enviar" class="bnt_enviar">
 </form>
 </section>
@@ -77,6 +77,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js" type="text/javascript"></script>
+    <script src="/AjudaDoBem/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 $('input[name="FlgPontua"]').change(function () {
     if ($('input[name="FlgPontua"]:checked').val() === "necessidade") {

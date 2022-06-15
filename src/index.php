@@ -1,5 +1,4 @@
 <?php require_once 'models/exibirProduct.php'; ?>
-<?php include_once 'controllers/button.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -53,18 +52,40 @@
         <h2>Nossas doações</h2>
         <p>Doações de todos os tipos de necessidades</p>
         <div class="pro-container">
-            <?php foreach ($products as $item): ?>
+            <?php foreach ($productsDonation as $item): ?>
+                <div class="pro">
+                    <img src="<?= $item['path']; ?>" alt="">
+                    <div class="des">
+                        <span><?= $item['category']; ?></span>
+                        <h5><?= $item['title']; ?></h5>
+                        <h4>Receba agora</h4>
+                    </div>
+                    <a href="views/pages/doacao_solo.php?<?= "image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+<!--     <section id="banner" class="selection-m1">
+        <h4>Tipos de Doação</h4>
+        <h2>As <span>doações</span> que vão te ajudar bem aqui!</h2>
+        <button class="normal">Veja mais</button>
+    </section> -->
+    
+    <section id="doação1" class="selection-p1">
+        <h2>Necessidades</h2>
+        <p>Pare de sofrer essa necessidade, e vanha receber ajuda</p>
+        <div class="pro-container">
+        <?php foreach ($productsNecessity as $item): ?>
                 <div class="pro">
                     <img src="<?= $item['path']; ?>" alt="">
                     <div class="des">
                         <span><?= $item['category']; ?></span>
                         <h5><?= $item['title']; ?></h5>
                         <div class="star">
+                            <?php for ($i=0; $i < $item['id_necessity']; $i++): ?>
                             <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                            <?php endfor; ?>
                         </div>
                         <h4>Receba agora</h4>
                     </div>
@@ -74,148 +95,7 @@
         </div>
     </section>
 
-    <section id="banner" class="selection-m1">
-        <h4>Tipos de Doação</h4>
-        <h2>As <span>doações</span> que vão te ajudar bem aqui!</h2>
-        <button class="normal">Veja mais</button>
-    </section>
-    
-    <section id="doação1" class="selection-p1">
-        <h2>Nossas doações</h2>
-        <p>Pare de sofrer essa necessidade, e vanha receber ajuda</p>
-        <div class="pro-container">
-            <div class="pro">
-                <img src="views\images\products\f1.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="views\images\products\n2.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="views\images\products\n3.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="views\images\products\n4.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="views\images\products\n5.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="views\images\products\n6.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="views\images\products\n7.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="views\images\products\n8.jpg" alt="">
-                <div class="des">
-                    <span>Roupas</span>
-                    <h5>Camisa Cartoon T-shirt</h5>
-                    <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h4>Receba agora</h4>
-                </div>
-                <a href="#"><i class="fal fa-box-heart heart"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="sm-banner" class="selection-p1">
+    <!-- <section id="sm-banner" class="selection-p1">
         <div class="banner-box">
             <h4>Venha doar</h4>
             <h2>Ajude sempre</h2>
@@ -250,7 +130,7 @@
         </div>
 
     </section>
-
+ -->
     <section id="newsletter" class="selection-p1 selection-m1">
         <div class="newsletter">
             <h4>Saiba das nossas novidades</h4>

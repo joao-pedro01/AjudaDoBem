@@ -46,11 +46,11 @@
 			</a>
 			<!-- Left links -->
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-				<a class="nav-link" href="#">Inicio</a>
+			<li class="nav-item">
+				<a class="nav-link" href="/AjudaDoBem/src/index.php">Inicio</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="#">doações</a>
+				<a class="nav-link" href="/AjudaDoBem/src/views/pages/doacao.php">Fazer postagem</a>
 				</li>
 				<li class="nav-item">
 				<a class="nav-link" href="#">Sobre nós</a>
@@ -64,7 +64,7 @@
 		<div class="d-flex align-items-center">
 
 			<!-- Notifications -->
-			<div class="dropdown">
+			<!-- <div class="dropdown">
 				<a
 				class="text-reset me-3 dropdown-toggle hidden-arrow"
 				href="#"
@@ -90,7 +90,7 @@
 						<a class="dropdown-item" href="#">Something else here</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 			<!-- Avatar -->
 			<div class="dropdown">
 				<a
@@ -111,11 +111,11 @@
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
 					<li>
-						<a class="dropdown-item" href="/AjudaDoBem/src/views/pages/logged.php">Meu perfil</a>
+						<a class="dropdown-item" href="/AjudaDoBem/src/views/pages/update_register.php">Meu perfil</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a class="dropdown-item" href="/AjudaDoBem/src/views/pages/update_register.php">Configurações</a>
-					</li>
+					</li> -->
 					<li>
 						<a class="dropdown-item" href="/AjudaDoBem/src/models/logout.php">Sair</a>
 					</li>
