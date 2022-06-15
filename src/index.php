@@ -60,7 +60,7 @@
                         <h5><?= $item['title']; ?></h5>
                         <h4>Receba agora</h4>
                     </div>
-                    <a href="views/pages/doacao_solo.php?<?= "image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
+                    <a href="views/pages/doacao_solo.php?<?= "nome={$item['name']}&&number={$item['cell']}&&image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -89,7 +89,7 @@
                         </div>
                         <h4>Receba agora</h4>
                     </div>
-                    <a href="views/pages/doacao_solo.php?<?= "image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
+                    <a href="views/pages/doacao_solo.php?<?= "nome={$item['name']}&&number={$item['cell']}&&image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
                 </div>
             <?php endforeach; ?>
         </div>
