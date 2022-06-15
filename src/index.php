@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="shortcut icon" href="/AjudaDoBem/src/views/images/favicon.ico" type="image/x-icon">
 </head>
-    <?php include_once 'controllers/navbar.php'; ?>
+    <?php include_once  'controllers/navbar.php'; ?>
 
     <section id="modelo">
         <h4>Ajuda para todos</h4>
@@ -60,11 +60,11 @@
                         <span><?= $item['category']; ?></span>
                         <h5><?= $item['title']; ?></h5>
                         <div class="star">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                            <i class="fa fa-heart"></i>
+                            <i class="fa fa-heart"></i>
+                            <i class="fa fa-heart"></i>
+                            <i class="fa fa-heart"></i>
+                            <i class="fa fa-heart"></i>
                         </div>
                         <h4>Receba agora</h4>
                     </div>
@@ -90,11 +90,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -106,11 +106,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -122,11 +122,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -138,11 +138,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -154,11 +154,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -170,11 +170,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -186,11 +186,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -202,11 +202,11 @@
                     <span>Roupas</span>
                     <h5>Camisa Cartoon T-shirt</h5>
                     <div class="star">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                     </div>
                     <h4>Receba agora</h4>
                 </div>
@@ -217,36 +217,38 @@
 
     <section id="sm-banner" class="selection-p1">
         <div class="banner-box">
-            <h4>Venha doar</h4>
+      <!--       <h4>Venha doar</h4>
             <h2>Ajude sempre</h2>
             <span>Sua comunidade </span>
-            <button class="white">Veja mais</button>
+            <button class="white">Veja mais</button> -->
         </div>
         <div class="banner-box banner-box2">
-            <h4>Venha doar</h4>
+      <!--       <h4>Venha doar</h4>
             <h2>Ajude sempre</h2>
             <span>Sua comunidade </span>
-            <button class="white">Veja mais</button>
+            <button class="white">Veja mais</button> -->
         </div>
     </section>
 
     <section id="banner3">
         <div class="banner-box">
-          
+   <!--       
             <h2>VENHA AJUDAR</h2>
-            <h3>toda ajuda é bem vinda</h3>
+            <h3>toda ajuda é bem vinda</h3> --> 
         </div>
 
         <div class="banner-box banner-box2">
           
+      <!--       
             <h2>VENHA AJUDAR</h2>
-            <h3>toda ajuda é bem vinda</h3>
+            <h3>toda ajuda é bem vinda</h3> --> 
         </div>
 
         <div class="banner-box banner-box3">
           
+        <!--       
             <h2>VENHA AJUDAR</h2>
-            <h3>toda ajuda é bem vinda</h3>
+            <h3>toda ajuda é bem vinda</h3> --> 
         </div>
 
     </section>
@@ -265,9 +267,9 @@
 
     <footer class="selection-p1">
         <div class="col">
-            <img class="logo" src="view/images/logo_oficial.png" alt="logo">
+            <img class="logo" src="../src/views/images/logo_oficial.png" alt="logo">
             <h4>Contato</h4>
-            <p><strong>Endereço: </strong> Rua Brigadeiro Tobias, 182, centro, Sorocaba-sp</p>
+<!--           <p><strong>Endereço: </strong> Rua Brigadeiro Tobias, 182, centro, Sorocaba-sp</p> -->
             <p><strong>Telefone: </strong> (15) 1111-1111</p>
             <p><strong>Horarios: </strong> 10:00 - 18:00, Seg - sábado</p>
             <div class="seguir">
@@ -299,7 +301,7 @@
             <a href="#">Minhas doações</a>
             <a href="#">Ajuda</a>
         </div>
-
+<!-- 
         <div class="col install">
             <h4>Instale App</h4>
             <p>App da App Store ou Google Play</p>
@@ -310,7 +312,7 @@
             <p>Modos de doação em dinheiro</p>
             <img src="images/pay/pay.png" alt="">
         </div>
-
+ -->
         <div class="copyright">
             ©Todos os direitos reservados aos alunos da Etec Fernando Prestes
         </div>

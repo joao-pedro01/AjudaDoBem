@@ -81,10 +81,10 @@
 				aria-labelledby="navbarDropdownMenuLink"
 				>
 					<li>
-						<a class="dropdown-item" href="#">Some news</a>
+						<a class="dropdown-item" href="../../src/index.php">Inicio</a>
 					</li>
 					<li>
-						<a class="dropdown-item" href="#">Another news</a>
+						<a class="dropdown-item" href="../../src/views/pages/doacao.html">Doações</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="#">Something else here</a>
