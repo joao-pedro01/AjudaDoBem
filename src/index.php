@@ -18,7 +18,7 @@
         <h2>Uma comunidade únida</h2>
         <h1>Ajudando os vizinhos </h1>
         <p>Incentivando o Bem</p>
-        <a href=<?= Logged($_SESSION) == false ? "views/pages/login.php?url=doacao" : "views/pages/doacao.php"; ?>><button>Doe Agora</button></a>
+        <a href=<?= Logged($_SESSION) == false ? "views/pages/login.php?url=doacao" : "views/pages/registro_doacao.php"; ?>><button>Doe Agora</button></a>
     </section>
     
     <section id="caracteristicas" class="selection-p1">

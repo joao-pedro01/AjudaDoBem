@@ -52,7 +52,7 @@ function CategoryProduct($string){
 function CreateImage($user, $dir_publi, $file, $image){
     /* variaveis que cria nome dos diretorios */
             $path = "../views/images/upload";
-            $dir_user = "{$user["UserName"]}";
+            $dir_user = "$user";
             $dir_user = base64_encode($dir_user);
             $dir_publi = base64_encode($dir_publi);
             try {
@@ -64,12 +64,13 @@ function CreateImage($user, $dir_publi, $file, $image){
                         echo "Arquivo enviado com sucesso!";
                         $path = "/AjudaDobem/src/views/images/upload";
                         $path = "$path/$dir_user/$dir_publi/$image";
+
+                        return $path;
                     } else{
                         echo "Erro, o arquivo não pode ser enviado.";
                     }
                 }
                 
-                return $path;
 
             } catch (\Throwable $th) {
                 throw $th;

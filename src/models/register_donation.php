@@ -1,7 +1,7 @@
 <?php
 include_once __DIR__.'/../../config/config.php';
 include_once '../controllers/functions.php';
-
+$result = file_get_contents(__DIR__.'../../registro_doacao.php', true, $context);
 /* Recebe os inputs */
 $title = $_POST["title"];
 $type = $_POST["FlgPontua"];
@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             Invalid($error);
         }
         try{
-            $path = CreateImage($_SESSION, $id_product, $file, $image);
+            $path = CreateImage($_SESSION['UserName'], $id_product, $file, $image);
             try {
                 DB::insert('images', [
                     'id_type' => $id_type,

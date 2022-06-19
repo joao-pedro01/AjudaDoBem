@@ -133,7 +133,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
             try{
                 $dir_publi = "profile";
-                CreateImage($_SESSION, $dir_publi, $file, $image);
+                $path = CreateImage($username, $dir_publi, $file, $image);/* $_SESSION, $id_product, $file, $image */
+                //dd($path);
+                
+                
+                
+                
+                
+                DB::insert('images', [
+                    'id_type' => $id_type,
+                    'path' => $path,
+                ]);
+                $id_image = DB::insertId();
             }catch(Exception $e) {
                 dd($e);
             }
@@ -165,13 +176,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $sucess =  'Usuário cadastrado com sucesso!!!.';
             Sucess($sucess);
         }catch(Exception $e) {
-            $error = "Algo deu errado";
+            dd($e);
             Invalid($error);
         }
     }else if($row['is_active'] == false){
             /* 
-            input Name
-            Erro caso input vazio
+                input Name
+                Erro caso input vazio
             */
             if(empty(trim($name))){
                 $error = 'O campo Nome não pode estar vazio!!!';

@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             FROM users u
             INNER JOIN images i
             ON u.id_image = i.id
-            WHERE (username LIKE '%$username%' || cpf = '$username') && password = '$password' && is_active=1 LIMIT 1;
+            WHERE (u.username = '$username' || u.cpf = '$username') && u.password = '$password' && u.is_active=1 LIMIT 1;
         ");
     }catch(Exception $e){
         dd($e);
@@ -39,9 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         
         if($url = $_GET['url'] == "doacao"){
-            header("location: ../views/pages/doacao.php");
+            header("location: ../views/pages/registro_doacao.php");
         }else {
-            header("location: ../views/pages/logged.php");
+            header("location: ../views/pages/update_register.php");
         }
     }
 }

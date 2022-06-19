@@ -1,14 +1,11 @@
 <!-- Navbar -->
-<head>
-	<link rel="stylesheet" href="../../src/views/styles/style_header.css">
-</head>
-	<style>
-		.dropdown-toggle::after{
-			border: none;
-			
-		}
+<style>
+	.dropdown-toggle::after{
+		border: none;
+		
+	}
 
-	</style>
+</style>
 <section id="header">
 
 <nav class="navbar navbar-expand-lg navbar-light ">
@@ -44,7 +41,10 @@
 				<a class="nav-link" href="/AjudaDoBem/src/index.php">Inicio</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="/AjudaDoBem/src/views/pages/doacao.php">Fazer postagem</a>
+				<a class="nav-link" href="/AjudaDoBem/src/views/pages/registro_doacao.php">Fazer postagem</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="/AjudaDoBem/src/views/pages/doacao.php?page=1">Doações</a>
 				</li>
 				<!-- <li class="nav-item">
 				<a class="nav-link" href="#">Sobre nós</a>

@@ -1,3 +1,6 @@
+<?php  if($_GET == NULL) {
+    exit;
+}; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,6 +10,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="/AjudaDoBem/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../src/views/styles/style_header.css">
     <title>Ajuda do Bem</title>
 </head>
 <body>
