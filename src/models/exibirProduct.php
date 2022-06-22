@@ -83,8 +83,3 @@ if($_SERVER['REQUEST_URI'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
         WHERE p.type = 1 && p.is_active = 1
     ");
 }
-
-echo '<pre>';
-print_r($productsDonation);
-echo '</pre>';
-print_r(count($productsDonation));
