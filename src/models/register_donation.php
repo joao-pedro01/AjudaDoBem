@@ -76,6 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $error = "Só pode ser enviado imagem!!!";
             Invalid($error);
         }
+
         try{
             $path = CreateImage($_SESSION['UserName'], $id_product, $file, $image);
             try {
@@ -83,16 +84,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     'id_type' => $id_type,
                     'path' => $path
                 ]);
+                $id_image = DB::insertId();
             } catch (\Throwable $th) {
-                throw $th;
             }
-            $id_image = DB::insertId();
-                
         }catch(Exception $e) {
+            $id_image = 2;
             echo "Erro, o arquivo não pode ser enviado.";
         }
     }
-    
+        
     try{
         DB::insert('products_images', [
             'id_product' => $id_product,

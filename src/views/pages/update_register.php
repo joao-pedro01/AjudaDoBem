@@ -84,8 +84,11 @@
                         </div>
                     </div>
                     <div class="mt-5 text-center">
-                        <button type="submit" value="Criar Conta" type="button" class="btn btn-primary profile-button" type="button">Save Profile</button>
-                        <a href="../../models/delete_user.php"><button type="" value="Criar Conta" type="button" class="btn btn-danger profile-button" type="button">Desativar conta</button></a>
+                        <button type="submit" value="Criar Conta" type="button" class="btn btn-success profile-button" type="button">Salvar</button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
+                            Desativar conta
+                        </button>
                     </div>
                 </div>
             </form>
@@ -100,6 +103,31 @@
         </div> -->
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Tem certeza?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Sua conta podera ser reativada em até 60 dias.</p>
+        <p>Após isso ela sera desativada, perdendo todas publicações e dados!!!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="../../models/delete_user.php"><button type="" value="Criar Conta" type="button" class="btn btn-danger profile-button" type="button">Desativar conta</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="http://assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js" type="text/javascript"></script>
 </body>

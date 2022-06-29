@@ -50,7 +50,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         INSERT USER IN TABLE USERS
     */
     try{
-        $date_time = DateTime();
         DB::update('users', [
             'name' => $name,
             'birth_date' => $birthDate,

@@ -51,30 +51,25 @@ function CategoryProduct($string){
 }
 function CreateImage($user, $dir_publi, $file, $image){
     /* variaveis que cria nome dos diretorios */
-            $path = "../views/images/upload";
-            $dir_user = "$user";
-            $dir_user = base64_encode($dir_user);
-            $dir_publi = base64_encode($dir_publi);
-            try {
-                if(!file_exists("$path/$dir_user/$dir_publi/")){
-                    mkdir("$path/$dir_user/$dir_publi", 0777, true);
-                    
-                    // Move o arquivo da pasta temporaria de upload para a pasta de destino
-                    if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
-                        echo "Arquivo enviado com sucesso!";
-                        $path = "/AjudaDobem/src/views/images/upload";
-                        $path = "$path/$dir_user/$dir_publi/$image";
+    $path = "../views/images/upload";
+    $dir_user = "$user";
+    $dir_user = base64_encode($dir_user);
+    $dir_publi = base64_encode($dir_publi);
+    
+    if(!file_exists("$path/$dir_user/$dir_publi/")){
+        mkdir("$path/$dir_user/$dir_publi", 0777, true);
+        
+        // Move o arquivo da pasta temporaria de upload para a pasta de destino
+        if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
+            echo "Arquivo enviado com sucesso!";
+            $path = "/AjudaDobem/src/views/images/upload";
+            $path = "$path/$dir_user/$dir_publi/$image";
 
-                        return $path;
-                    } else{
-                        echo "Erro, o arquivo não pode ser enviado.";
-                    }
-                }
-                
-
-            } catch (\Throwable $th) {
-                throw $th;
-            }
+            return $path;
+        } else{
+            echo "Erro, o arquivo não pode ser enviado.";
+        }
+    }
 }
 /*
     Logged ( String ) : Boolean 

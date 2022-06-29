@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="/AjudaDoBem/bootstrap/dist/css/bootstrap.min.css">
     <title>Ajuda do Bem</title>
     <?php include_once '../../controllers/navbar.php'; ?>
-<form method="get">
+    <section id="modelo">
+        <h4>Ajuda para todos</h4>
+        <h2>Uma comunidade únida</h2>
+        <h1>Ajudando os vizinhos </h1>
+        <p>Incentivando o Bem</p>
+    </section>
+
+
+    <form method="get">
         <div class="row my-4">
             <div class="row">
                 <div class="col-5">
