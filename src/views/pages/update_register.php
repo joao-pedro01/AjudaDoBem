@@ -11,6 +11,7 @@
     <script src="../js/cep.js"></script>
 </head>
 <body>
+<?php require_once __DIR__.'/../../models/exibirProduct.php';?>
 <?php include_once __DIR__.'/../../controllers/navbar.php';?>
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
@@ -94,16 +95,27 @@
             </form>
         </div>
         
-        <!-- <div class="col-md-4">
+        <div class="col-md-4">
             <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                <div class="d-flex justify-content-between align-items-center experience"><span>Doações </span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                <div class="list-group">
+                    <?php foreach ($productsDonation as $item): ?>
+                        <a href="../../views/pages/doacao_solo.php?<?= "nome={$item['name']}&&number={$item['cell']}&&image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" >
+                        <ul class="list-group list-group-horizontal col-12">
+                            <li class="list-group-item">
+                                <img height="100" width="100" src="<?= $item['path']; ?>" alt="">
+                            </li>
+                            <li class="list-group-item col-9">
+                                <?= $item['title']; ?>
+                            </li>
+                        </ul>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

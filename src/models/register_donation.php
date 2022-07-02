@@ -42,6 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             'modified' => date('Y-m-d H:i:s')
         ]);
         $id_product = DB::insertId();
+        dd($id_product);
         DB::disconnect();
 
     }catch(Exception $e){

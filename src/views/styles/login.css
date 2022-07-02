@@ -31,10 +31,6 @@
     left: 0;
 
 }
-.logo {
-    height: 60px;
-    width: 10px;
-}
 
 #navbar{
     display: flex;

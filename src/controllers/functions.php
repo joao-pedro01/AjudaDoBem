@@ -62,7 +62,7 @@ function CreateImage($user, $dir_publi, $file, $image){
         // Move o arquivo da pasta temporaria de upload para a pasta de destino
         if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
             echo "Arquivo enviado com sucesso!";
-            $path = "/AjudaDobem/src/views/images/upload";
+            $path = "/AjudaDoBem/src/views/images/upload";
             $path = "$path/$dir_user/$dir_publi/$image";
 
             return $path;
@@ -98,13 +98,11 @@ function Directory(){
     function Erro caso seja inválido
 */
 function Invalid($string){
-    //$_SERVER['error'] = $string;
-    echo '<body onload="window.history.back();">';
-    echo '<script>';
-    echo "alert('{$string}')";
-    echo '</script>';
-    exit;
-    //return $_SERVER['error'];
+    $i = count($string) + 1;
+    $message[$i] = $string;
+    //dd($message);
+
+    return $message;
 }
 /*
     function Sucess caso operação sejá bem sucedida

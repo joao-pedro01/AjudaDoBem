@@ -26,7 +26,7 @@ if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
         LIMIT 8;
     ");
     $productsNecessity = DB::query("
-        SELECT u.name, u.cell, p.title, p.description, p.id_necessity, c.category, i.path
+        SELECT u.name, u.cell, u.cep, p.title, p.description, p.id_necessity, c.category, i.path
         FROM products_images pi
 
         INNER JOIN products p
@@ -82,5 +82,24 @@ if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
         ON p.id_user = u.id
 
         WHERE p.type = 1 && p.is_active = 1
+    ");
+}else if($url[5] == "update_register.php") {
+    $productsDonation = DB::query("
+        SELECT p.title, p.description, c.category, i.path
+        FROM products_images pi
+
+        INNER JOIN products p
+        ON pi.id_product = p.id
+
+        INNER JOIN images i
+        ON pi.id_image = i.id
+
+        INNER JOIN categorys c
+        ON p.id_category = c.id
+
+        INNER JOIN users u
+        ON p.id_user = u.id
+
+        WHERE p.type = 1 && p.id_user = {$_SESSION['UserId']}
     ");
 }

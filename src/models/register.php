@@ -18,6 +18,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $cell = str_replace(array("(", "-", ")", " "), '', $cell);
     $cpf = str_replace(array("-",".", " "), '', $cpf);
 
+    // $error[1] = "test1";
+    // $error[2] = "test2";
+    // dd($error);
     $row = DB::queryFirstRow("
         SELECT u.id, u.cpf, u.is_active, u.username
         FROM users u
@@ -30,22 +33,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             Erro caso input vazio
         */
         if(empty(trim($name))){
-            $error = 'O campo Nome não pode estar vazio!!!';
-            Invalid($error);
+            $_SESSION['errorName'] = 'O campo Nome não pode estar vazio!!!';
+            // $error = Invalid($error);
+            //dd($error);
         }
         /*
             input UserName
             Erro caso input vazio
         */
         if(empty(trim($username))){
-            $error = "O nome de usuário não pode estar vazio!!!";
-            Invalid($error);
+            $_SESSION['errorUserName'] = "O nome de usuário não pode estar vazio!!!";
+            // $error = Invalid($error);
     
         
         // Validação de erro caso algum caractere invalido seja inputado no $UserName
         }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($username))){
-            $error = "O nome de usuário pode conter apenas letras, números e _.";
-            Invalid($error);
+            $_SESSION['errorUserName'] = "O nome de usuário pode conter apenas letras, números e _.";
+            // $error = Invalid($error);
         /*
             Caso não encontre erro.
             Procura por $usuario no DB
@@ -54,8 +58,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
             DB::disconnect();
             if($sql[0]){
-                $error = "Usuário já exite";
-                Invalid($error);
+                $_SESSION['errorUserName'] = "Usuário já exite";
+                // $error = Invalid($error);
             }
         }
         /*
@@ -63,20 +67,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             Erro caso input vazio
         */
         if(empty(trim($cpf))){
-            $error = "O campo CPF não pode estar vazio!!!";
-            Invalid($error);
+            $_SESSION['errorCpf'] = "O campo CPF não pode estar vazio!!!";
+            // $error = Invalid($error);
         }else {
             // Erro se o CPF for inválido
             if($cpf == false){
-                $error = 'CPF informado é inválido';
-                Invalid($error);
+                $_SESSION['errorCpf'] = 'CPF informado é inválido';
+                // $error = Invalid($error);
             }else {
                 $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE cpf = '{$cpf}'");
                 DB::disconnect();
     
                 if($sql[0]){
-                    $error = "CPF já cadastrado no banco de dados.";
-                    Invalid($error);
+                    $_SESSION['errorCpf'] = "CPF já cadastrado no banco de dados.";
+                    // $error = Invalid($error);
                 }
             }
         }
@@ -84,8 +88,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             input password
         */
         if(empty(trim($password))){
-            $error = "Senha é obrigatório e não pode estar vazio!!!";
-            Invalid($error);
+            $_SESSION['errorPassword'] = "Senha é obrigatório e não pode estar vazio!!!";
+            // $error = Invalid($error);
     
         // Validação de erro caso algum caractere invalido seja inputado no $UserName
         }else {
@@ -126,8 +130,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // se o arquivo não for imagem
             if($type[0] != "image"){
-                $error = "Só pode ser enviado imagem!!!";
-                Invalid($error);
+                $_SESSION['errorImage'] = "Só pode ser enviado imagem!!!";
+                // $error = Invalid($error);
             }
     
             // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
@@ -177,7 +181,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             Sucess($sucess);
         }catch(Exception $e) {
             dd($e);
-            Invalid($error);
+            // $error = Invalid($error);
         }
     }else if($row['is_active'] == false){
             /* 
@@ -186,7 +190,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             */
             if(empty(trim($name))){
                 $error = 'O campo Nome não pode estar vazio!!!';
-                Invalid($error);
+                // $error = Invalid($error);
             }
             /*
                 input UserName
@@ -194,13 +198,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             */
             if(empty(trim($username))){
                 $error = "O nome de usuário não pode estar vazio!!!";
-                Invalid($error);
+                // $error = Invalid($error);
             // Validação de erro caso algum caractere invalido seja inputado no $UserName
 
             
             }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($username))){
                 $error = "O nome de usuário pode conter apenas letras, números e _.";
-                Invalid($error);
+                // $error = Invalid($error);
                 /*
                 Caso não encontre erro.
                 Procura por $usuario no DB
@@ -210,7 +214,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 DB::disconnect();
                 if($sql[0]){
                     $error = "Usuário já exite";
-                    Invalid($error);
+                    // $error = Invalid($error);
                 }
             }
 

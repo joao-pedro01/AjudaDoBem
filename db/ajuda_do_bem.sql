@@ -71,9 +71,9 @@ INSERT INTO necessitys(degree) VALUE ('Médio');
 INSERT INTO necessitys(degree) VALUE ('Alto');
 
 CREATE TABLE products(
-	id int AUTO_INCREMENT PRIMARY KEY,	
+	id int AUTO_INCREMENT PRIMARY KEY,
 	id_user int NOT NULL,
-    id_necessity int NOT NULL,
+    id_necessity int,
     id_category int NOT NULL,
     type int NOT NULL,
     title varchar(25) NOT NULL,
