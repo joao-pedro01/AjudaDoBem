@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="src/views/styles/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="/AjudaDoBem/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     <title>Ajuda do Bem</title>
-    <?php include_once '../../controllers/navbar.php'; ?>
+    <?php include_once 'src/controllers/navbar.php'; ?>
     <section id="modelo">
         <h4>Ajuda para todos</h4>
         <h2>Uma comunidade únida</h2>
@@ -42,7 +42,7 @@
     
     <section id="doação1" class="selection-p1">
         <div class="pro-container">
-            <?php foreach ($productsDonation as $item): ?>
+            <?php foreach ($products as $item): ?>
                 <div class="pro">
                     <img src="<?= $item['path']; ?>" alt="">
                     <div class="des">
@@ -50,7 +50,7 @@
                         <h5><?= $item['title']; ?></h5>
                         <h4>Receba agora</h4>
                     </div>
-                    <a href="doacao_solo.php?<?= "nome={$item['name']}&&number={$item['cell']}&&image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
+                    <a href="doacao/<?= $item['id']?>" ><i class="fal fa-box-heart heart"></i></a>
                 </div>
             <?php endforeach; ?>
         </div>

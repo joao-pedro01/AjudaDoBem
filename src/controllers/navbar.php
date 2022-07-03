@@ -1,8 +1,4 @@
 <?php
-if ( !session_status() == PHP_SESSION_ACTIVE )
-{
-   session_start();
-}
 require_once __DIR__."/../../config/config.php";
 include_once __DIR__."/../../src/controllers/functions.php";
 

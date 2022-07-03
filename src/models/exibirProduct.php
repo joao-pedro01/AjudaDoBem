@@ -1,13 +1,12 @@
 <?php
-
 require_once __DIR__.'/../../config/config.php';
-
-$url = array_filter(explode('/',$_SERVER['SCRIPT_NAME']));
+//dd($_SERVER);
+$url = array_filter(explode('/',$_SERVER['REDIRECT_URL']));
 $busca = filter_input(INPUT_GET, 'busca', FILTER_SANITIZE_STRING);
 
-if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
+if($_SERVER['REDIRECT_URL'] == null || $url[2] == "index" || $url[2] == "home") {
     $productsDonation = DB::query("
-        SELECT u.name, u.cell, p.title, p.description, c.category, i.path
+        SELECT u.name, u.cell, p.title, p.description, c.category, i.path, pi.id
         FROM products_images pi
 
         INNER JOIN products p
@@ -26,7 +25,7 @@ if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
         LIMIT 8;
     ");
     $productsNecessity = DB::query("
-        SELECT u.name, u.cell, u.cep, p.title, p.description, p.id_necessity, c.category, i.path
+        SELECT u.name, u.cell, u.cep, p.title, p.description, p.id_necessity, c.category, i.path, pi.id
         FROM products_images pi
 
         INNER JOIN products p
@@ -45,7 +44,7 @@ if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
         ORDER BY p.id_necessity DESC
         LIMIT 8;
     ");
-}else if($busca != NULL && $url[5] == "doacao.php"){
+}else if($busca != NULL && $url[2] == "doacoes"){
     $productsDonation = DB::query("
         SELECT u.name, u.cell, p.title, p.description, c.category, i.path
         FROM products_images pi
@@ -64,8 +63,12 @@ if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
 
         WHERE p.type = 1 && p.is_active = 1 && p.title LIKE '%".str_replace(' ', '%', $busca)."%'
     ");
-}else if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/views/pages/doacao.php") {
-    $productsDonation = DB::query("
+}else if($url[2] == "doacao") {
+    //dd($_SERVER);
+    $url[1] = array_filter(explode('?', $_SERVER['REQUEST_URI']));
+    $url = settype($url[1], "integer");
+    //dd($url);
+    $product = DB::query("
         SELECT u.name, u.cell, p.title, p.description, c.category, i.path
         FROM products_images pi
 
@@ -80,10 +83,30 @@ if($_SERVER['PHP_SELF'] == "/AjudaDoBem/src/" || $url[3] == "index.php") {
 
         INNER JOIN users u
         ON p.id_user = u.id
+        
+        WHERE pi.id =".$url
+    );
+    //dd($product);
+}else if ($url[2] == "doacoes") {
+    $products = DB::query("
+    SELECT u.name, u.cell, p.title, p.description, c.category, i.path
+        FROM products_images pi
 
+        INNER JOIN products p
+        ON pi.id_product = p.id
+
+        INNER JOIN images i
+        ON pi.id_image = i.id
+
+        INNER JOIN categorys c
+        ON p.id_category = c.id
+        
+        INNER JOIN users u
+        ON p.id_user = u.id
+        
         WHERE p.type = 1 && p.is_active = 1
     ");
-}else if($url[5] == "update_register.php") {
+    }else if($url[2] == "update_register.php") {
     $productsDonation = DB::query("
         SELECT p.title, p.description, c.category, i.path
         FROM products_images pi

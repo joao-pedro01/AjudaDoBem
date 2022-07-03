@@ -18,9 +18,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $cell = str_replace(array("(", "-", ")", " "), '', $cell);
     $cpf = str_replace(array("-",".", " "), '', $cpf);
 
-    // $error[1] = "test1";
-    // $error[2] = "test2";
-    // dd($error);
     $row = DB::queryFirstRow("
         SELECT u.id, u.cpf, u.is_active, u.username
         FROM users u
@@ -33,23 +30,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             Erro caso input vazio
         */
         if(empty(trim($name))){
-            $_SESSION['errorName'] = 'O campo Nome não pode estar vazio!!!';
-            // $error = Invalid($error);
-            //dd($error);
+            $error = 'O campo Nome não pode estar vazio!!!';
+            $error = Invalid($error, "Name");
         }
         /*
             input UserName
             Erro caso input vazio
         */
         if(empty(trim($username))){
-            $_SESSION['errorUserName'] = "O nome de usuário não pode estar vazio!!!";
-            // $error = Invalid($error);
-    
+            $error = "O nome de usuário não pode estar vazio!!!";
+            $error = Invalid($error, "UserName");
         
         // Validação de erro caso algum caractere invalido seja inputado no $UserName
         }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($username))){
-            $_SESSION['errorUserName'] = "O nome de usuário pode conter apenas letras, números e _.";
-            // $error = Invalid($error);
+            $error = "O nome de usuário pode conter apenas letras, números e _.";
+            $error = Invalid($error, "UserName");
         /*
             Caso não encontre erro.
             Procura por $usuario no DB
@@ -59,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             DB::disconnect();
             if($sql[0]){
                 $_SESSION['errorUserName'] = "Usuário já exite";
-                // $error = Invalid($error);
+                $error = Invalid($error, "UserName");
             }
         }
         /*
@@ -67,20 +62,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             Erro caso input vazio
         */
         if(empty(trim($cpf))){
-            $_SESSION['errorCpf'] = "O campo CPF não pode estar vazio!!!";
-            // $error = Invalid($error);
+            $error = "O campo CPF não pode estar vazio!!!";
+            $error = Invalid($error, "Cpf");
         }else {
             // Erro se o CPF for inválido
-            if($cpf == false){
-                $_SESSION['errorCpf'] = 'CPF informado é inválido';
-                // $error = Invalid($error);
+            if(validaCpf($cpf) == false){
+                $error = 'CPF informado é inválido';
+                $error = Invalid($error, "Cpf");
             }else {
                 $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE cpf = '{$cpf}'");
                 DB::disconnect();
     
                 if($sql[0]){
-                    $_SESSION['errorCpf'] = "CPF já cadastrado no banco de dados.";
-                    // $error = Invalid($error);
+                    $error = "CPF já cadastrado no banco de dados.";
+                    $error = Invalid($error, "Cpf");
                 }
             }
         }
@@ -88,162 +83,166 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             input password
         */
         if(empty(trim($password))){
-            $_SESSION['errorPassword'] = "Senha é obrigatório e não pode estar vazio!!!";
-            // $error = Invalid($error);
+            $error = "Senha é obrigatório e não pode estar vazio!!!";
+            $error = Invalid($error, "Password");
     
         // Validação de erro caso algum caractere invalido seja inputado no $UserName
         }else {
             // criptografia da senha
             $password = md5($password);    
         }
-    
-        
-        try{
-            // consulta db para ver se o type da imagem já esta cadastrada
-            $sql = DB::queryFirstField("SELECT COUNT(*) FROM types WHERE type = '{$file["type"]}'");
-    
-            /* 
-                image
-                define type image
-            */
-            if(!$sql[0]){
-                DB::insert('types', [
-                    'type' => $file["type"]
-                ]);
-                $id_type = DB::insertId();
-            }else {
-                $row = DB::queryFirstRow("SELECT * FROM types
-                WHERE type ='{$file['type']}'");
-                $id_type = $row["id"];
-            }
-        }catch(Exception $e){
-    
-        }
-    
-        // caso user não inserir nenhuma foto, coloca foto default
-        if($file["error"] == 4){
-            $id_image = 1;
-        }else {
-            $ext = strrchr($file["name"], '.');
-            $image = $username.$ext;
-            $type = explode("/", $file['type']);
-            
-            // se o arquivo não for imagem
-            if($type[0] != "image"){
-                $_SESSION['errorImage'] = "Só pode ser enviado imagem!!!";
-                // $error = Invalid($error);
-            }
-    
-            // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
-            try{
-                $dir_publi = "profile";
-                $path = CreateImage($username, $dir_publi, $file, $image);/* $_SESSION, $id_product, $file, $image */
-                //dd($path);
-                
-                
-                
-                
-                
-                DB::insert('images', [
-                    'id_type' => $id_type,
-                    'path' => $path,
-                ]);
-                $id_image = DB::insertId();
-            }catch(Exception $e) {
-                dd($e);
-            }
-        }
-    
-    
-    
-        /*
-            INSERT USER IN TABLE USERS
-        */
-        try{
-            DB::insert('users', [
-                'id_type' => 1,
-                'id_image' => $id_image,
-                'name' => $name,
-                'birth_date' => $birthDate,
-                'username' => $username,
-                'email' => $email,
-                'password' => $password,
-                'cell' => $cell,
-                'cpf' => $cpf,
-                'cep' => $cep,
-                'is_active' => true,
-                'created' => date('Y-m-d H:i:s'),
-                'modified' => date('Y-m-d H:i:s')
-            ]);
-            DB::disconnect();
-            header("location: ../views/pages/login.php");
-            $sucess =  'Usuário cadastrado com sucesso!!!.';
-            Sucess($sucess);
-        }catch(Exception $e) {
-            dd($e);
-            // $error = Invalid($error);
-        }
-    }else if($row['is_active'] == false){
-            /* 
-                input Name
-                Erro caso input vazio
-            */
-            if(empty(trim($name))){
-                $error = 'O campo Nome não pode estar vazio!!!';
-                // $error = Invalid($error);
-            }
-            /*
-                input UserName
-                Erro caso input vazio
-            */
-            if(empty(trim($username))){
-                $error = "O nome de usuário não pode estar vazio!!!";
-                // $error = Invalid($error);
-            // Validação de erro caso algum caractere invalido seja inputado no $UserName
 
-            
-            }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($username))){
-                $error = "O nome de usuário pode conter apenas letras, números e _.";
-                // $error = Invalid($error);
-                /*
-                Caso não encontre erro.
-                Procura por $usuario no DB
+        if($error['error'] != true){
+            try{
+                // consulta db para ver se o type da imagem já esta cadastrada
+                $sql = DB::queryFirstField("SELECT COUNT(*) FROM types WHERE type = '{$file["type"]}'");
+        
+                /* 
+                    image
+                    define type image
                 */
-            }else if(strcmp($username, $row['username']) != 0){
-                $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
-                DB::disconnect();
-                if($sql[0]){
-                    $error = "Usuário já exite";
+                if(!$sql[0]){
+                    DB::insert('types', [
+                        'type' => $file["type"]
+                    ]);
+                    $id_type = DB::insertId();
+                }else {
+                    $row = DB::queryFirstRow("SELECT * FROM types
+                    WHERE type ='{$file['type']}'");
+                    $id_type = $row["id"];
+                }
+            }catch(Exception $e){
+
+            }
+        
+            // caso user não inserir nenhuma foto, coloca foto default
+            if($file["error"] == 4){
+                $id_image = 1;
+            }else {
+                $ext = strrchr($file["name"], '.');
+                $image = $username.$ext;
+                $type = explode("/", $file['type']);
+                
+                // se o arquivo não for imagem
+                if($type[0] != "image"){
+                    // $_SESSION['errorImage'] = "Só pode ser enviado imagem!!!";
                     // $error = Invalid($error);
                 }
-            }
-
-                /*
-                    INSERT USER IN TABLE USERS
-                */
+        
+                // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
                 try{
-                    DB::update('users', [
-                        'name' => $name,
-                        'birth_date' => $birthDate,
-                        'username' => $username,
-                        'email' => $email,
-                        'cep' => $cep,
-                        'cell' => $cell,
-                        'is_active' => true,
-                        'modified' => date('Y-m-d H:i:s')
-                    ], "id=%i", $row['id']
-                    );
-                    DB::disconnect();
+                    $dir_publi = "profile";
+                    $path = CreateImage($username, $dir_publi, $file, $image);/* $_SESSION, $id_product, $file, $image */
 
-                    header("location: ../views/pages/login.php");
-                    $sucess =  'Usuário cadastrado com sucesso!!!.';
-                    Sucess($sucess);
+                    DB::insert('images', [
+                        'id_type' => $id_type,
+                        'path' => $path,
+                    ]);
+                    $id_image = DB::insertId();
                 }catch(Exception $e) {
                     dd($e);
                 }
-            }else {
-                header("location: ../index.php");
             }
+            
+            /*
+                INSERT USER IN TABLE USERS
+            */
+            try{
+                DB::insert('users', [
+                    'id_type' => 1,
+                    'id_image' => $id_image,
+                    'name' => $name,
+                    'birth_date' => $birthDate,
+                    'username' => $username,
+                    'email' => $email,
+                    'password' => $password,
+                    'cell' => $cell,
+                    'cpf' => $cpf,
+                    'cep' => $cep,
+                    'is_active' => true,
+                    'created' => date('Y-m-d H:i:s'),
+                    'modified' => date('Y-m-d H:i:s')
+                ]);
+                DB::disconnect();
+                header("location: ../views/pages/login.php");
+                $sucess =  'Usuário cadastrado com sucesso!!!.';
+                Sucess($sucess);
+            }catch(Exception $e) {
+                dd($e);
+            }
+        }else {
+            //dd($_SESSION);
+            header("location: ../views/pages/register.php");
+        }
+    }//else 
+
+
+
+
+
+
+        
+        // if($row['is_active'] == false){
+        //     /* 
+        //         input Name
+        //         Erro caso input vazio
+        //     */
+        //     if(empty(trim($name))){
+        //         $error = 'O campo Nome não pode estar vazio!!!';
+        //         $error = Invalid($error);
+        //     }
+        //     /*
+        //         input UserName
+        //         Erro caso input vazio
+        //     */
+        //     if(empty(trim($username))){
+        //         $error = "O nome de usuário não pode estar vazio!!!";
+        //         $error = Invalid($error);
+        //     // Validação de erro caso algum caractere invalido seja inputado no $UserName
+
+            
+        //     }else if(!preg_match('/^[a-zA-Z0-9_]+$/', trim($username))){
+        //         $error = "O nome de usuário pode conter apenas letras, números e _.";
+        //         $error = Invalid($error);
+        //         /*
+        //         Caso não encontre erro.
+        //         Procura por $usuario no DB
+        //         */
+        //     }else if(strcmp($username, $row['username']) != 0){
+        //         $sql = DB::queryFirstField("SELECT COUNT(*) FROM users WHERE username = '{$username}'");
+        //         DB::disconnect();
+        //         if($sql[0]){
+        //             $error = "Usuário já exite";
+        //             $error = Invalid($error);
+        //         }
+        //     }
+
+        //         /*
+        //             INSERT USER IN TABLE USERS
+        //         */
+        //         try{
+        //             DB::update('users', [
+        //                 'name' => $name,
+        //                 'birth_date' => $birthDate,
+        //                 'username' => $username,
+        //                 'email' => $email,
+        //                 'cep' => $cep,
+        //                 'cell' => $cell,
+        //                 'is_active' => true,
+        //                 'modified' => date('Y-m-d H:i:s')
+        //             ], "id=%i", $row['id']
+        //             );
+        //             DB::disconnect();
+
+        //             header("location: ../views/pages/login.php");
+        //             $sucess =  'Usuário cadastrado com sucesso!!!.';
+        //             Sucess($sucess);
+        //         }catch(Exception $e) {
+        //             dd($e);
+        //         }
+        //     }else {
+        //         header("location: ../index.php");
+        //     }
 }else {
     header("location: ../index.php");
 }

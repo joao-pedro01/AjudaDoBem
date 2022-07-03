@@ -1,28 +1,26 @@
-<?php  if($_GET == NULL) {
-    exit;
-}; ?>
+<?php require_once 'src/models/exibirProduct.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="src/views/styles/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="/AjudaDoBem/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../src/views/styles/style_header.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/AjudaDoBem/src/views/styles/style_header.css">
     <title>Ajuda do Bem</title>
     <script src="../js/cep.js"></script>
 </head>
 <body>
-<?php include_once '../../controllers/navbar.php'; ?>
+<?php include_once 'src/controllers/navbar.php'; ?>
 <section id="prodetails" class="selection-p1">
     <div class="single-pro-image">
-        <img src="<?= $_GET["image"] ?>" width="100%" id="MainImg" alt="imagem camisa">
+        <img src="<?= $product["path"] ?>" width="100%" id="MainImg" alt="imagem camisa">
 
         <div class="small-img-group">
             <div class="small-img-col">
-                <img src="<?= $_GET["image"] ?>" width="100%" class="small-img" alt="">
+                <img src="<?= $product["image"] ?>" width="100%" class="small-img" alt="">
             </div>
 
             <!-- <div class="small-img-col">
@@ -35,10 +33,10 @@
   
         </div>
         <div class="single-pro-details">
-            <h6>Home / <?= $_GET["category"]?></h6>
-            <h4><?= $_GET["title"] ?></h4>
+            <h6>Home / <?= $product["category"]?></h6>
+            <h4><?= $product["title"] ?></h4>
             <h2>Entre em contato com o doador</h2>
-            <button type="button" class="normal" data-toggle="modal" onclick="pesquisacep(this.<?= $_GET['cep'];?>);" data-target="#staticBackdrop">Entre em contato</button>
+            <button type="button" class="normal" data-toggle="modal" onclick="pesquisacep(this.<?= $product['cep'];?>);" data-target="#staticBackdrop">Entre em contato</button>
             <div id="alert">
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -52,11 +50,11 @@
                     </div>
                     <div class="modal-body">
                         <h4 class="alert-heading">
-                            <?= $_GET['nome'] ?>
+                            <?= $product['nome'] ?>
                         </h4>
                         <ul>
-                            <li>Número de telefone: <?= $_GET['number'] ?></ul>
-                            <li>Descrição: <?= $_GET['description'] ?></li>
+                            <li>Número de telefone: <?= $product['number'] ?></ul>
+                            <li>Descrição: <?= $product['description'] ?></li>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -66,7 +64,7 @@
                 </div>                
             </div>
             <h4>Detalhes da doação</h4>
-            <span><?= $_GET["description"] ?></span>
+            <span><?= $product["description"] ?></span>
         </div>
 </section>
 
@@ -97,7 +95,7 @@
     <script>
         function adicionar() {
             var content  = document.getElementById("alert").innerHTML;
-            content = '<div class="alert alert-success" role="alert" id="alert"><h4 class="alert-heading"><?= $_GET['nome'] ?></h4><ul><li>Número de telefone: <?= $_GET['number'] ?></ul><hr>Descrição: <?= $_GET['description'] ?></p></div>"';
+            content = '<div class="alert alert-success" role="alert" id="alert"><h4 class="alert-heading"><?= $product['nome'] ?></h4><ul><li>Número de telefone: <?= $product['number'] ?></ul><hr>Descrição: <?= $product['description'] ?></p></div>"';
             
             document.getElementById("alert").innerHTML = content;
         }

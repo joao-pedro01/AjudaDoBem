@@ -29,7 +29,7 @@
 			<!-- Navbar brand -->
 			<a class="navbar-brand mt-2 mt-lg-0" href="#">
 				<img
-				src="/AjudaDoBem/src/views/images/logo.png"
+				src="src/views/images/logo.png"
 				height="15"
 				alt="MDB Logo"
 				loading="lazy"
@@ -38,13 +38,13 @@
 			<!-- Left links -->
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			<li class="nav-item">
-				<a class="nav-link" href="/AjudaDoBem/src/index.php">Inicio</a>
+				<a class="nav-link" href="home">Inicio</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="/AjudaDoBem/src/views/pages/registro_doacao.php">Fazer postagem</a>
+				<a class="nav-link" href="postar-doacao">Fazer postagem</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="/AjudaDoBem/src/views/pages/doacao.php?page=1">Doações</a>
+				<a class="nav-link" href="doacoes">Doações</a>
 				</li>
 				<!-- <li class="nav-item">
 				<a class="nav-link" href="#">Sobre nós</a>
@@ -105,13 +105,13 @@
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
 					<li>
-						<a class="dropdown-item" href="/AjudaDoBem/src/views/pages/update_register.php">Meu perfil</a>
+						<a class="dropdown-item" href="atualizar-perfil">Meu perfil</a>
 					</li>
 					<!-- <li>
 						<a class="dropdown-item" href="/AjudaDoBem/src/views/pages/update_register.php">Configurações</a>
 					</li> -->
 					<li>
-						<a class="dropdown-item" href="/AjudaDoBem/src/models/logout.php">Sair</a>
+						<a class="dropdown-item" href="sair">Sair</a>
 					</li>
 				</ul>
 			</div>

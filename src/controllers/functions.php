@@ -97,10 +97,10 @@ function Directory(){
 /*
     function Erro caso seja inválido
 */
-function Invalid($string){
-    $i = count($string) + 1;
-    $message[$i] = $string;
-    //dd($message);
+function Invalid($string, $type){
+    $message["error"] = true;
+    $_SESSION["errorMessage"]["error{$type}"] = $string;
+    //dd($_SESSION);
 
     return $message;
 }

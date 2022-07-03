@@ -1,25 +1,43 @@
-<?php 
-    session_start();
-    require_once 'src/controllers/functions.php';
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php
+if ( !session_status() == PHP_SESSION_ACTIVE )
+{
+session_start();
+}
+require_once 'src/controllers/functions.php';
+$url = (isset($_GET['url'])) ? $_GET['url'] : 'home';
+$url = array_filter(explode('/',$url));
 
-<body>
-    <?php
-        $url = (isset($_GET['url'])) ? $_GET['url']:'home.php';
-        $url = array_filter(explode('/',$url));
-        if($url[0] == "style"){
-            $file = 'src/views/styles/'.$url[1];
-        }else {
-            $file = 'src/views/'.$url[0].'.php';
+//$file = "src/views/pages/".$url[0].'.php';
+$page = $url[0];
+if($page == "home" || $page == "index"){
+    $file = "src/views/pages/home.php";
+}else if($page == "cadastro"){
+    $file = "src/views/pages/register.php";
+}else if($page == "login" || $page == "entrar"){
+    $file = "src/views/pages/login.php";
+}else if($page == "doacao"){
+    $file = "src/views/pages/doacao_solo.php";
+}else if($page == "doacoes"){
+    $file = "src/views/pages/doacao.php";
+}else {
+    if(Logged($_SESSION) == false){ 
+        if($page == "postar-doacao"){
+            $file = "src/views/pages/registro_doacao.php";
+        }else if($page == "atualizar-cadastro"){
+            $file = "src/views/pages/update_register.php";
+        }else if($page == "sair"){
+            $file = "src/models/logout.php";
+        }else if($page == "atualizar-perfil"){
+            $file = "src/views/pages/update_register.php";
         }
-        
-        if(is_file($file)){
-            include $file;
-        }else{
-            echo '404.php';
-        }
-    ?>
-</body>
-</html>
+    }else {
+        header("location: login/{$url[0]}");
+    }
+}
+
+if(is_file($file)){
+    include $file;
+}else{
+    echo '404.php';
+}            
+?>

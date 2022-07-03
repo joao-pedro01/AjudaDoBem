@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($row == null){
         $error = 'Senha ou nome de usuário inválido!!!';
-        Invalid($error);
+        Invalid($error, "Login");
     }else {
         //Encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
         if(isset($row)){
@@ -39,9 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         
         if($url = $_GET['url'] == "doacao"){
-            header("location: ../views/pages/registro_doacao.php");
+            header("location: cadastrar-doacao");
         }else {
-            header("location: ../views/pages/update_register.php");
+            header("location: atualizar-cadastro");
         }
     }
 }

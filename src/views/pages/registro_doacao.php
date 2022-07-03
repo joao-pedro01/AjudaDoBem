@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style_donation.css">
-    <link rel="stylesheet" href="/AjudaDoBem/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="src/views/styles/style_donation.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/views/styles/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link href="http://assets.locaweb.com.br/locastyle/3.10.1/stylesheets/locastyle.css" rel="stylesheet" type="text/css">
     <title>Document</title>
 </head>
 <body>
 
-<?php include_once '../../controllers/navbar.php'; ?>
+<?php include_once 'src/controllers/navbar.php'; ?>
 
 <section id="prodetails" class="selection-p1">
     <div class="single-pro-image">
@@ -24,29 +24,11 @@
                     <img class="imagem" />
         
                     <input onclick="exibirFoto()" type="file" name=image id="MainImg" class="input-file" accept="image/*">
-                    <?php
-                        $content = http_build_query(array(
-                            'field1' => 'Value1',
-                            'field2' => 'Value2',
-                            'field3' => 'Value3',
-                            ));
-                            
-                        $context = stream_context_create(array(
-                        'http' => array(
-                        'method' => 'POST',
-                        'content' => $content,
-                        )
-                        ));
-                        //dd($content);
-                        // dd(__DIR__.'/AjudaDoBem/src/views/registro_doacao.php');
-                        
-                        // dd($result);
-                    ?>
                 </label>
             </div>
         </div>
     </div>
-    <form action="/AjudaDoBem/src/models/register_donation.php" method="post" enctype="multipart/form-data">
+    <form action="src/models/register_donation.php" method="post" enctype="multipart/form-data">
         <input type="text" name=title placeholder="Titulo" id="input-doacao"><br><br>
      <div class="single-pro-details">
         <select class="form-select" name=category aria-label="Default select example" required><br>
@@ -95,7 +77,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js" type="text/javascript"></script>
-    <script src="/AjudaDoBem/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 $('input[name="FlgPontua"]').change(function () {
     if ($('input[name="FlgPontua"]:checked').val() === "necessidade") {

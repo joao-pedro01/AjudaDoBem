@@ -1,15 +1,16 @@
-<?php require_once 'models/exibirProduct.php'; ?>
+<?php require_once 'src/models/exibirProduct.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <title>Ajuda do bem</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="views/styles/style.css">
-    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
-    <script src="../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/src/views/styles/style.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="shortcut icon" href="/AjudaDoBem/src/views/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="src/views/images/favicon.ico" type="image/x-icon">
 </head>
 <style>
 svg {
@@ -17,39 +18,39 @@ svg {
     height: 15px;
 }
 </style>
-    <?php include_once  'controllers/navbar.php'; ?>
+    <?php include_once  'src/controllers/navbar.php'; ?>
 
     <section id="modelo">
         <h4>Ajuda para todos</h4>
         <h2>Uma comunidade únida</h2>
         <h1>Ajudando os vizinhos </h1>
         <p>Incentivando o Bem</p>
-        <a href=<?= Logged($_SESSION) == false ? "views/pages/login.php?url=doacao" : "views/pages/registro_doacao.php"; ?>><button>Doe Agora</button></a>
+        <a href=<?= Logged($_SESSION) == false ? "login" : "registro_doacao.php"; ?>><button>Doe Agora</button></a>
     </section>
     
     <section id="caracteristicas" class="selection-p1">
         <div class="fe-box">
-            <img src="views\images\features\f1.png" alt="">
+            <img src="src\views\images\features\f1.png" alt="">
             <h6> conta grátis </h6>
         </div>
         <div class="fe-box">
-            <img src="views\images\features\f2.png" alt="">
+            <img src="src\views\images\features\f2.png" alt="">
             <h6> Fácil entrega </h6>
         </div>
         <div class="fe-box">
-            <img src="views\images\features\f3.png" alt="">
+            <img src="src\views\images\features\f3.png" alt="">
             <h6> valores váriados </h6>
         </div>
         <div class="fe-box">
-            <img src="views\images\features\f4.png" alt="">
+            <img src="src\views\images\features\f4.png" alt="">
             <h6> Ajudas úteis </h6>
         </div>
         <div class="fe-box">
-            <img src="views\images\features\f5.png" alt="">
+            <img src="src\views\images\features\f5.png" alt="">
             <h6> Doações do bairro </h6>
         </div>
         <div class="fe-box">
-            <img src="views\images\features\f6.png" alt="">
+            <img src="src\views\images\features\f6.png" alt="">
             <h6> suporte online </h6>
         </div>
     </section>
@@ -66,7 +67,7 @@ svg {
                         <h5><?= $item['title']; ?></h5>
                         <h4>Receba agora</h4>
                     </div>
-                    <a href="views/pages/doacao_solo.php?<?= "nome={$item['name']}&&number={$item['cell']}&&image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}&&cep={$item['cep']}"?>" ><i class="fal fa-box-heart heart"></i></a>
+                    <a href="doacao/<?= $item['id'] ?>"><i class="fal fa-box-heart heart"></i></a>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -95,7 +96,7 @@ svg {
                         </div>
                         <h4>Receba agora</h4>
                     </div>
-                    <a href="views/pages/doacao_solo.php?<?= "nome={$item['name']}&&number={$item['cell']}&&image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" ><i class="fal fa-box-heart heart"></i></a>
+                    <a href="doacao/<?= $item['id'] ?>" ><i class="fal fa-box-heart heart"></i></a>
                 </div>
             <?php endforeach; ?>
         </div>

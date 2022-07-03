@@ -23,7 +23,7 @@ include_once '../controllers/functions.php';
         DB::disconnect();
         
         session_destroy();
-        header("location: ../index.php");
+        header("location: index.php");
     }catch(Exception $e) {
         dd($e);
     }
