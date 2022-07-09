@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <title>Cadastro | Ajuda Do Bem</title>
     <link rel="shortcut icon" href="/AjudaDoBem/src/views/images/favicon.ico" type="image/x-icon">
-    <script src="../js/cep.js"></script>
+    <script src="/AjudaDoBem/src/views/js/cep.js"></script>
 </head>
 <body>
 <?php require_once __DIR__.'/../../models/exibirProduct.php';?>
@@ -100,7 +100,7 @@
                 <div class="d-flex justify-content-between align-items-center experience"><span>Doações </span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
                 <div class="list-group">
                     <?php foreach ($productsDonation as $item): ?>
-                        <a href="../../views/pages/doacao_solo.php?<?= "nome={$item['name']}&&number={$item['cell']}&&image={$item['path']}&&title={$item['title']}&&category={$item['category']}&&description={$item['description']}"?>" >
+                        <a href="/doacao/<?= $item['id'] ?>" >
                         <ul class="list-group list-group-horizontal col-12">
                             <li class="list-group-item">
                                 <img height="100" width="100" src="<?= $item['path']; ?>" alt="">

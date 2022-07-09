@@ -30,9 +30,11 @@ if($page == "home" || $page == "index"){
         }else if($page == "atualizar-perfil"){
             $file = "src/views/pages/update_register.php";
         }
-    }else {
-        header("location: login/{$url[0]}");
     }
+}
+
+if($page == "model"){
+    $file = "src/models/".$url[1].'.php';
 }
 
 if(is_file($file)){

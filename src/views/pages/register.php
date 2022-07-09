@@ -19,7 +19,7 @@
         <form action="src/models/register.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
             <label>Nome completo</label>
-                <input id="validationServerName" aria-describedby="validationServerName"  type="text" name="name" placeholder="Ex: Gustavo Pereira Marques" class="form-control <?= $_SESSION['errorMessage']['errorName'] != NULL ? "is-invalid" : "" ?>">
+                <input required id="validationServerName" aria-describedby="validationServerName"  type="text" name="name" placeholder="Ex: Gustavo Pereira Marques" class="form-control <?= $_SESSION['errorMessage']['errorName'] != NULL ? "is-invalid" : "" ?>">
 
                 <?php if ($_SESSION['errorMessage']['errorName'] != NULL) : ?>
                 <div id="validationServerName" class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label>Nome do usuário</label>
-                <input id="validationServerUserName" type="text" name="username" placeholder="Ex: gustavo-pereira13" class="form-control <?= $_SESSION['errorMessage']['errorUserName'] != NULL ? "is-invalid" : "" ?>">
+                <input required id="validationServerUserName" type="text" name="username" placeholder="Ex: gustavo-pereira13" class="form-control <?= $_SESSION['errorMessage']['errorUserName'] != NULL ? "is-invalid" : "" ?>">
             </div>
             <?php if ($_SESSION['errorMessage']['errorUserName'] != NULL) : ?>
                 <div id="validationServerUserName" class="invalid-feedback" role="alert">
@@ -38,11 +38,11 @@
             <?php endif; ?>
             <div class="form-group">
                 <label>Data Nascimento</label>
-                <input type="date" name="datenasc" class="form-control">
+                <input required type="date" name="datenasc" class="form-control">
             </div>
             <div class="form-group">
                 <label>CPF</label>
-                <input id="validationServerCpf" aria-describedby="validationServerCpf" type="text" name="cpf" placeholder="Digite o seu cpf sem -." class="ls-mask-cpf form-control <?= $_SESSION['errorMessage']['errorCpf'] != NULL ? "is-invalid" : "" ?>">
+                <input required id="validationServerCpf" aria-describedby="validationServerCpf" type="text" name="cpf" placeholder="Digite o seu cpf sem -." class="ls-mask-cpf form-control <?= $_SESSION['errorMessage']['errorCpf'] != NULL ? "is-invalid" : "" ?>">
                 <?php if ($_SESSION['errorMessage']['errorCpf'] != NULL) : ?>
                 <div id="validationServerCpf" class="invalid-feedback" role="alert">
                     <?= $_SESSION['errorMessage']['errorCpf']; ?>
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label>Celular</label>
-                <input type="text" name="phone" placeholder="Digite o seu celular" class="ls-mask-phone9_with_ddd form-control <?= $_SESSION['errorMessage']['errorCell'] != NULL ? "is-invalid" : "" ?>">
+                <input required type="text" name="phone" placeholder="Digite o seu celular" class="ls-mask-phone9_with_ddd form-control <?= $_SESSION['errorMessage']['errorCell'] != NULL ? "is-invalid" : "" ?>">
             </div>
             <?php if ($_SESSION['errorMessage']['errorCell'] != NULL) : ?>
                 <div id="validationServerCell" class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
             <?php endif; ?>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="seu@email.com" class="form-control <?= $_SESSION['errorMessage']['errorEmail'] != NULL ? "is-invalid" : "" ?>">
+                <input required type="email" name="email" placeholder="seu@email.com" class="form-control <?= $_SESSION['errorMessage']['errorEmail'] != NULL ? "is-invalid" : "" ?>">
             </div>
             <?php if ($_SESSION['errorMessage']['errorEmail'] != NULL) : ?>
                 <div id="validationServerEmail" class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
             <?php endif; ?>
             <div class="form-group">
                 <label>Cep:
-                    <input id="validationServerCep" aria-describedby="validationServerCep" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" class="ls-mask-cep form-control <?= $_SESSION['errorMessage']['errorCep'] != NULL ? "is-invalid" : "" ?>">
+                    <input required id="validationServerCep" aria-describedby="validationServerCep" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" class="ls-mask-cep form-control <?= $_SESSION['errorMessage']['errorCep'] != NULL ? "is-invalid" : "" ?>">
                 </label>
                 <?php if ($_SESSION['errorMessage']['errorCep'] != NULL) : ?>
                 <div id="validationServerCpf" class="invalid-feedback" role="alert">
@@ -79,12 +79,12 @@
             </div>
             <div class="form-group">
                 <label>Senha</label>
-                <input type="password" name="password" placeholder="Use uma senha segura" class="form-control" id="password_field">
+                <input required type="password" name="password" placeholder="Use uma senha segura" class="form-control" id="password_field">
                 <a class="ls-label-text-prefix ls-toggle-pass ls-ico-eye" data-toggle-class="ls-ico-eye, ls-ico-eye-blocked" data-target="#password_field" href="#"></a>
             </div>
             <div class="form-group">
                 <label>Confirme a senha</label>
-                <input type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control" id="confirm_password_field">
+                <input required type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control" id="confirm_password_field">
                 <a class="ls-label-text-prefix ls-toggle-pass ls-ico-eye" data-toggle-class="ls-ico-eye, ls-ico-eye-blocked" data-target="#confirm_password_field" href="#"></a>
             </div>
             <div class="form-group">
@@ -104,4 +104,4 @@
     <script src="http://assets.locaweb.com.br/locastyle/3.10.1/javascripts/locastyle.js" type="text/javascript"></script>
 </body>
 </html>
-<?php unset($_SESSION['errorMessage']['errorMessage']); ?>
+<?php if($_SESSION['errorMessage'] != NULL) unset($_SESSION['errorMessage']); ?>

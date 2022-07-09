@@ -2,22 +2,19 @@
 
 include_once __DIR__.'/../../config/config.php';
 include_once '../controllers/functions.php';
-
+echo "<pre>"; print_r($_SERVER); echo "</pre>";
 // Processando dados do formulário quando o formulário é enviado
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST["name"];
     $birthDate = $_POST["datenasc"];
     $username = $_POST["username"];
     $email = $_POST["email"];
-    $cep = $_POST["cep"];
+    $cep = str_replace(array("-", " "), '', $_POST["cep"]);
+    $cell = str_replace(array("(", "-", ")", " "), '', $_POST["phone"]);
+    $cpf = str_replace(array("-",".", " "), '', $_POST["cpf"]);
     $password = $_POST["password"];
-    $cell = $_POST["phone"];
-    $cpf = $_POST["cpf"];
     $file = $_FILES["image"];
-    $cep = str_replace(array("-", " "), '', $cep);
-    $cell = str_replace(array("(", "-", ")", " "), '', $cell);
-    $cpf = str_replace(array("-",".", " "), '', $cpf);
-
+    
     $row = DB::queryFirstRow("
         SELECT u.id, u.cpf, u.is_active, u.username
         FROM users u
@@ -164,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     'modified' => date('Y-m-d H:i:s')
                 ]);
                 DB::disconnect();
-                header("location: ../views/pages/login.php");
+                header("location: /login");
                 $sucess =  'Usuário cadastrado com sucesso!!!.';
                 Sucess($sucess);
             }catch(Exception $e) {
@@ -172,7 +169,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         }else {
             //dd($_SESSION);
-            header("location: ../views/pages/register.php");
+            header("location: /cadastro");
         }
     }//else 
 
@@ -244,5 +241,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //         header("location: ../index.php");
         //     }
 }else {
-    header("location: ../index.php");
+    header("location: /index");
 }

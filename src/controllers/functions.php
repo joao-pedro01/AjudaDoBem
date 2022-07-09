@@ -62,7 +62,7 @@ function CreateImage($user, $dir_publi, $file, $image){
         // Move o arquivo da pasta temporaria de upload para a pasta de destino
         if(move_uploaded_file($file["tmp_name"], "$path/$dir_user/$dir_publi/".$image)){
             echo "Arquivo enviado com sucesso!";
-            $path = "/AjudaDoBem/src/views/images/upload";
+            $path = "/src/views/images/upload";
             $path = "$path/$dir_user/$dir_publi/$image";
 
             return $path;

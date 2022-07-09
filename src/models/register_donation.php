@@ -1,7 +1,7 @@
 <?php
 include_once __DIR__.'/../../config/config.php';
 include_once '../controllers/functions.php';
-$result = file_get_contents(__DIR__.'../../registro_doacao.php', true, $context);
+
 /* Recebe os inputs */
 $title = $_POST["title"];
 $type = $_POST["FlgPontua"];
@@ -42,7 +42,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             'modified' => date('Y-m-d H:i:s')
         ]);
         $id_product = DB::insertId();
-        dd($id_product);
         DB::disconnect();
 
     }catch(Exception $e){
@@ -100,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             'id_image' => $id_image
         ]);
         DB::disconnect();
-        header("location:/AjudaDobem/src/index.php");
+        header("location:/index");
     }catch(Exception $e){
         dd($e);
     }

@@ -152,7 +152,7 @@ body{
   
 /* COMEÇO DO HOME */
 #modelo {
-    background-image: url("../images/hero6.png");
+    background-image: url("/src/views/images/hero6.png"); 
     height: 90vh;
     width: 100%;
     background-size: cover;
@@ -173,13 +173,13 @@ body{
 }
 
 #modelo button{
-    background-image: url("../images/button2.png");
+    background-image: url("/src/views/images/button2.png");
     background-color: transparent;
     color: #638560;
     border: 0;
     padding: 14px  80px 14px 65px;
     background-repeat: no-repeat;
-    cursor: pointer;
+    cursor: pointer; 
     font-weight: 700;
     font-size: 15px;
 }
@@ -321,7 +321,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("../images/banner/b23.png");
+    background-image: url("/src/views/images/banner/b23.png");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -361,7 +361,7 @@ color: #fff;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    background-image: url("../images/banner/propaganda.png");
+    background-image: url("/src/views/images/banner/propaganda.png");
     min-width: 565px;
     height: 50vh;
     background-size: cover;
@@ -370,7 +370,7 @@ color: #fff;
 }
 
 #sm-banner .banner-box2 {
-    background-image: url("../images/banner/propaganda.png");
+    background-image: url("/src/views/images/banner/propaganda.png");
 }
 
 #sm-banner h4{
@@ -409,7 +409,7 @@ color: #fff;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
-    background-image: url("../images/banner/propaganda.png");
+    background-image: url("/src/views/images/banner/propaganda.png");
     min-width: 30%;
     height: 30vh;
     background-size: cover;
@@ -419,11 +419,11 @@ color: #fff;
 }
 
 #banner3 .banner-box2{
-    background-image: url("../images/banner/propaganda.png");
+    background-image: url("/src/views/images/banner/propaganda.png");
 }
 
 #banner3 .banner-box3{
-    background-image: url("../images/banner/propaganda.png");
+    background-image: url("/src/views/images/banner/propaganda.png");
 }
 
 #banner3 h2{
@@ -443,7 +443,7 @@ color: #fff;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-image: url("../images/banner/b21.png");
+    background-image: url("/src/views/images/banner/b21.png");
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
@@ -560,7 +560,7 @@ footer .copyright{
  
     /* header */
     #page-header{
-    background-image: url("../images/banner/propaganda.png");
+    background-image: url("/src/views/images/banner/propaganda.png");
     width: 100%;
     height: 40vh;
     background-size: cover;

@@ -6,11 +6,11 @@
     <title>Ajuda do bem</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/views/styles/style.css">
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="share/style.php" type="text/css" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="shortcut icon" href="src/views/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/src/views/images/logo_oficial.png" type="image/x-icon">
 </head>
 <style>
 svg {
@@ -25,32 +25,32 @@ svg {
         <h2>Uma comunidade únida</h2>
         <h1>Ajudando os vizinhos </h1>
         <p>Incentivando o Bem</p>
-        <a href=<?= Logged($_SESSION) == false ? "login" : "registro_doacao.php"; ?>><button>Doe Agora</button></a>
+        <a href=<?= Logged($_SESSION) == false ? "login" : "/postar-doacao"; ?>><button>Doe Agora</button></a>
     </section>
     
     <section id="caracteristicas" class="selection-p1">
         <div class="fe-box">
-            <img src="src\views\images\features\f1.png" alt="">
+            <img src="/src\views\images\features\f1.png" alt="">
             <h6> conta grátis </h6>
         </div>
         <div class="fe-box">
-            <img src="src\views\images\features\f2.png" alt="">
+            <img src="\src\views\images\features\f2.png" alt="">
             <h6> Fácil entrega </h6>
         </div>
         <div class="fe-box">
-            <img src="src\views\images\features\f3.png" alt="">
+            <img src="\src\views\images\features\f3.png" alt="">
             <h6> valores váriados </h6>
         </div>
         <div class="fe-box">
-            <img src="src\views\images\features\f4.png" alt="">
+            <img src="\src\views\images\features\f4.png" alt="">
             <h6> Ajudas úteis </h6>
         </div>
         <div class="fe-box">
-            <img src="src\views\images\features\f5.png" alt="">
+            <img src="\src\views\images\features\f5.png" alt="">
             <h6> Doações do bairro </h6>
         </div>
         <div class="fe-box">
-            <img src="src\views\images\features\f6.png" alt="">
+            <img src="\src\views\images\features\f6.png" alt="">
             <h6> suporte online </h6>
         </div>
     </section>
@@ -104,7 +104,7 @@ svg {
 
     <!-- <section id="sm-banner" class="selection-p1">
         <div class="banner-box">
-      <!--       <h4>Venha doar</h4>
+           <h4>Venha doar</h4>
             <h2>Ajude sempre</h2>
             <span>Sua comunidade </span>
             <button class="white">Veja mais</button> -->
@@ -139,7 +139,7 @@ svg {
         </div>
 
     </section>
- -->
+
     <section id="newsletter" class="selection-p1 selection-m1">
         <div class="newsletter">
             <h4>Saiba das nossas novidades</h4>
@@ -154,7 +154,7 @@ svg {
 
     <footer class="selection-p1">
         <div class="col">
-            <img class="logo" src="../src/views/images/logo_oficial.png" alt="logo">
+            <img class="logo" src="/src/views/images/logo_oficial.png" alt="logo">
             <h4>Contato</h4>
 <!--           <p><strong>Endereço: </strong> Rua Brigadeiro Tobias, 182, centro, Sorocaba-sp</p> -->
             <p><strong>Telefone: </strong> (15) 1111-1111</p>

@@ -8,3 +8,4 @@
 /db/simpletest/*
 /.env
 /scripts/path/
+/adminLTE/
