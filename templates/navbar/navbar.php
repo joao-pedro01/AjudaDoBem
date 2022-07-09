@@ -13,10 +13,10 @@
 
 	<div>
 		<ul id="navbar">
-			<li><a class="active" href="home">Home</a></li>
-			<li><a href="doacoes">Doações</a></li>
-			<li><a href="cadastro">Cadastre-se</a></li>
-			<li><a href="login">Entre</a></li>
+			<li><a <?= $active =='index' ? 'class="active"' : ""; ?> href="home">Home</a></li>
+			<li><a <?= $active =='doacoes' ? 'class="active"' : ""; ?> href="doacoes">Doações</a></li>
+			<li><a <?= $active =='register' ? 'class="active"' : ""; ?> href="cadastro">Cadastre-se</a></li>
+			<li><a <?= $active =='login' ? 'class="active"' : ""; ?> href="login">Entre</a></li>
 		</ul>
 	</div>
 </section>

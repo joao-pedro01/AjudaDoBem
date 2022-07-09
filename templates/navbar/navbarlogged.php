@@ -27,9 +27,9 @@
 		<!-- Collapsible wrapper -->
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<!-- Navbar brand -->
-			<a class="navbar-brand mt-2 mt-lg-0" href="#">
+			<a class="navbar-brand mt-2 mt-lg-0" href="/inicio">
 				<img
-				src="src/views/images/logo.png"
+				src="/src/views/images/logo.png"
 				height="15"
 				alt="MDB Logo"
 				loading="lazy"

@@ -11,14 +11,19 @@ $url = array_filter(explode('/',$url));
 $page = $url[0];
 if($page == "home" || $page == "index"){
     $file = "src/views/pages/home.php";
+    $active = 'index';
 }else if($page == "cadastro"){
     $file = "src/views/pages/register.php";
+    $active = 'register';
 }else if($page == "login" || $page == "entrar"){
     $file = "src/views/pages/login.php";
+    $active = 'login';
 }else if($page == "doacao"){
     $file = "src/views/pages/doacao_solo.php";
+    $active = 'doacao';
 }else if($page == "doacoes"){
     $file = "src/views/pages/doacao.php";
+    $active = 'doacoes';
 }else {
     if(Logged($_SESSION) == false){ 
         if($page == "postar-doacao"){
