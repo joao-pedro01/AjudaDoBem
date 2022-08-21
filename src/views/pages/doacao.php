@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/share/style.php">
+    <link rel="stylesheet" href="/share/styles/style.php">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <title>Ajuda do Bem</title>
     <?php include_once 'src/controllers/navbar.php'; ?>
     <section id="modelo">
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-5">
                     <label>Buscar por titulo</label>
-                    <input type="text" name="busca" class="form-control" value="<?= $busca; ?>">
+                    <input type="text" name="busca" class="form-control" value="<?= $busca[1]; ?>">
                 </div>
                 <div class="col align-itens-end">
                     <button type="submit" class="btn btn-primary">Filtrar</button>

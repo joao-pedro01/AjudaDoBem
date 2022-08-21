@@ -2,7 +2,9 @@
 require_once __DIR__.'/../../config/config.php';
 
 $url = array_filter(explode('/',$_SERVER['REDIRECT_URL']));
-$busca = filter_input(INPUT_GET, 'busca', FILTER_SANITIZE_STRING);
+$busca = array_filter(explode('=',$_SERVER['REQUEST_URI']));
+$link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+//$busca = filter_input(INPUT_SERVER, $busca[1] , FILTER_SANITIZE_STRING);
 
 if($_SERVER['REDIRECT_URL'] == null || $url[1] == "index" || $url[1] == "home") {
     $productsDonation = DB::query("
@@ -44,8 +46,8 @@ if($_SERVER['REDIRECT_URL'] == null || $url[1] == "index" || $url[1] == "home") 
         ORDER BY p.id_necessity DESC
         LIMIT 8;
     ");
-}else if($busca != NULL && $url[1] == "doacoes"){
-    $productsDonation = DB::query("
+}else if($busca[1] != NULL && $url[1] == "doacoes"){
+    $products = DB::query("
         SELECT u.name, u.cell, p.title, p.description, c.category, i.path
         FROM products_images pi
 
@@ -61,28 +63,33 @@ if($_SERVER['REDIRECT_URL'] == null || $url[1] == "index" || $url[1] == "home") 
         INNER JOIN users u
         ON p.id_user = u.id
 
-        WHERE p.type = 1 && p.is_active = 1 && p.title LIKE '%".str_replace(' ', '%', $busca)."%'
+        WHERE p.type = 1 && p.is_active = 1 && p.title LIKE '%{$busca[1]}%'
     ");
 }else if($url[1] == "doacao"){
     $url = array_filter(explode('/', $_SERVER['REQUEST_URI']));
-    $product = DB::query("
-        SELECT u.name, u.cell, p.title, p.description, c.category, i.path
-        FROM products_images pi
 
-        INNER JOIN products p
-        ON pi.id_product = p.id
+    if($url[2]== NULL){
+        header("location: ./error-404");
+    }else {
+        $product = DB::query("
+            SELECT u.name, u.cell, p.title, p.description, c.category, i.path
+            FROM products_images pi
 
-        INNER JOIN images i
-        ON pi.id_image = i.id
+            INNER JOIN products p
+            ON pi.id_product = p.id
 
-        INNER JOIN categorys c
-        ON p.id_category = c.id
+            INNER JOIN images i
+            ON pi.id_image = i.id
 
-        INNER JOIN users u
-        ON p.id_user = u.id
-        
-        WHERE pi.id =".$url[2]
-    );
+            INNER JOIN categorys c
+            ON p.id_category = c.id
+
+            INNER JOIN users u
+            ON p.id_user = u.id
+            
+            WHERE pi.id =".$url[2]
+        );
+    }
 }else if ($url[1] == "doacoes") {
     $products = DB::query("
     SELECT u.name, u.cell, p.title, p.description, c.category, i.path

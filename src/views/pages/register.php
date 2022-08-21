@@ -18,79 +18,102 @@
         <p>Por favor, preencha este formulário para criar uma conta.</p>
         <form action="src/models/register.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
-            <label>Nome completo</label>
-                <input required id="validationServerName" aria-describedby="validationServerName"  type="text" name="name" placeholder="Ex: Gustavo Pereira Marques" class="form-control <?= $_SESSION['errorMessage']['errorName'] != NULL ? "is-invalid" : "" ?>">
+                <label>Nome completo</label>
+                <input id="validationServerName" aria-describedby="validationServerName"  type="text" name="name" placeholder="Ex: Gustavo Pereira Marques" class="form-control <?= $_SESSION['errorMessage']['Name'] != NULL ? "is-invalid" : "" ?>">
 
-                <?php if ($_SESSION['errorMessage']['errorName'] != NULL) : ?>
+                <?php if ($_SESSION['errorMessage']['Name'] != NULL) : ?>
                 <div id="validationServerName" class="invalid-feedback" role="alert">
-                    <?= $_SESSION['errorMessage']['errorName']; ?>
+                    <?= $_SESSION['errorMessage']['Name']; ?>
                 </div>
                 <?php endif; ?>
             </div>
+            <!-- end form-group name -->
+
             <div class="form-group">
                 <label>Nome do usuário</label>
-                <input required id="validationServerUserName" type="text" name="username" placeholder="Ex: gustavo-pereira13" class="form-control <?= $_SESSION['errorMessage']['errorUserName'] != NULL ? "is-invalid" : "" ?>">
+                <input id="validationServerUserName" aria-describedby="validationServerUserName" type="text" name="username" placeholder="Ex: gustavo-pereira13" class="form-control <?= $_SESSION['errorMessage']['UserName'] != NULL ? "is-invalid" : "" ?>">
+                
+                <?php if ($_SESSION['errorMessage']['UserName'] != NULL) : ?>
+                    <div id="validationServerUserName" class="invalid-feedback" role="alert">
+                        <?= $_SESSION['errorMessage']['UserName']; ?>
+                    </div>
+                <?php endif; ?>
             </div>
-            <?php if ($_SESSION['errorMessage']['errorUserName'] != NULL) : ?>
-                <div id="validationServerUserName" class="invalid-feedback" role="alert">
-                    <?= $_SESSION['errorMessage']['errorUserName']; ?>
-                </div>
-            <?php endif; ?>
+            <!-- end form-group UserName -->
+
             <div class="form-group">
                 <label>Data Nascimento</label>
-                <input required type="date" name="datenasc" class="form-control">
+                <input type="date" name="datenasc" class="form-control">
             </div>
+
             <div class="form-group">
                 <label>CPF</label>
-                <input required id="validationServerCpf" aria-describedby="validationServerCpf" type="text" name="cpf" placeholder="Digite o seu cpf sem -." class="ls-mask-cpf form-control <?= $_SESSION['errorMessage']['errorCpf'] != NULL ? "is-invalid" : "" ?>">
-                <?php if ($_SESSION['errorMessage']['errorCpf'] != NULL) : ?>
-                <div id="validationServerCpf" class="invalid-feedback" role="alert">
-                    <?= $_SESSION['errorMessage']['errorCpf']; ?>
-                </div>
+                <input id="validationServerCpf" aria-describedby="validationServerCpf" type="text" name="cpf" placeholder="Digite o seu cpf sem -." class="ls-mask-cpf form-control <?= $_SESSION['errorMessage']['Cpf'] != NULL ? "is-invalid" : "" ?>">
+                <?php if ($_SESSION['errorMessage']['Cpf'] != NULL) : ?>
+                    <div id="validationServerCpf" class="invalid-feedback" role="alert">
+                        <?= $_SESSION['errorMessage']['Cpf']; ?>
+                    </div>
                 <?php endif; ?>
             </div>
+            <!-- end form-group cpf -->
+            
             <div class="form-group">
                 <label>Celular</label>
-                <input required type="text" name="phone" placeholder="Digite o seu celular" class="ls-mask-phone9_with_ddd form-control <?= $_SESSION['errorMessage']['errorCell'] != NULL ? "is-invalid" : "" ?>">
+                <input  id="validationServerCpf" aria-describedby="validationServerCell" type="text" name="phone" placeholder="Digite o seu celular" class="ls-mask-phone9_with_ddd form-control <?= $_SESSION['errorMessage']['Cell'] != NULL ? "is-invalid" : "" ?>">
+            
+                <?php if ($_SESSION['errorMessage']['Cell'] != NULL) : ?>
+                    <div id="validationServerCell" class="invalid-feedback" role="alert">
+                        <?= $_SESSION['errorMessage']['Cell']; ?>
+                    </div>
+                <?php endif; ?>
             </div>
-            <?php if ($_SESSION['errorMessage']['errorCell'] != NULL) : ?>
-                <div id="validationServerCell" class="invalid-feedback" role="alert">
-                    <?= $_SESSION['errorMessage']['errorCell']; ?>
-                </div>
-            <?php endif; ?>
+            <!-- end form-group phone -->
+
             <div class="form-group">
                 <label>Email</label>
-                <input required type="email" name="email" placeholder="seu@email.com" class="form-control <?= $_SESSION['errorMessage']['errorEmail'] != NULL ? "is-invalid" : "" ?>">
+                <input type="email" name="email" placeholder="seu@email.com" class="form-control <?= $_SESSION['errorMessage']['Email'] != NULL ? "is-invalid" : "" ?>">
+            
+                <?php if ($_SESSION['errorMessage']['Email'] != NULL) : ?>
+                    <div id="validationServerEmail" class="invalid-feedback" role="alert">
+                        <?= $_SESSION['errorMessage']['Email']; ?>
+                    </div>
+                <?php endif; ?>
             </div>
-            <?php if ($_SESSION['errorMessage']['errorEmail'] != NULL) : ?>
-                <div id="validationServerEmail" class="invalid-feedback" role="alert">
-                    <?= $_SESSION['errorMessage']['errorEmail']; ?>
-                </div>
-            <?php endif; ?>
+            <!-- end form-group email -->
+
             <div class="form-group">
                 <label>Cep:
-                    <input required id="validationServerCep" aria-describedby="validationServerCep" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" class="ls-mask-cep form-control <?= $_SESSION['errorMessage']['errorCep'] != NULL ? "is-invalid" : "" ?>">
+                    <input id="validationServerCep" aria-describedby="validationServerCep" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" class="ls-mask-cep form-control <?= $_SESSION['errorMessage']['Cep'] != NULL ? "is-invalid" : "" ?>">
                 </label>
-                <?php if ($_SESSION['errorMessage']['errorCep'] != NULL) : ?>
+                
+                <?php if ($_SESSION['errorMessage']['Cep'] != NULL) : ?>
                 <div id="validationServerCpf" class="invalid-feedback" role="alert">
-                    <?= $_SESSION['errorMessage']['errorCep']; ?>
+                    <?= $_SESSION['errorMessage']['Cep']; ?>
                 </div>
                 <?php endif; ?>
             </div>
+            <!-- end form-group cep -->
+
             <div class="form-group">
                 <label>Senha</label>
-                <input required type="password" name="password" placeholder="Use uma senha segura" class="form-control" id="password_field">
+                <input type="password" name="password" placeholder="Use uma senha segura" class="form-control" id="password_field">
                 <a class="ls-label-text-prefix ls-toggle-pass ls-ico-eye" data-toggle-class="ls-ico-eye, ls-ico-eye-blocked" data-target="#password_field" href="#"></a>
             </div>
+            <!-- end form-group password -->
+
             <div class="form-group">
                 <label>Confirme a senha</label>
-                <input required type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control" id="confirm_password_field">
+                <input type="password" name="confirmpassword" placeholder="Repita a senha acima" class="form-control" id="confirm_password_field">
                 <a class="ls-label-text-prefix ls-toggle-pass ls-ico-eye" data-toggle-class="ls-ico-eye, ls-ico-eye-blocked" data-target="#confirm_password_field" href="#"></a>
             </div>
+            <!-- end form-group confirmPassword -->
+
             <div class="form-group">
                 <label>Foto de perfil</label>
                 <input type="file" name="image" class="form-control">
             </div>
+            <!-- end form-group image -->
+
             <div class="form-group">
                 
                     <input type="submit" value="Criar Conta" type="button" class="btn btn-success">

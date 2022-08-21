@@ -99,7 +99,7 @@ function Directory(){
 */
 function Invalid($string, $type){
     $message["error"] = true;
-    $_SESSION["errorMessage"]["error{$type}"] = $string;
+    $_SESSION["errorMessage"]["{$type}"] = $string;
     //dd($_SESSION);
 
     return $message;
