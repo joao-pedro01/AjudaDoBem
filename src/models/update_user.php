@@ -45,7 +45,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         Invalid($error);
     }
 }
-
     /*
         INSERT USER IN TABLE USERS
     */
@@ -70,10 +69,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         DB::disconnect();
 
-        header("location: ../views/pages/update_register.php");
+        header("location: ./atualizar-cadastro");
     }catch(Exception $e) {
-        dd($e);
+        
     }
 }else {
-    header("location: ../index.php");
+    header("location: ./home");
 }

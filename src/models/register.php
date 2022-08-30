@@ -109,7 +109,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $id_type = $row["id"];
                 }
             }catch(Exception $e){
-
+                $error = "Problema com o banco de dados";
+                header("location: /error-500");
             }
         
             // caso user não inserir nenhuma foto, coloca foto default
@@ -122,22 +123,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 // se o arquivo não for imagem
                 if($type[0] != "image"){
-                    // $_SESSION['errorImage'] = "Só pode ser enviado imagem!!!";
-                    // $error = Invalid($error);
-                }
-        
-                // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
-                try{
-                    $dir_publi = "profile";
-                    $path = CreateImage($username, $dir_publi, $file, $image);/* $_SESSION, $id_product, $file, $image */
-
-                    DB::insert('images', [
-                        'id_type' => $id_type,
-                        'path' => $path,
-                    ]);
-                    $id_image = DB::insertId();
-                }catch(Exception $e) {
-                    dd($e);
+                    $error = "Só pode ser enviado imagem!!!";
+                    $error = Invalid($error, "Image");
+                }else {
+                    // executa a tentativa de criar as pastas e enviar arquivo para dentro da mesma
+                    try{
+                        $dir_publi = "profile";
+                        $path = CreateImage($username, $dir_publi, $file, $image);/* $_SESSION, $id_product, $file, $image */
+    
+                        DB::insert('images', [
+                            'id_type' => $id_type,
+                            'path' => $path,
+                        ]);
+                        $id_image = DB::insertId();
+                    }catch(Exception $e) {
+                        
+                    }
                 }
             }
             

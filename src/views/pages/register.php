@@ -110,7 +110,7 @@
 
             <div class="form-group">
                 <label>Foto de perfil</label>
-                <input type="file" name="image" class="form-control">
+                <input type="file" accept="image/*" name="image" class="form-control">
             </div>
             <!-- end form-group image -->
 

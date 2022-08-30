@@ -27,7 +27,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Configurações do perfil</h4>
                 </div>
-                <form action="/AjudaDoBem/src/models/update_user.php" method="post" enctype="multipart/form-data">
+                <form action="/src/models/update_user.php" method="post" enctype="multipart/form-data">
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label class="labels">Nome Completo</label>

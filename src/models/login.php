@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($url = $_GET['url'] == "doacao"){
             header("location: /cadastrar-doacao");
         }else {
-            header("location: /atualizar-cadastro");
+            header("location:   /atualizar-cadastro");
         }
     }
 }
