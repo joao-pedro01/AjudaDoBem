@@ -26,7 +26,7 @@
             <form action="src/models/<?php isset($_GET["url"]) == "doacao" ? print_r("login.php/doacao") : print_r("login") ?>" method="post">
                 <div class="form-group">
                     <label>Nome do usuário</label>
-                    <input type="text" name="username" class="form-control <?= $_SESSION['errorMessage']['Login'] != NULL ? "is-invalid" : "" ?>">
+                    <input type="text" name="username" id="username" class="form-control <?= $_SESSION['errorMessage']['Login'] != NULL ? "is-invalid" : "" ?>" onblur="userName();">
                 </div>
 
                 <div class="form-group">
@@ -47,6 +47,7 @@
             </form>
         </span>
     </div>
+    <script src="src/views/js/user.js"></script>
 </body>
 </html>
 <?php if($_SESSION['errorMessage'] != NULL) unset($_SESSION['errorMessage']); ?>
