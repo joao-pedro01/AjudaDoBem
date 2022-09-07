@@ -163,7 +163,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 ]);
                 DB::disconnect();
                 header("location: /login");
-                $sucess =  'Usuário cadastrado com sucesso!!!.';
+                $sucess = 'Usuário cadastrado com sucesso!!!.';
                 Sucess($sucess);
             }catch(Exception $e) {
                 dd($e);
