@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Ajuda do bem | <?= $title ?></title>
+    <title>Error</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/share/styles/style.php" type="text/css" />
@@ -31,6 +31,6 @@
     </style>
 </head>
 <body>
-    <h1> Whoops!</h1>
-    <p> Something went wrong</p>
+    <h1> Oops!</h1>
+    <p>Error 404 - Página não encontrada</p>
 </body>

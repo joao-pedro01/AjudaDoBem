@@ -24,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($row == null){
         $error = 'Senha ou nome de usuário inválido!!!';
         Invalid($error, "Login");
+        header("location: /login");
     }else {
         //Encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
         if(isset($row)){
@@ -41,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($url = $_GET['url'] == "doacao"){
             header("location: /cadastrar-doacao");
         }else {
-            header("location:   /atualizar-cadastro");
+            header("location: /atualizar-cadastro");
         }
     }
 }

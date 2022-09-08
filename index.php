@@ -10,22 +10,22 @@ $url = array_filter(explode('/',$url));
 $page = $url[0];
 if($page == "home" || $page == "index"){
     $file = "src/views/pages/home.php";
-    $title = 'home';
+    $title = 'Home';
     $active = 'index';
 }else if($page == "cadastro"){
     $file = "src/views/pages/register.php";
-    $title = 'cadastro';
+    $title = 'Cadastro';
     $active = 'register';
 }else if($page == "login" || $page == "entrar"){
     $file = "src/views/pages/login.php";
-    $title = 'login';
+    $title = 'Login';
     $active = 'login';
 }else if($page == "doacao"){
     $file = "src/views/pages/doacao_solo.php";
-    $active = 'doacao';
+    $active = 'Doacao';
 }else if($page == "doacoes"){
     $file = "src/views/pages/doacao.php";
-    $title = 'doações';
+    $title = 'Doações';
     $active = 'doacoes';
 }else if(Logged($_SESSION) == false){
         if($page == "postar-doacao"){

@@ -2,7 +2,7 @@
 
 include_once __DIR__.'/../../config/config.php';
 include_once '../controllers/functions.php';
-echo "<pre>"; print_r($_SERVER); echo "</pre>";
+
 // Processando dados do formulário quando o formulário é enviado
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST["name"];
@@ -163,7 +163,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 ]);
                 DB::disconnect();
                 header("location: /login");
-                $sucess =  'Usuário cadastrado com sucesso!!!.';
+                $sucess = 'Usuário cadastrado com sucesso!!!.';
                 Sucess($sucess);
             }catch(Exception $e) {
                 dd($e);
