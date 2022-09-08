@@ -69,10 +69,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         DB::disconnect();
 
-        header("location: ./atualizar-cadastro");
+        header("location: /atualizar-cadastro");
     }catch(Exception $e) {
         
     }
 }else {
-    header("location: ./home");
+    header("location: /home");
 }
