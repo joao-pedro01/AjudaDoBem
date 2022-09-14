@@ -27,7 +27,7 @@
 <body>
     <div class="d-flex flex-column align-items-center">
         <img class="warning" src="warning.png" alt="imagem-triangulo-alerta">
-        <h1>Site em contrução</h1>
+        <h1>Site em construção</h1>
         <h3>
             Seja avisado quando o site estiver no ar!<br>
         </h3>
